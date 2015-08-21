@@ -56,6 +56,8 @@
 \newcommand{\<}{\langle}
 \renewcommand{\>}{\rangle}
 \newcommand{\Arctan}{\textrm{Arctan}}
+\newcommand{\p}{\partial}
+\newcommand{\mb}{\mathbb}
 
 \renewcommand{\labelitemii}{\tiny$\blacksquare$}
 
@@ -65,141 +67,141 @@
   MATH 2242 (Calculus IV) Course Outline
 }
 
-\section*{1.2 The Inner Product, Length, and Distance}
+% \section*{1.2 The Inner Product, Length, and Distance}
 
-\begin{itemize}
-  \item Inner/Dot Product
-    \begin{itemize}
-      \item \(\vect{a}\cdot\vect{b}=a_1b_1+a_2b_2+a_3b_3\)
-    \end{itemize}
-  \item Norm/Magnitude/Length
-    \begin{itemize}
-      \item \(\|\vect{a}\|=\sqrt{\vect{a}\cdot\vect{a}}\)
-      \item Alternate dot product:
-            \(\vect{a}\cdot\vect{b}=\|\vect{a}\|\|\vect{b}\|\cos\theta\)
-    \end{itemize}
-  \item Normalization/Direction
-    \begin{itemize}
-      \item \(\frac{\vect{a}}{\|\vect{a}\|}\)
-    \end{itemize}
-  \item Distance
-    \begin{itemize}
-      \item \(\|\vect{b}-\vect{a}\|\)
-    \end{itemize}
-  \item Inequalities
-    \begin{itemize}
-      \item \(|\vect{a}\cdot\vect{b}|\leq\|\vect{a}\|\|\vect{b}\|\)
-      \item \(\|\vect{a}+\vect{b}\|\leq\|\vect{a}\|+\|\vect{b}\|\)
-    \end{itemize}
-\end{itemize}
+% \begin{itemize}
+%   \item Inner/Dot Product
+%     \begin{itemize}
+%       \item \(\vect{a}\cdot\vect{b}=a_1b_1+a_2b_2+a_3b_3\)
+%     \end{itemize}
+%   \item Norm/Magnitude/Length
+%     \begin{itemize}
+%       \item \(\|\vect{a}\|=\sqrt{\vect{a}\cdot\vect{a}}\)
+%       \item Alternate dot product:
+%             \(\vect{a}\cdot\vect{b}=\|\vect{a}\|\|\vect{b}\|\cos\theta\)
+%     \end{itemize}
+%   \item Normalization/Direction
+%     \begin{itemize}
+%       \item \(\frac{\vect{a}}{\|\vect{a}\|}\)
+%     \end{itemize}
+%   \item Distance
+%     \begin{itemize}
+%       \item \(\|\vect{b}-\vect{a}\|\)
+%     \end{itemize}
+%   \item Inequalities
+%     \begin{itemize}
+%       \item \(|\vect{a}\cdot\vect{b}|\leq\|\vect{a}\|\|\vect{b}\|\)
+%       \item \(\|\vect{a}+\vect{b}\|\leq\|\vect{a}\|+\|\vect{b}\|\)
+%     \end{itemize}
+% \end{itemize}
 
-\section*{1.3 Matricies, Determinants, and the Cross Product}
+% \section*{1.3 Matricies, Determinants, and the Cross Product}
 
-\begin{itemize}
-  \item Matrices
-    \begin{itemize}
-      \item
-        \(
-          \begin{bmatrix}
-            x_{11} & x_{12} \\
-            x_{21} & x_{22}
-          \end{bmatrix}
-        \)
-      \item
-        \(
-          \begin{bmatrix}
-            x_{11} & x_{12} & x_{13} \\
-            x_{21} & x_{22} & x_{23} \\
-            x_{31} & x_{32} & x_{33}
-          \end{bmatrix}
-        \)
-    \end{itemize}
-  \item Determinants
-    \begin{itemize}
-      \item
-        \(
-          \det\left(\begin{bmatrix}
-            x_{11} & x_{12} \\
-            x_{21} & x_{22}
-          \end{bmatrix}\right)
-            =
-          x_{11}x_{22} - x_{12}x_{21}
-        \)
-      \item
-        \(
-          \det\left(\begin{bmatrix}
-            x_{11} & x_{12} & x_{13} \\
-            x_{21} & x_{22} & x_{23} \\
-            x_{31} & x_{32} & x_{33}
-          \end{bmatrix}\right)
-        \)
+% \begin{itemize}
+%   \item Matrices
+%     \begin{itemize}
+%       \item
+%         \(
+%           \begin{bmatrix}
+%             x_{11} & x_{12} \\
+%             x_{21} & x_{22}
+%           \end{bmatrix}
+%         \)
+%       \item
+%         \(
+%           \begin{bmatrix}
+%             x_{11} & x_{12} & x_{13} \\
+%             x_{21} & x_{22} & x_{23} \\
+%             x_{31} & x_{32} & x_{33}
+%           \end{bmatrix}
+%         \)
+%     \end{itemize}
+%   \item Determinants
+%     \begin{itemize}
+%       \item
+%         \(
+%           \det\left(\begin{bmatrix}
+%             x_{11} & x_{12} \\
+%             x_{21} & x_{22}
+%           \end{bmatrix}\right)
+%             =
+%           x_{11}x_{22} - x_{12}x_{21}
+%         \)
+%       \item
+%         \(
+%           \det\left(\begin{bmatrix}
+%             x_{11} & x_{12} & x_{13} \\
+%             x_{21} & x_{22} & x_{23} \\
+%             x_{31} & x_{32} & x_{33}
+%           \end{bmatrix}\right)
+%         \)
 
-        \(
-            =
-          x_{11}\det\left(\begin{bmatrix}
-            x_{22} & x_{23} \\
-            x_{32} & x_{33}
-          \end{bmatrix}\right) -
-          x_{12}\det\left(\begin{bmatrix}
-            x_{21} & x_{23} \\
-            x_{31} & x_{33}
-          \end{bmatrix}\right) +
-          x_{13}\det\left(\begin{bmatrix}
-            x_{21} & x_{22} \\
-            x_{31} & x_{32}
-          \end{bmatrix}\right)
-        \)
-      \item
-        \(\displaystyle
-          \det(A) = \sum_{i=1}^{n}(-1)^{i+1}x_{1i}\det(A_i)
-        \)
-    \end{itemize}
-  \item Cross-Product
-    \begin{itemize}
-      \item
-        \(
-          \<a_1,a_2,a_3\>\times\<b_1,b_2,b_3\>
-            =
-          \det\left(\begin{bmatrix}
-            \veci & \vecj & \veck \\
-            a_{1} & a_{2} & a_{3} \\
-            b_{1} & b_{2} & b_{3}
-          \end{bmatrix}\right)
-        \)
-      \item
-        \(
-          \|\vect{a}\times\vect{b}\|
-            =
-          \|\vect{a}\|\|\vect{b}\|\sin\theta
-        \)
-      \item
-        \(\vect{a}\), \(\vect{b}\), \(\vect{a}\times\vect{b}\) are mutually
-        orthogonal and follow the right-hand-rule
-    \end{itemize}
-  \item Triple Scalar Product
-    \begin{itemize}
-      \item
-        \(
-          (\vect{a}\times\vect{b})\cdot\vect{c}
-            =
-          \det\left(\begin{bmatrix}
-            \vect{a} \\
-            \vect{b} \\
-            \vect{c}
-          \end{bmatrix}\right)
-        \)
-    \end{itemize}
-  \item Plane Equation
-    \begin{itemize}
-      \item \(\vect{n}\cdot(\vect{x}-\vect{P})=0\)
-      \item \(n_1(x-P_1)+n_2(y-P_2)+n_3(z-P_3)=0\)
-    \end{itemize}
-\end{itemize}
+%         \(
+%             =
+%           x_{11}\det\left(\begin{bmatrix}
+%             x_{22} & x_{23} \\
+%             x_{32} & x_{33}
+%           \end{bmatrix}\right) -
+%           x_{12}\det\left(\begin{bmatrix}
+%             x_{21} & x_{23} \\
+%             x_{31} & x_{33}
+%           \end{bmatrix}\right) +
+%           x_{13}\det\left(\begin{bmatrix}
+%             x_{21} & x_{22} \\
+%             x_{31} & x_{32}
+%           \end{bmatrix}\right)
+%         \)
+%       \item
+%         \(\displaystyle
+%           \det(A) = \sum_{i=1}^{n}(-1)^{i+1}x_{1i}\det(A_i)
+%         \)
+%     \end{itemize}
+%   \item Cross-Product
+%     \begin{itemize}
+%       \item
+%         \(
+%           \<a_1,a_2,a_3\>\times\<b_1,b_2,b_3\>
+%             =
+%           \det\left(\begin{bmatrix}
+%             \veci & \vecj & \veck \\
+%             a_{1} & a_{2} & a_{3} \\
+%             b_{1} & b_{2} & b_{3}
+%           \end{bmatrix}\right)
+%         \)
+%       \item
+%         \(
+%           \|\vect{a}\times\vect{b}\|
+%             =
+%           \|\vect{a}\|\|\vect{b}\|\sin\theta
+%         \)
+%       \item
+%         \(\vect{a}\), \(\vect{b}\), \(\vect{a}\times\vect{b}\) are mutually
+%         orthogonal and follow the right-hand-rule
+%     \end{itemize}
+%   \item Triple Scalar Product
+%     \begin{itemize}
+%       \item
+%         \(
+%           (\vect{a}\times\vect{b})\cdot\vect{c}
+%             =
+%           \det\left(\begin{bmatrix}
+%             \vect{a} \\
+%             \vect{b} \\
+%             \vect{c}
+%           \end{bmatrix}\right)
+%         \)
+%     \end{itemize}
+%   \item Plane Equation
+%     \begin{itemize}
+%       \item \(\vect{n}\cdot(\vect{x}-\vect{P})=0\)
+%       \item \(n_1(x-P_1)+n_2(y-P_2)+n_3(z-P_3)=0\)
+%     \end{itemize}
+% \end{itemize}
 
 \section*{1.5 \(n\)-Dimensional Euclidean Space}
 
 \begin{itemize}
-  \item \(\mathbb R\), \(\mathbb R^2\), \(\mathbb R^3\), \(\mathbb R^n\)
+  \item \(\mb R\), \(\mb R^2\), \(\mb R^3\), \(\mb R^n\)
   \item Addition
     \begin{itemize}
       \item
@@ -362,8 +364,14 @@
     \end{itemize}
   \item Matrices as Linear Transformations
     \begin{itemize}
-      \item An \(m\times n\) matrix \(A\) gives a function from \(\mathbb R^n\)
-            to \(\mathbb R^m\): \(\vect x \mapsto A\vect x\).
+      \item An \(m\times n\) matrix \(A\) gives a function from \(\mb R^n\)
+            to \(\mb R^m\): \(\vect x \mapsto A\vect x\)
+      \item This linear transformation satsifies
+            \(
+              A(\alpha\vect x + \beta\vect y)
+                =
+              \alpha A\vect x + \beta A\vect y
+            \)
       \item (Example 7) Express \(A\vect x\) where \(x=\<x_1,x_2,x_3\>\) and
         \(
           A =
@@ -373,8 +381,13 @@
              2 &  1 &  2 \\
             -1 &  2 &  2
           \end{bmatrix}
-        \). Then compute where the point \((3,-2,1)\) in \(\mathbb R^3\) gets
-        mapped to in \(\mathbb R^4\)
+        \). Then compute where the points
+          \((3,-2,1)\),
+          \((1,0,1)\),
+          \((-1,1,0)\), and
+          \((-3,3,0)\)
+        in \(\mb R^3\) get
+        mapped to in \(\mb R^4\)
     \end{itemize}
   \item Identity and Inverse
     \begin{itemize}
@@ -409,12 +422,80 @@
   }
 \end{itemize}
 
+  % \item 2.1 The Geometry of Real-Valued Functions
+
+\section*{2.3 Differentiation}
+
+\begin{itemize}
+  \item Functions \(\mb R^n\to\mb R^m\)
+    \begin{itemize}
+      \item \(\vect{f}:\mb R^n\to\mb R^m\)
+      \item
+        \(
+          \vect{f}(\vect{x})
+            =
+          \<f_1(\vect{x}),\dots,f_m(\vect{x})\>
+        \) where \(f_i:\mb R^n\to \mb R\)
+    \end{itemize}
+  \item Partial Derivative Matrix
+    \begin{itemize}
+      \item
+        \(\displaystyle
+          \vect{D}\vect{f}(\vect{x})
+            =
+          \begin{bmatrix}
+            \frac{\p f_1}{\p x_1}(\vect x) &
+            \cdots &
+            \frac{\p f_1}{\p x_n}(\vect x)
+            \\
+            \vdots & \ddots & \vdots
+            \\
+            \frac{\p f_m}{\p x_1}(\vect x) &
+            \cdots &
+            \frac{\p f_m}{\p x_n}(\vect x)
+          \end{bmatrix}
+        \)
+      \item Let \(\vect{T}=\vect{D}\vect{f}(\vect{x_0})\).
+        We say \(\vect f\) is differentiable at \(\vect{x_0}\) if
+        \(\vect{f}(\vect x)\approx\vect{f}(\vect x_0)+\vect{T}\vect{x}\)
+        for all \(\vect x\) near \(\vect x_0\).
+      \item \(\vect{f}(\vect x_0)+\vect{T}\vect{x}\) is the equation of the
+        tangent plane for \(\vect f\) at \(\vect x\).
+      \item (Example) Let \(\vect f:\mb R^2\to\mb R^2\) be defined by
+        \(\vect f(x,y)=\<x^2+y^2,xy\>\), and let
+        \(\vect{T}=\vect{D}\vect{f}(1,0)\). Compute
+        \(\vect{f}(1.1,-0.1)\) and \(\vect{f}(1,0)+\vect{T}\<1.1,-0.1\>\).
+      \item If each \(\frac{\p f_i}{\p x_j}:\mb R^n\to\mb R\)
+        is a continuous function near \(\vect x\), then \(\vect{f}\)
+        is strongly differentiable at \(\vect x\).
+    \end{itemize}
+  \item Gradient
+    \begin{itemize}
+      \item If \(f:\mb R^n\to\mb R\), then the gradient vector function
+        \(\nabla f:\mb R^n\to\mb R^n\) is defined by
+        \(
+          \nabla f(\vect x)
+            =
+          (\vect D f(\vect x))^T
+            =
+          \<\frac{\p f}{\p x_1}(\vect x),\dots,\frac{\p f}{\p x_n}(\vect x)\>
+        \)
+      \item Let \(\vect T=\vect D f(\vect x_0)\). Then
+        \(
+          \vect T\vect x
+            =
+          \nabla f(\vect x_0) \cdot \vect x
+        \)
+    \end{itemize}
+  \item\textit{
+    Suggested HW: 1-21
+  }
+\end{itemize}
+
 
 \section*{Remaining Topics}
 
 \begin{itemize}
-  \item 2.1 The Geometry of Real-Valued Functions
-  \item 2.3 Differentiation
   \item 2.4 Introduction to Paths and Curves
   \item 2.5 Properties of the Derivative
   \item 2.6 Gradients and Directional Derivatives
@@ -426,7 +507,7 @@
   \item 5.3 The Double Integral Over More General Regions
   \item 5.4 Changing the Order of Integration
   \item 5.5 The Triple Integral
-  \item 6.1 The Geometry of Maps from \(\mathbb R^2\) to \(\mathbb R^2\)
+  \item 6.1 The Geometry of Maps from \(\mb R^2\) to \(\mb R^2\)
 
 % \section*{1.4 Cylindrical and Spherical Coordinates}
 
