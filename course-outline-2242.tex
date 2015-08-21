@@ -49,17 +49,370 @@
 \rfoot{\thepage}
 \cfoot{}
 
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\veci}{\vect i}
+\newcommand{\vecj}{\vect j}
+\newcommand{\veck}{\vect k}
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}
+\newcommand{\Arctan}{\textrm{Arctan}}
+
+\renewcommand{\labelitemii}{\tiny$\blacksquare$}
+
 \begin{document}
 
 \noindent\textbf{
   MATH 2242 (Calculus IV) Course Outline
 }
 
+\section*{1.2 The Inner Product, Length, and Distance}
+
 \begin{itemize}
-  \item 1.2 The Inner Product, Length, and Distance
-  \item 1.3 Matricies, Determinants, and the Cross Product
-  \item 1.4 Cylindrical and Spherical Coordinates
-  \item 1.5 \(n\)-Dimensional Euclidean Space
+  \item Inner/Dot Product
+    \begin{itemize}
+      \item \(\vect{a}\cdot\vect{b}=a_1b_1+a_2b_2+a_3b_3\)
+    \end{itemize}
+  \item Norm/Magnitude/Length
+    \begin{itemize}
+      \item \(\|\vect{a}\|=\sqrt{\vect{a}\cdot\vect{a}}\)
+      \item Alternate dot product:
+            \(\vect{a}\cdot\vect{b}=\|\vect{a}\|\|\vect{b}\|\cos\theta\)
+    \end{itemize}
+  \item Normalization/Direction
+    \begin{itemize}
+      \item \(\frac{\vect{a}}{\|\vect{a}\|}\)
+    \end{itemize}
+  \item Distance
+    \begin{itemize}
+      \item \(\|\vect{b}-\vect{a}\|\)
+    \end{itemize}
+  \item Inequalities
+    \begin{itemize}
+      \item \(|\vect{a}\cdot\vect{b}|\leq\|\vect{a}\|\|\vect{b}\|\)
+      \item \(\|\vect{a}+\vect{b}\|\leq\|\vect{a}\|+\|\vect{b}\|\)
+    \end{itemize}
+\end{itemize}
+
+\section*{1.3 Matricies, Determinants, and the Cross Product}
+
+\begin{itemize}
+  \item Matrices
+    \begin{itemize}
+      \item
+        \(
+          \begin{bmatrix}
+            x_{11} & x_{12} \\
+            x_{21} & x_{22}
+          \end{bmatrix}
+        \)
+      \item
+        \(
+          \begin{bmatrix}
+            x_{11} & x_{12} & x_{13} \\
+            x_{21} & x_{22} & x_{23} \\
+            x_{31} & x_{32} & x_{33}
+          \end{bmatrix}
+        \)
+    \end{itemize}
+  \item Determinants
+    \begin{itemize}
+      \item
+        \(
+          \det\left(\begin{bmatrix}
+            x_{11} & x_{12} \\
+            x_{21} & x_{22}
+          \end{bmatrix}\right)
+            =
+          x_{11}x_{22} - x_{12}x_{21}
+        \)
+      \item
+        \(
+          \det\left(\begin{bmatrix}
+            x_{11} & x_{12} & x_{13} \\
+            x_{21} & x_{22} & x_{23} \\
+            x_{31} & x_{32} & x_{33}
+          \end{bmatrix}\right)
+        \)
+
+        \(
+            =
+          x_{11}\det\left(\begin{bmatrix}
+            x_{22} & x_{23} \\
+            x_{32} & x_{33}
+          \end{bmatrix}\right) -
+          x_{12}\det\left(\begin{bmatrix}
+            x_{21} & x_{23} \\
+            x_{31} & x_{33}
+          \end{bmatrix}\right) +
+          x_{13}\det\left(\begin{bmatrix}
+            x_{21} & x_{22} \\
+            x_{31} & x_{32}
+          \end{bmatrix}\right)
+        \)
+      \item
+        \(\displaystyle
+          \det(A) = \sum_{i=1}^{n}(-1)^{i+1}x_{1i}\det(A_i)
+        \)
+    \end{itemize}
+  \item Cross-Product
+    \begin{itemize}
+      \item
+        \(
+          \<a_1,a_2,a_3\>\times\<b_1,b_2,b_3\>
+            =
+          \det\left(\begin{bmatrix}
+            \veci & \vecj & \veck \\
+            a_{1} & a_{2} & a_{3} \\
+            b_{1} & b_{2} & b_{3}
+          \end{bmatrix}\right)
+        \)
+      \item
+        \(
+          \|\vect{a}\times\vect{b}\|
+            =
+          \|\vect{a}\|\|\vect{b}\|\sin\theta
+        \)
+      \item
+        \(\vect{a}\), \(\vect{b}\), \(\vect{a}\times\vect{b}\) are mutually
+        orthogonal and follow the right-hand-rule
+    \end{itemize}
+  \item Triple Scalar Product
+    \begin{itemize}
+      \item
+        \(
+          (\vect{a}\times\vect{b})\cdot\vect{c}
+            =
+          \det\left(\begin{bmatrix}
+            \vect{a} \\
+            \vect{b} \\
+            \vect{c}
+          \end{bmatrix}\right)
+        \)
+    \end{itemize}
+  \item Plane Equation
+    \begin{itemize}
+      \item \(\vect{n}\cdot(\vect{x}-\vect{P})=0\)
+      \item \(n_1(x-P_1)+n_2(y-P_2)+n_3(z-P_3)=0\)
+    \end{itemize}
+\end{itemize}
+
+\section*{1.5 \(n\)-Dimensional Euclidean Space}
+
+\begin{itemize}
+  \item \(\mathbb R\), \(\mathbb R^2\), \(\mathbb R^3\), \(\mathbb R^n\)
+  \item Addition
+    \begin{itemize}
+      \item
+        \(
+          \<x_1,x_2,\dots,x_n\> + \<y_1,y_2,\dots,y_n\>
+            =
+          \<x_1+y_1,x_2+y_2,\dots,x_n+y_n\>
+        \)
+    \end{itemize}
+  \item Scalar multiplication
+    \begin{itemize}
+      \item
+        \(
+          \alpha\<x_1,x_2,\dots,x_n\>
+            =
+          \<\alpha x_1,\alpha x_2,\dots,\alpha x_n\>
+        \)
+    \end{itemize}
+  \item Standard basis vectors
+    \begin{itemize}
+      \item
+        \(
+          \vect{e}_1=\<1,0,\dots,0\>
+        \),
+        \(
+          \vect{e}_2=\<0,1,\dots,0\>
+        \), \dots,
+        \(
+          \vect{e}_n=\<0,0,\dots,1\>
+        \)
+    \end{itemize}
+  \item Theorems
+    \begin{itemize}
+      \item
+        \(
+          (\alpha\vect{x}+\beta\vect{y})\cdot\vect{z}
+            =
+          \alpha(\vect{x}\cdot\vect{z}) + \beta(\vect{y}\cdot\vect{z})
+        \)
+      \item Prove the above theorem.
+      \item
+        \(
+          \vect{x}\cdot\vect{y}
+            =
+          \vect{y}\cdot\vect{x}
+        \)
+      \item
+        \(
+          \vect{x}\cdot\vect{x} \geq 0
+        \)
+      \item
+        \(
+          \vect{x}\cdot\vect{x} = 0
+        \)
+        if and only if
+        \(
+          \vect{x}=\vect{0}
+        \)
+      \item
+        \(
+          |\vect{x}\cdot\vect{y}|
+            \leq
+          \|\vect{x}\|\|\vect{y}\|
+        \)
+        (the Cauchy-Schwarz inequality)
+      \item Prove the Cauchy-Schwarz inequality.
+      \item
+        \(
+          \|\vect{x}+\vect{y}\|
+            \leq
+          \|\vect{x}\|+\|\vect{y}\|
+        \)
+        (the triangle inequality)
+      \item Prove the triangle inequality.
+    \end{itemize}
+  \item Matrices
+    \begin{itemize}
+      \item
+        \(
+          A
+            =
+          \begin{bmatrix}
+            a_{11} & a_{12} & \dots  & a_{1n} \\
+            a_{21} & a_{22} & \dots  & a_{2n} \\
+            \vdots & \vdots & \ddots & \vdots \\
+            a_{m1} & a_{m2} & \dots  & a_{mn}
+          \end{bmatrix}
+        \)
+      \item Addition \(A+B\)
+      \item Scalar Mutiplication \(\alpha A\)
+      \item Transposition \(A^T\)
+    \end{itemize}
+  \item Vectors as Matrices
+    \begin{itemize}
+      \item
+        \(
+          \vect{a}=\<a_1,a_2,\dots,a_n\>
+            =
+          \begin{bmatrix}
+            a_{1}  \\
+            a_{2}  \\
+            \vdots \\
+            a_{n}
+          \end{bmatrix}
+        \)
+      \item
+        \(
+          \vect{a}^T
+            =
+          \begin{bmatrix}
+            a_{1} & a_{2} & \cdots & a_{n}
+          \end{bmatrix}
+        \)
+    \end{itemize}
+  \item Matrix Multiplication
+    \begin{itemize}
+      \item
+        If \(A\) has \(m\) rows and \(B\) has \(n\) columns,
+        then \(M=AB\) is an \(m\times n\) matrix.
+      \item
+        Coordinate \(ij\) of \(M=AB\) is given by
+        \(m_{ij}=\vect{a_i}\cdot\vect{b_j}\)
+        where \(\vect{a_i}^T\) is the \(i\)th row of \(A\)
+        and \(\vect{b_j}\) is the \(j\)th column of \(B\).
+      \item
+        (Example 4) Compute \(AB\) and \(BA\) for
+        \[
+          A =
+          \begin{bmatrix}
+            1 & 0 & 3 \\
+            2 & 1 & 0 \\
+            1 & 0 & 0
+          \end{bmatrix}
+        \]
+        \[
+          B =
+          \begin{bmatrix}
+            0 & 1 & 0 \\
+            1 & 0 & 0 \\
+            0 & 1 & 1
+          \end{bmatrix}
+        \]
+      \item
+        (Example 5) Compute \(AB\) for
+        \[
+          A =
+          \begin{bmatrix}
+            2 & 0 & 1 \\
+            1 & 1 & 2
+          \end{bmatrix}
+        \]
+        \[
+          B =
+          \begin{bmatrix}
+            1 & 0 & 2 \\
+            0 & 2 & 1 \\
+            1 & 1 & 1
+          \end{bmatrix}
+        \]
+    \end{itemize}
+  \item Matrices as Linear Transformations
+    \begin{itemize}
+      \item An \(m\times n\) matrix \(A\) gives a function from \(\mathbb R^n\)
+            to \(\mathbb R^m\): \(\vect x \mapsto A\vect x\).
+      \item (Example 7) Express \(A\vect x\) where \(x=\<x_1,x_2,x_3\>\) and
+        \(
+          A =
+          \begin{bmatrix}
+             1 &  0 &  3 \\
+            -1 &  0 &  1 \\
+             2 &  1 &  2 \\
+            -1 &  2 &  2
+          \end{bmatrix}
+        \). Then compute where the point \((3,-2,1)\) in \(\mathbb R^3\) gets
+        mapped to in \(\mathbb R^4\)
+    \end{itemize}
+  \item Identity and Inverse
+    \begin{itemize}
+      \item
+        \(
+          I_n =
+          \begin{bmatrix}
+            1      & 0      & \cdots & 0      \\
+            0      & 1      & \cdots & 0      \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0      & 0      & \cdots & 1
+          \end{bmatrix}
+        \)
+      \item
+        If \(AA^{-1}=A^{-1}A=I_n\), then \(A\) is invertable and
+        \(A^{-1}\) is its inverse.
+    \end{itemize}
+  \item Determinant
+    \begin{itemize}
+      \item Let \(A_i\) be the submatrix of \(A\) with the first column
+      and \(i\)th row removed. Then
+        \(
+          \det(A)
+            =
+          \sum_{i=1}^n
+          (-1)^{i+1}
+          a_{1i}\det(A_i)
+        \)
+    \end{itemize}
+  \item\textit{
+    Suggested HW: 1-18, 21-24
+  }
+\end{itemize}
+
+
+\section*{Remaining Topics}
+
+\begin{itemize}
   \item 2.1 The Geometry of Real-Valued Functions
   \item 2.3 Differentiation
   \item 2.4 Introduction to Paths and Curves
@@ -74,6 +427,54 @@
   \item 5.4 Changing the Order of Integration
   \item 5.5 The Triple Integral
   \item 6.1 The Geometry of Maps from \(\mathbb R^2\) to \(\mathbb R^2\)
+
+% \section*{1.4 Cylindrical and Spherical Coordinates}
+
+% \begin{itemize}
+%   \item Transformation of variables
+%   \item Polar Coordinates
+%     \begin{itemize}
+%       \item \(p(r,\theta)=(r\cos\theta,r\sin\theta)\)
+%       \item Usually, assume \(r\geq0\) and \(0\leq\theta\leq2\pi\)
+%       \item \(r^2=x^2+y^2\), \(\theta=\Arctan(\frac{y}{x})+k\pi\)
+%     \end{itemize}
+%   \item Cylindrical Coordinates
+%     \begin{itemize}
+%       \item \(c(r,\theta,z)=(r\cos\theta,r\sin\theta,z)\)
+%       \item Usually, assume \(r\geq0\) and \(0\leq\theta\leq2\pi\)
+%       \item \(r^2=x^2+y^2\), \(\theta=\Arctan(\frac{y}{x})+k\pi\), \(z=z\)
+%       \item (Example 1) Convert \(A=c(8,2\pi/3,-3)\) from cylindrical to
+%             Cartesian. Convert \(B=(6,6,8)\) from Cartesian to cylindrical.
+%             Plot both.
+%     \end{itemize}
+%   \item Spherical Coordinates
+%     \begin{itemize}
+%       \item \(
+%               s(\rho,\theta,\phi)
+%                 =
+%               (
+%                 \rho\sin\phi\cos\theta,
+%                 \rho\sin\phi\sin\theta,
+%                 \rho\cos\phi
+%               )
+%             \)
+%       \item Usually, assume \(\rho\geq0\), \(0\leq\theta\leq2\pi\), and
+%             \(0\leq\phi\leq\pi\)
+%       \item \(\rho^2=x^2+y^2+z^2\),
+%             \(\theta=\Arctan(\frac{y}{x})+k\pi\),
+%             \(\phi=\Arctan(\frac{\sqrt{x^2+y^2}}{z})\)
+%       \item (Example 2) Convert \(A=(1,-1,1)\) from Cartesian to spherical.
+%             Convert \(B=s(3,\pi/6,\pi/4)\) from spherical to Cartesian.
+%             Convert \(C=(2,-3,6)\) from Cartesian to spherical.
+%             Convert \(D=s(1,-\pi/2,\pi/4)\) from spherical to Cartesian.
+%             Plot all four.
+%       \item (Example 3) Express the equations \(xz=1\) and \(x^2+y^2-z^2=1\)
+%             in terms of \(\rho,\phi,\theta\).
+%     \end{itemize}
+%   \item\textit{
+%     Suggested HW: 1-16
+%   }
+% \end{itemize}
   \item 6.2 The Change of Variables Theorem
   \item 7.1 The Path Integral
   \item 7.2 Line Integrals
