@@ -66,6 +66,7 @@
 \noindent\textbf{
   MATH 2242 (Calculus IV) Course Outline
 }
+| Vector Calculus (Marsden)
 
 % \section*{1.2 The Inner Product, Length, and Distance}
 
@@ -218,6 +219,15 @@
           \alpha\<x_1,x_2,\dots,x_n\>
             =
           \<\alpha x_1,\alpha x_2,\dots,\alpha x_n\>
+        \)
+    \end{itemize}
+  \item Inner/Dot Product
+    \begin{itemize}
+      \item
+        \(
+          \<x_1,x_2,\dots,x_n\>\cdot\<y_1,y_2,\dots,y_n\>
+            =
+          \sum_{i=1}^n x_iy_i
         \)
     \end{itemize}
   \item Standard basis vectors
@@ -418,7 +428,7 @@
         \)
     \end{itemize}
   \item\textit{
-    Suggested HW: 1-18, 21-24
+    HW: 1-18, 21-24
   }
 \end{itemize}
 
@@ -455,18 +465,20 @@
             \frac{\p f_m}{\p x_n}(\vect x)
           \end{bmatrix}
         \)
-      \item Let \(\vect{T}=\vect{D}\vect{f}(\vect{x_0})\).
-        We say \(\vect f\) is differentiable at \(\vect{x_0}\) if
-        \(\vect{f}(\vect x)\approx\vect{f}(\vect x_0)+\vect{T}\vect{x}\)
-        for all \(\vect x\) near \(\vect x_0\).
-      \item \(\vect{f}(\vect x_0)+\vect{T}\vect{x}\) is the equation of the
-        tangent plane for \(\vect f\) at \(\vect x\).
+      \item
+        We say \(\vect f\) is differentiable at \(\vect{x}\) if
+        \(
+          \vect{f}(\vect x+\vect h)
+            \approx
+          \vect{f}(\vect x)+[\vect{D}\vect{f}(\vect{x})]\vect{h}
+        \)
+        for all \(\vect h\) near \(\vect 0\).
       \item (Example) Let \(\vect f:\mb R^2\to\mb R^2\) be defined by
         \(\vect f(x,y)=\<x^2+y^2,xy\>\), and let
         \(\vect{T}=\vect{D}\vect{f}(1,0)\). Compute
-        \(\vect{f}(1.1,-0.1)\) and \(\vect{f}(1,0)+\vect{T}\<1.1,-0.1\>\).
+        \(\vect{f}(1.1,-0.1)\) and \(\vect{f}(1,0)+\vect{T}\<0.1,-0.1\>\).
       \item If each \(\frac{\p f_i}{\p x_j}:\mb R^n\to\mb R\)
-        is a continuous function near \(\vect x\), then \(\vect{f}\)
+        is a continuous function near \(\vect x\), then we say \(\vect{f}\)
         is strongly differentiable at \(\vect x\).
     \end{itemize}
   \item Gradient
@@ -480,15 +492,107 @@
             =
           \<\frac{\p f}{\p x_1}(\vect x),\dots,\frac{\p f}{\p x_n}(\vect x)\>
         \)
-      \item Let \(\vect T=\vect D f(\vect x_0)\). Then
+      \item
         \(
-          \vect T\vect x
+          [\vect D f(\vect x)]\vect h
             =
-          \nabla f(\vect x_0) \cdot \vect x
+          \nabla f(\vect x) \cdot \vect h
         \)
     \end{itemize}
   \item\textit{
-    Suggested HW: 1-21
+    HW: 1-21
+  }
+\end{itemize}
+
+  % \item 2.4 Introduction to Paths and Curves
+
+\section*{2.5 Properties of the Derivative}
+
+\begin{itemize}
+  \item Sum/Product/Quotient Rules
+    \begin{itemize}
+      \item \(\vect D[\alpha \vect f]=\alpha\vect D\vect f\)
+      \item \(\vect D[\vect f+\vect g]=\vect D\vect f+\vect D\vect g\)
+      \item
+        \(
+          \vect D[fg]=g\vect Df + f\vect Dg
+        \)
+      \item
+        \(
+          \vect D[\frac{f}{g}]
+            =
+          \frac{
+            g\vect Df - f\vect Dg
+          }{
+            g^2
+          }
+        \)
+      \item Sketch proofs for strongly differentiable \(f,g\).
+    \end{itemize}
+  \item Chain Rule
+    \begin{itemize}
+      \item
+        \(
+          \vect D [\vect f\circ \vect g]
+            =
+          [\vect D\vect f](\vect g)\vect D\vect g
+        \)
+      \item
+        (Example) Find the rate of change of \(f(x,y)=x^2+y^2\) along
+        the path \(\vect c(t)=\<t^2,t\>\) when \(t=1\).
+      \item
+        (Example 2) Verify the Chain Rule for \(f(u,v,w)=u^2+v^2-w\)
+        and \(\vect g(x,y,z)=\<x^2y,y^2,e^{-xz}\>\).
+      \item
+        (Example 3) Compute \(\vect D[\vect f\circ\vect g](1,1)\) where
+        \(\vect f(u,v)=\<u+v,u,v^2\>\) and \(\vect g(x,y)=\<x^2+1,y^2\>\).
+    \end{itemize}
+  \item\textit{
+    HW: 6-13, 15-16
+  }
+\end{itemize}
+
+  % \item 2.6 Gradients and Directional Derivatives
+
+\section*{3.2 Taylor's Theorem}
+
+\begin{itemize}
+  \item First-Order Taylor Formula
+    \begin{itemize}
+      \item
+        \(
+          f(\vect x + \vect h)
+            \approx
+          f(\vect x) + [\vect Df(\vect x)]\vect h
+        \)
+      \item Alternate form:
+        \(
+          f(\vect x + \vect h)
+            \approx
+          f(\vect x)
+            +
+          \sum_{i=1}^{n}\frac{\p f}{\p x_i}(\vect x)h_i
+        \)
+    \end{itemize}
+  \item Second-Order Taylor Formula
+    \begin{itemize}
+      \item
+        \(
+          f(\vect x + \vect h)
+            \approx
+          f(\vect x)
+            +
+          \sum_{i=1}^{n}\frac{\p f}{\p x_i}(\vect x)h_i
+            +
+          \frac{1}{2}
+          \sum_{i,j=1}^{n}\frac{\p^2 f}{\p x_i\p x_j}(\vect x)h_ih_j
+        \)
+      \item
+        (Example 3) Find linear and quadratic functions of \(x,y\) which
+        approximate \(f(x,y)=\sin(xy)\) near the point \((1,\pi/2)\).
+    \end{itemize}
+  \item\textit{
+    HW: 1-12
   }
 \end{itemize}
 
@@ -496,10 +600,6 @@
 \section*{Remaining Topics}
 
 \begin{itemize}
-  \item 2.4 Introduction to Paths and Curves
-  \item 2.5 Properties of the Derivative
-  \item 2.6 Gradients and Directional Derivatives
-  \item 3.2 Taylor's Theorem
   \item 4.1 Acceleration and Newton's Second Law
   \item 4.2 Arc Length
   \item 4.3 Vector Fields
@@ -553,7 +653,7 @@
 %             in terms of \(\rho,\phi,\theta\).
 %     \end{itemize}
 %   \item\textit{
-%     Suggested HW: 1-16
+%     HW: 1-16
 %   }
 % \end{itemize}
   \item 6.2 The Change of Variables Theorem
