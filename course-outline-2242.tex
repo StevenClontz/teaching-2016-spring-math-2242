@@ -469,6 +469,7 @@
         \)
     \end{itemize}
   \item Linearizations and Tangent Hyperplanes
+    %TODO: clean this up with Taylor's Theorem section
     \begin{itemize}
       \item Letting \(\vect y = \vect x+\vect h\) and \(\vect y_0=\vect x\),
         we have
@@ -558,6 +559,12 @@
             \approx
           f(\vect x) + [\vect Df(\vect x)]\vect h
         \)
+          or
+        \(
+          f(\vect x)
+            \approx
+          f(\vect x_0) + [\vect Df(\vect x_0)](\vect x - \vect x_0)
+        \)
       \item Alternate form:
         \(
           f(\vect x + \vect h)
@@ -565,6 +572,14 @@
           f(\vect x)
             +
           \sum_{i=1}^{n}\frac{\p f}{\p x_i}(\vect x)h_i
+        \)
+          or
+        \(
+          f(\vect x)
+            \approx
+          f(\vect x_0)
+            +
+          \sum_{i=1}^{n}\frac{\p f}{\p x_i}(\vect x_0)(x_i - x_{0,i})
         \)
     \end{itemize}
   \item Second-Order Taylor Formula
@@ -579,6 +594,17 @@
             +
           \frac{1}{2}
           \sum_{i,j=1}^{n}\frac{\p^2 f}{\p x_i\p x_j}(\vect x)h_ih_j
+        \)
+      \item
+        \(
+          f(\vect x)
+            \approx
+          f(\vect x_0)
+            +
+          \sum_{i=1}^{n}\frac{\p f}{\p x_i}(\vect x_0)(x_i-x_{0,i})
+            +
+          \frac{1}{2}
+          \sum_{i,j=1}^{n}\frac{\p^2 f}{\p x_i\p x_j}(\vect x_0)(x_i-x_{0,i})(x_j-x_{0,j})
         \)
       \item
         (Example 3) Find linear and quadratic functions of \(x,y\) which
