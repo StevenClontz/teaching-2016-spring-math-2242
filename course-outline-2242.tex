@@ -393,6 +393,8 @@
         to \(n\) and \(\sgn(\sigma)\) is \(1\) when \(\sigma\) is obtained by
         an even number of swaps, and \(-1\) when \(\sigma\) is obtained by
         an odd number of swaps.
+      \item An \(n\times n\)
+        matrix is invertable if and only if its determinant is nonzero.
     \end{itemize}
   \item\textit{
     HW: 1-18, 21-24
@@ -467,7 +469,7 @@
         \)
     \end{itemize}
   \item\textit{
-    HW: 1-21
+    HW: 1-3, 5-21
   }
 \end{itemize}
 
@@ -563,13 +565,63 @@
   }
 \end{itemize}
 
+  % \item 4.1 Acceleration and Newton's Second Law
+  % \item 4.2 Arc Length
+
+\section*{4.3 Vector Fields}
+
+\begin{itemize}
+  \item Vector Fields
+    \begin{itemize}
+      \item A vector field is a map \(f:\mb R^n\to\mb R^n\) assinging an
+        \(n\)-dimensional vector to each point in \(\mb R^n\)
+      \item (Example 1) The velocity field of a fluid may be modeled as a
+        vector field.
+      \item (Example 2) Sketch the rotary motion given by the vector
+        field \(\vect V(x,y)=\<-y,x\>\).
+    \end{itemize}
+  \item Gradient Vector Fields
+    \begin{itemize}
+      \item \(\nabla f = \<\frac{\p f}{\p x_1},\dots,\frac{\p f}{\p x_n}\>\)
+      \item (Example) The directional derivative of a scalar function
+        \(f:\mb R^n\to \mb R\)
+        is given by \(\nabla f\cdot \vect v\). Show that the maximum value
+        of the directional derivative at a point is given by \(\|\nabla f\|\)
+        and attained by the direction \(\frac{1}{\|\nabla f\|}\nabla f\).
+      \item (Example 4) If temperature is given by \(T(x,y,z)\), then the
+        energy or heat flux field is given by \(\vect J = -k\nabla T\) where
+        \(k\) is the conductivity of the body. Level sets are called isotherms.
+      \item (Example 5) The gravitational potential of bodies with mass \(m,M\)
+        is given by \(V=-\frac{mMG}{r}\) where \(G\) is the gravitational
+        constant and \(r\) is the distance between the bodies, and the
+        gravitational force field is given by \(\vect F=-\nabla V\).
+        Show that \(\vect F = -\frac{mMG}{r^3}\vect r\), where \(\vect r\)
+        is the vector pointing from the center of mass \(M\) to the center
+        of mass \(m\).
+      \item A vector field \(\vect F:\mb R^n\to\mb R^n\) is conservative iff
+        there exists
+        a potential function \(f:\mb R^n\to\mb R\) such that
+        \(\vect F=\nabla f\).
+      \item (Example) Show that \(\vect W=\<2y+1,2x\>\) is conservative.
+      \item (Example 7) Show that \(\vect V=\<y,-x\>\) is not conservative.
+    \end{itemize}
+  \item Flow Lines
+    \begin{itemize}
+      \item A flow line for a vector field \(\vect F:\mb R^n\to\mb R^n\)
+        is a path \(\vect c:\mb R\to\mb R^n\) satisfying
+        \(\vect c'(t)=\vect F(\vect c(t))\).
+      \item (Example 8) Show that \(\vect c(t)=\<\cos t,\sin t\>\) is a flow
+        line for \(\vect F=\<-y,x\>\), and find some other flow lines.
+    \end{itemize}
+  \item\textit{
+    HW: 1-22
+  }
+\end{itemize}
+
 
 \section*{Remaining Topics}
 
 \begin{itemize}
-  \item 4.1 Acceleration and Newton's Second Law
-  \item 4.2 Arc Length
-  \item 4.3 Vector Fields
   \item 4.4 Divergence and Curl
   \item 5.3 The Double Integral Over More General Regions
   \item 5.4 Changing the Order of Integration
