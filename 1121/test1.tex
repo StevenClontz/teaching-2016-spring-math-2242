@@ -47,8 +47,8 @@ MATH 1121 - Fall 2015 - Dr. Clontz - Test 1
   \item This exam is open notes, provided that these notes are completely
         in your own handwriting. The professor may take up notes you use
         with your test and return them after the test is graded.
-  \item Tests submitted after the end of 70 minutes will be docked 25 points,
-        with 25 points deducted every following minute.
+  \item Tests submitted after the end of 70 minutes will be deducted 25 points,
+        with 25 more points deducted every following minute.
 \end{itemize}
 
 \newpage
@@ -98,6 +98,7 @@ Which of these statements is true?
 \choice The lines are perpendicular, but not parallel.
 \choice The lines are both parallel and perpendicular.
 \choice The lines are neither parallel nor perpendicular.
+\choice None of these.
 \end{checkboxes}
 
 \vfill
@@ -116,13 +117,12 @@ Which of the following plots corresponds to the circle with the following equati
         axis equal,
         xmin=-20,
         xmax=20,
-        xtick={-20,-10,0,10,20},
+        xtick={-20,-15,...,20},
         ymin=-20,
         ymax=20,
-        ytick={-20,-10,0,10,20},
-        minor tick num=9,
+        ytick={-20,-15,...,20},
+        minor tick num=4,
         axis lines=middle,
-        % extra tick style={grid=major},
     ]
       \draw[blue] \pgfextra{
         \pgfpathellipse{\pgfplotspointaxisxy{-2}{3}}
@@ -139,13 +139,12 @@ Which of the following plots corresponds to the circle with the following equati
         axis equal,
         xmin=-20,
         xmax=20,
-        xtick={-20,-10,0,10,20},
+        xtick={-20,-15,...,20},
         ymin=-20,
         ymax=20,
-        ytick={-20,-10,0,10,20},
-        minor tick num=9,
+        ytick={-20,-15,...,20},
+        minor tick num=4,
         axis lines=middle,
-        % extra tick style={grid=major},
     ]
       \draw[blue] \pgfextra{
         \pgfpathellipse{\pgfplotspointaxisxy{2}{-3}}
@@ -170,7 +169,6 @@ Which of the following plots corresponds to the circle with the following equati
         ytick={-10,-5,0,5,10},
         minor tick num=4,
         axis lines=middle,
-        % extra tick style={grid=major},
     ]
       \draw[blue] \pgfextra{
         \pgfpathellipse{\pgfplotspointaxisxy{-2}{3}}
@@ -193,7 +191,6 @@ Which of the following plots corresponds to the circle with the following equati
         ytick={-10,-5,0,5,10},
         minor tick num=4,
         axis lines=middle,
-        % extra tick style={grid=major},
     ]
       \draw[blue] \pgfextra{
         \pgfpathellipse{\pgfplotspointaxisxy{2}{-3}}
@@ -208,6 +205,8 @@ Which of the following plots corresponds to the circle with the following equati
 
 \end{checkboxes}
 \end{multicols}
+
+\vfill
 
 \question[15]
 Which of the following equations corresponds to the parabola sketched here?
@@ -224,17 +223,175 @@ Which of the following equations corresponds to the parabola sketched here?
         ytick={-10,-5,0,5,10},
         minor tick num=4,
         axis lines=middle,
-        % extra tick style={grid=major},
     ]
-      \draw[blue] \pgfextra{
-        \pgfpathellipse{\pgfplotspointaxisxy{2}{-3}}
-            {\pgfplotspointaxisdirectionxy{4}{0}}
-            {\pgfplotspointaxisdirectionxy{0}{4}}
-        };
-      \addplot [only marks,mark=o] coordinates { (2,-3) } ;
+      \addplot[blue,samples=100,domain=-10:10] ({-x^2/12}, {x});
+      \addplot[dashed,samples=100,domain=-10:10] ({3}, {x});
+      \addplot[only marks,mark=o] coordinates { (-3,0) } ;
     \end{axis}
     \end{tikzpicture}}
 \end{center}
+
+\begin{multicols}{2}
+\begin{checkboxes}
+  \choice \(y=\frac{x^2}{12}\)
+  \choice \(x=\frac{y^2}{12}\)
+  \choice \(y=-\frac{x^2}{12}\)
+  \choice \(x=-\frac{y^2}{12}\)
+  \choice None of these.
+\end{checkboxes}
+\end{multicols}
+
+\vfill
+\newpage
+
+
+\question[15]
+Consider the ellipse with equation \(\frac{x^2}{25}+\frac{y^2}{9}=1\).
+Every point on this ellipse must be equidistant from which pair of points?
+
+\begin{checkboxes}
+  \choice \((4,0)\) and \((-4,0)\)
+  \choice \((0,4)\) and \((0,-4)\)
+  \choice \((34,0)\) and \((-34,0)\)
+  \choice \((0,34)\) and \((0,-34)\)
+  \choice None of these.
+\end{checkboxes}
+
+\vfill
+
+\question[15]
+Which of these is an equation of the hyperbola centered at the origin
+with a focus at \((0,\sqrt{13})\) and vertex at \((0,-2)\)?
+
+\begin{checkboxes}
+  \choice \(\frac{y^2}{13}-\frac{x^2}{4}=1\)
+  \choice \(\frac{y^2}{13}-\frac{x^2}{9}=1\)
+  \choice \(\frac{y^2}{4}-\frac{x^2}{9}=1\)
+  \choice \(\frac{y^2}{4}-\frac{x^2}{13}=1\)
+  \choice None of these.
+\end{checkboxes}
+
+\vfill
+
+\question[15]
+Describe the translation of the graph with equation \((x-2)^2=4(y+1)\)
+in comparison to the graph with equation \(x^2=4y\).
+
+\begin{checkboxes}
+  \choice \(2\) units right and \(1\) unit down.
+  \choice \(2\) units left and \(1\) unit down.
+  \choice \(2\) units right and \(1\) unit up.
+  \choice \(2\) units up and \(1\) unit left.
+  \choice None of these.
+\end{checkboxes}
+
+\vfill
+\newpage
+
+\question[15]
+Which of these is a simplification of the following algebraic function?
+\[
+  f(x)
+    =
+  \frac{
+    (3x+1)(2x^{-1/2})-2x^{1/2}(3)
+  }{
+    (3x+1)^2
+  }
+\]
+
+\begin{checkboxes}
+  \choice \(\ds f(x)=\frac{2x-1}{(6x+\sqrt{x})^2}\)
+  \choice \(\ds f(x)=\frac{6x-3}{x^{1/2}(3x+1)^2}\)
+  \choice \(\ds f(x)=\frac{x^{1/2}}{3x+1}\)
+  \choice \(\ds f(x)=\frac{2x}{x^{1/2}(3x+1)^{1/2}}\)
+  \choice None of these.
+\end{checkboxes}
+
+\vfill
+
+\question[15]
+Which of these is the graph of the function \(g(x)=\frac{4}{x-1}\)?
+
+\begin{multicols}{2}
+\begin{checkboxes}
+  \choice
+    \fbox{\begin{tikzpicture}[scale=0.8]
+    \begin{axis}[
+        axis equal,
+        xmin=-11,
+        xmax=11,
+        xtick={-10,-5,0,5,10},
+        ymin=-11,
+        ymax=11,
+        ytick={-10,-5,0,5,10},
+        minor tick num=4,
+        axis lines=middle,
+    ]
+      \addplot[blue,domain=-10:0.9] ({x},{(4)/(x-1)});
+      \addplot[blue,domain=1.1:10] ({x},{(4)/(x-1)});
+      \addplot[dashed,domain=-10:10] ({1},{x});
+    \end{axis}
+    \end{tikzpicture}}
+
+  \choice
+    \fbox{\begin{tikzpicture}[scale=0.8]
+    \begin{axis}[
+        axis equal,
+        xmin=-11,
+        xmax=11,
+        xtick={-10,-5,0,5,10},
+        ymin=-11,
+        ymax=11,
+        ytick={-10,-5,0,5,10},
+        minor tick num=4,
+        axis lines=middle,
+    ]
+      \addplot[blue,domain=-3:3,samples=100] ({2*x^3},{4*x});
+    \end{axis}
+    \end{tikzpicture}}
+
+  \choice
+    \fbox{\begin{tikzpicture}[scale=0.8]
+    \begin{axis}[
+        axis equal,
+        xmin=-11,
+        xmax=11,
+        xtick={-10,-5,0,5,10},
+        ymin=-11,
+        ymax=11,
+        ytick={-10,-5,0,5,10},
+        minor tick num=4,
+        axis lines=middle,
+    ]
+      \addplot[blue,domain=-10:3,samples=100] ({x+1},{4^x});
+    \end{axis}
+    \end{tikzpicture}}
+
+  \choice
+    \fbox{\begin{tikzpicture}[scale=0.8]
+    \begin{axis}[
+        axis equal,
+        xmin=-11,
+        xmax=11,
+        xtick={-10,-5,0,5,10},
+        ymin=-11,
+        ymax=11,
+        ytick={-10,-5,0,5,10},
+        minor tick num=4,
+        axis lines=middle,
+    ]
+      \addplot[blue,domain=-10:10,samples=100] ({x},{2*sin(90*x)});
+    \end{axis}
+    \end{tikzpicture}}
+
+
+  \choice None of these.
+\end{checkboxes}
+\end{multicols}
+
+
+
 
 \end{questions}
 
@@ -242,7 +399,12 @@ Which of the following equations corresponds to the parabola sketched here?
 
 
 
+\vfill
 \newpage
+
+
+
+
 
 
 \begin{center}
@@ -251,52 +413,99 @@ Which of the following equations corresponds to the parabola sketched here?
 
 \begin{questions}
 
-\setcounter{question}{0}
+\setcounter{question}{10}
 
-\question[5]
-  Compute the angle between the vectors
-  $\vect{u}=\<2,2\sqrt{3}\>$ and $\vect{v}=\<-5,0\>$.
+\question[20]
+  Show how to find an equation for the line passing through
+  the point \((3,-2)\) with slope \(-2\), and then sketch it on the given
+  coordinate plane.
 
-\newpage
+  \vfill
 
-\question[5]
-  Find an equation for the plane passing through $(0,0,0)$,
-  $(1,0,-3)$, and $(-2,3,0)$.
 
-\newpage
+  \begin{center}
+    \begin{tikzpicture}[scale=2]
+    \begin{axis}[
+        axis equal,
+        xmin=-7,
+        xmax=7,
+        xtick={-6,-3,...,6},
+        ymin=-7,
+        ymax=7,
+        ytick={-6,-3,...,6},
+        minor tick num=2,
+        axis lines=middle,
+    ]
+    \end{axis}
+    \end{tikzpicture}
+  \end{center}
 
-\question[5]
-  Sketch $x^2+9y^2-4z^2=16$ and its traces in the planes $x=0$, $y=0$,
-  and $z=0$.
-  Then use these traces to name the quadric surface.
-
-\newpage
-
-\question[5]
-  Explain why the parametric equations $x=4\sin t$ and $y=\cos t$
-  yield points on the ellipse $x^2+16y^2=16$.
-
-\newpage
-
-\question[5]
-  Find $\vect{r}(t)$ given
-  $\vect{r}'(t) = \left\<4t^3, -\sin t, e^t\right\>$
-  and $\vect{r}(0) = \<1, 2, 3\>$.
 
 \newpage
 
-\question[5]
-  Recall from the notes that the work done by moving an object
-  along the displacement vector $\vect{D}$ using a force vector
-  $\vect{F}$ is given by
-  \[
-    W = \vect{F}\cdot\vect{D}
-  \]
+\question[20]
+  Give the equation of the below graph, and add its foci to the graph.
 
-  Use this formula to show how much work is done in moving an
-  object from the point $(1,3)$ to the point $(4,7)$ using
-  a force of magnitude $10$ units oriented
-  in the positive $y$-direction.
+  \begin{center}
+    \begin{tikzpicture}[scale=2]
+    \begin{axis}[
+        axis equal,
+        xmin=-20,
+        xmax=20,
+        xtick={-20,-15,...,20},
+        ymin=-20,
+        ymax=20,
+        ytick={-20,-15,...,20},
+        minor tick num=4,
+        axis lines=middle,
+    ]
+      \draw[blue] \pgfextra{
+        \pgfpathellipse{\pgfplotspointaxisxy{0}{0}}
+            {\pgfplotspointaxisdirectionxy{5}{0}}
+            {\pgfplotspointaxisdirectionxy{0}{13}}
+        };
+    \end{axis}
+    \end{tikzpicture}
+  \end{center}
+
+
+\newpage
+
+\question[20]
+  Sketch the hyperbola centered at the origin with vertex \((-3,0)\) and
+  focus \((-5,0)\), including its asymptotes and other focus.
+
+  \begin{center}
+    \begin{tikzpicture}[scale=2]
+    \begin{axis}[
+        axis equal,
+        xmin=-11,
+        xmax=11,
+        xtick={-10,-5,...,10},
+        ymin=-11,
+        ymax=11,
+        ytick={-10,-5,...,10},
+        minor tick num=4,
+        axis lines=middle,
+    ]
+    \end{axis}
+    \end{tikzpicture}
+  \end{center}
+
+
+\newpage
+
+\question[20]
+  Use algebra to manipulate \(x^2-6x+8y+17=0\) to get the equation of
+  a translated parabola. (You do not need to sketch
+  the graph. Hint: the parabola has its vertex at \((3,-1)\).)
+
+\newpage
+
+\question[20]
+  Give a simplified expression for the composition \((f\circ g)(x)\) given
+  \(f(x)=x^2-3x\) and \(g(x)=2x-1\).
+
 \end{questions}
 
 \end{document}
