@@ -329,11 +329,115 @@
 }
 \end{itemize}
 
+\section*{3.1 Limits}
+
+\begin{itemize}
+\item Limits
+  \begin{itemize}
+    \item \(\lim_{x\to a}f(x)=L\) means that the value of \(f(x)\) approaches
+          \(L\) as the value of \(x\) approaches \(a\) in the domain of \(f\).
+    \item (Example) Given \(f(x)=x^2\), we may write the following chart of
+          values
+
+      \begin{tabular}{c|c}
+        \(x\) & \(f(x)\) \\\hline
+        \(1.9\) & \(3.61\) \\
+        \(1.99\) & \(3.9601\) \\
+        \(1.999\) & \(3.996001\) \\
+        \(2.001\) & \(4.004001\) \\
+        \(2.01\) & \(4.0401\) \\
+        \(2.1\) & \(4.41\)
+      \end{tabular}
+
+          to infer that \(\lim_{x\to 2} f(x)=4\).
+    \item (Example) Given
+      \[
+        g(x)
+          =
+        \left\{
+        \begin{matrix}
+          x^2 & x\not= 2 \\
+          -5 & x=2
+        \end{matrix}
+        \right.
+      \]
+          we have the same chart of values as before, so we assume
+          \(\lim_{x\to 2} g(x)=4\).
+    \item (Example) Since \(h(x)=\frac{x^3-2x^2}{x-2}\) equals \(x^2\) for
+      all values of \(x\) except \(2\), we have the same chart of values
+      as before, and we assume \(\lim_{x\to 2} h(x)=4\).
+    \item (Example) By graphing \(y=f(x)\), \(y=g(x)\), and \(y=h(x)\),
+      we can see that the points on the graph approach the point \((2,4)\)
+      in all three cases.
+  \end{itemize}
+\item Continuity
+  \begin{itemize}
+    \item A continuous function satsifies the equality \(f(a)=\lim_{x\to a}f(x)\)
+    for all numbers \(a\) in its domain. (The ``just plug it in'' rule.)
+    \item Intuitively: the graph of the function can be drawn without lifting
+    your pencil on the intervals where it is defined
+    \item FACT: \(f(x)=x\) is continuous, and any combination of continuous
+    functions using \(+\), \(-\), \(\times\), \(/\), \(\circ,\) or powers is
+    continuous (where it is defined).
+    \item (Example 3) \(f(x)=\frac{1}{x-2}\) is continuous for its entire
+    domain, but undefined at its asymptote \(x=2\).
+    \item (Example 5) By graphing
+      \[
+        \begin{matrix}
+        f(x)
+          =
+        \left\{
+        \begin{matrix}
+          x+2 & x < 1 \\
+          -\frac{x}{2}+5 & x\geq 1
+        \end{matrix}
+        \right.
+          &
+        g(x)
+          =
+        \left\{
+        \begin{matrix}
+          2x-1 & x\leq 2 \\
+          -x+5 & x>2
+        \end{matrix}
+        \right.
+        \end{matrix}
+      \]
+    we see that \(f\) is continuous except for when \(x=1\), and
+    \(g\) is continuous everywhere.
+  \end{itemize}
+\item Limits to \(\pm\infty\)
+  \begin{itemize}
+    \item \(\lim_{x\to \infty}f(x)=L\) means that the value of \(f(x)\) approaches
+          \(L\) as the value of \(x\) attains arbitrarily large postive values.
+    \item \(\lim_{x\to -\infty}f(x)=L\) means that the value of \(f(x)\) approaches
+          \(L\) as the value of \(x\) attains arbitrarily large negative values.
+    \item (Example) Use a chart of values to infer that
+          \(\lim_{x\to\pm\infty}\frac{1}{x}=0\).
+    \item (Example 14) Use a chart of values and algebraic manipulation to
+          show that \(\lim_{x\to\pm\infty}\frac{x^2+1}{2x^2+3}=\frac{1}{2}\).
+  \end{itemize}
+\item Evaluating limits analytically
+  \begin{itemize}
+    \item For continuous functions, use the ``just plug it in'' rule.
+    \item (Example 10) Evaluate \(\lim_{x\to 4}x^2-7\)
+    \item For limits of the form \(\frac{\text{nonzero}}{0}\), the limit is
+          undefined.
+    \item (Example 9) Show \(\lim_{x\to 2}\frac{1}{x-2}\) does not exist.
+    \item For limits of the form \(\frac{0}{0}\), the limit is indeterminate:
+          use canceling to determine its value.
+    \item (Example 11) Evaluate \(\lim_{x\to 2}\frac{x^2-4}{x-2}\).
+  \end{itemize}
+
+\item\textit{
+  HW: 25-44
+}
+\end{itemize}
+
 
 \section*{Remaining Topics}
 
 \begin{itemize}
-  \item 3.1 Limits
   \item 3.2 The Slope of a Tangent to a Curve
   \item 3.3 The Derivative
   \item 3.4 The Derivative as an Instantaneous Rate of Change
