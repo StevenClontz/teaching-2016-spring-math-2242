@@ -819,16 +819,16 @@
     \begin{itemize}
       \item
       For a bounded region \(D\subseteq\mathbb R^2\) and continuous
-      \(F:D\to\mathbb R\), the double integral
+      \(f:D\to\mathbb R\), the double integral
         \[
           \iint_D f\dvar A
         \]
       is defined to be the volume of
-      \(D^\uparrow=\{(x,y,z)\in\mathbb R^3:(x,y)\in D,0\leq z\leq F(x,y)\}\)
+      \(D^\uparrow=\{(x,y,z)\in\mathbb R^3:(x,y)\in D,0\leq z\leq f(x,y)\}\)
       minus the volume of
-      \(D_\downarrow=\{(x,y,z)\in\mathbb R^3:(x,y)\in D,F(x,y)\leq z\leq 0\}\)
+      \(D_\downarrow=\{(x,y,z)\in\mathbb R^3:(x,y)\in D,f(x,y)\leq z\leq 0\}\)
       (sometimes called net volume or signed volume).
-      \item Assuming \(F(x,y)\geq 0\), we may apply the definition of volume
+      \item Assuming \(f(x,y)\geq 0\), we may apply the definition of volume
       above to get
         \[
           \iint_D F\dvar A
@@ -838,7 +838,7 @@
           \dvar x
         \]
       And if each cross section \(A(x)\) is described by \(\phi_1(x)\leq y\leq\phi_2(x)\)
-      and \(0\leq z\leq F(x,y)\),
+      and \(0\leq z\leq f(x,y)\),
       we have that
         \[
           \iint_D F\dvar A
@@ -850,7 +850,7 @@
           \int_{x=a}^{x=b}
           \left[
           \int_{y=\phi_1(x)}^{y=\phi_2(x)}
-          F(x,y) \dvar y
+          f(x,y) \dvar y
           \right] \dvar x
         \]
       \item Similarly, if \(D\) is described by \(c\leq y\leq d\) and
@@ -861,10 +861,10 @@
           \int_{y=c}^{y=d}
           \left[
           \int_{x=\psi_1(y)}^{x=\psi_2(y)}
-          F(x,y) \dvar x
+          f(x,y) \dvar x
           \right] \dvar y
         \]
-      \item The above holds even when \(F(x,y)\geq 0\) doesn't hold.
+      \item The above holds even when \(f(x,y)\geq 0\) doesn't hold.
     \end{itemize}
   \item Iterated integrals
     \begin{itemize}
@@ -873,13 +873,13 @@
         \[
           \int_a^b
           \int_{\phi_1(x)}^{\phi_2(x)}
-          F(x,y)
+          f(x,y)
           \dvar y\dvar x
             =
           \int_{x=a}^{x=b}
           \left[
           \int_{y=\phi_1(x)}^{y=\phi_2(x)}
-          F(x,y) \dvar y
+          f(x,y) \dvar y
           \right] \dvar x
         \]
       \item (Example) Sketch the region of integration for
@@ -900,12 +900,136 @@
   }
 \end{itemize}
 
+\section*{5.4 Changing the Order of Integration}
+\begin{itemize}
+  \item Rectangular regions of integration
+    \begin{itemize}
+      \item For constant bounds of integration:
+        \[
+          \int_a^b\int_c^d f(x,y)\dvar y\dvar x
+            =
+          \int_c^d\int_a^b f(x,y)\dvar x\dvar y
+        \]
+      \item (Example) Verify that
+        \(
+          \int_0^1\int_1^2 x^2+2xy\dvar y\dvar x
+            =
+          \int_1^2\int_0^1 x^2+2xy\dvar x\dvar y
+        \).
+    \end{itemize}
+  \item Nonrectangular regions of integration
+    \begin{itemize}
+      \item Bounds of integration cannot be directly swapped; however, by
+      interpreting the region of integration new bounds may be found in
+      the other order.
+      \item (Example) Verify that
+        \(
+          \int_0^4\int_0^{\frac{4-y}{2}} x+y \dvar x\dvar y
+        \)
+      and
+        \(
+          \int_0^2\int_0^{4-2x} x+y \dvar y\dvar x
+        \)
+      share the same region of integration and are equal.
+      \item (Example 2) Evaluate
+        \(
+          \int_1^2\int_0^{\log x}(x-1)\sqrt{1+e^{2y}}\dvar y\dvar x
+        \).
+    \end{itemize}
+  \item Estimating double integrals
+    \begin{itemize}
+      \item By definition, \(\iint_D 1\dvar A=A(D)\).
+      \item If \(m\leq f(x,y)\leq M\), then
+      \(m\cdot A(D)\leq\iint_D f(x,y)\dvar A\leq M\cdot A(D)\).
+      \item (Example 3) Prove that
+      \(\frac{1}{\sqrt 3}\leq \iint_D \frac{1}{\sqrt{1+x^6+y^8}}\dvar A \leq 1\)
+      where \(D\) is the unit square.
+    \end{itemize}
+  \item\textit{
+    HW: 1-15
+  }
+\end{itemize}
+
+\section*{5.5 The Triple Integral}
+
+\begin{itemize}
+  \item Triple Integrals
+    \begin{itemize}
+      \item
+      For a bounded region \(D\subseteq\mathbb R^3\) and continuous
+      \(f:D\to\mathbb R\), the triple integral
+        \[
+          \iiint_D f\dvar V
+        \]
+      is defined to be the hypervolume of
+      \(D^\uparrow=\{(x,y,z,w)\in\mathbb R^3:(x,y,z)\in D,0\leq w\leq f(x,y,z)\}\)
+      minus the hypervolume of
+      \(D_\downarrow=\{(x,y,z,w)\in\mathbb R^3:(x,y,z)\in D,f(x,y,z)\leq w\leq 0\}\).
+    \end{itemize}
+  \item Rectangular Boxes
+    \begin{itemize}
+      \item
+      If \(B=[a_1,b_1]\times[a_2,b_2]\times[a_3,b_3]\), then
+        \[
+          \begin{matrix}
+            \iiint_B f\dvar V
+              & = &
+            \int_{a_3}^{b_3}\int_{a_2}^{b_2}\int_{a_1}^{b_1}
+            f(x,y,z) \dvar x\dvar y\dvar z
+              \\ & = &
+            \int_{a_2}^{b_2}\int_{a_1}^{b_1}\int_{a_3}^{b_3}
+            f(x,y,z) \dvar z\dvar x\dvar y
+              \\ & = &
+            \text{etc.}
+          \end{matrix}
+        \]
+      \item
+      (Example)
+      Write \(\iiint_D e^{x+y+z}\dvar V\) where
+      \(D=[0,4]\times[0,2]\times[1,3]\) as a few different iterated integrals,
+      then evaluate one.
+    \end{itemize}
+  \item General regions of integration
+    \begin{itemize}
+      \item
+      If \(E\subseteq\mathbb R^2\) and
+      \(D=\{(x,y,z)\in\mathbb R^3:(x,y)\in E,\gamma_1(x,y)\leq z\leq\gamma_2(x,y)\}\),
+      then
+      \[
+        \iiint_D f(x,y,z)\dvar V
+          =
+        \iint_E
+          \left[\int_{\gamma_1(x,y)}^{\gamma_2(x,y)} f(x,y,z)\dvar z\right]
+        \dvar A
+      \]
+      (and similar for \(x,y\) instead of \(z\)).
+      \item (Example 5) Express \(\iiint_W x\dvar V\) where \(W\) is the
+      solid for which \(x,y,z\) are positive and \(x^2+y^2\leq z\leq 2\)
+      as a few different iterated integrals.
+      \item (Example 6) Express \(\iiint_W x\dvar V\) where \(W\) is the
+      solid in \(\mathbb R^3\) above the triangle with vertices
+      \((0,0,0),(1,0,0),(1,1,0)\) and between the surfaces \(z=x^2+y^2\)
+      and \(z=2\) as an iterated integral, then evaluate it.
+    \end{itemize}
+  \item Applications
+    \begin{itemize}
+      \item \(\iiint_D 1\dvar V\) is the volume of \(D\)
+      \item \(\frac{1}{V(D)}\iiint_D f(x,y,z)\dvar V\) is the average value
+            of the function \(f\) restricted to \(D\)
+      \item If \(\rho(x,y,z)\) gives the density of a solid at the coordinate
+            \((x,y,z)\), then \(\iiint_D \rho(x,y,z)\dvar V\) calculates its
+            overall mass.
+    \end{itemize}
+  \item\textit{
+    HW: 1-22, 25-28
+  }
+\end{itemize}
+
+
 
 \section*{Remaining Topics}
 
 \begin{itemize}
-  \item 5.4 Changing the Order of Integration
-  \item 5.5 The Triple Integral
   \item 6.1 The Geometry of Maps from \(\mb R^2\) to \(\mb R^2\)
 
 % \section*{1.4 Cylindrical and Spherical Coordinates}
