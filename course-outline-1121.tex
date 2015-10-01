@@ -434,14 +434,117 @@
 }
 \end{itemize}
 
+\section*{3.3 The Derivative}
+
+\begin{itemize}
+\item Secant and Tangent Lines
+  \begin{itemize}
+    \item The slope of a secant line is given by \(\frac{\Delta y}{\Delta x}\).
+    \item The slope of a tangent line is given by
+          \(\lim_{\Delta x\to 0}\frac{\Delta y}{\Delta x}\).
+    \item (Example) Find the slope of a few secant lines for \(y=x^2\) about the
+          point \((2,4)\), use this to guess the slope of the tangent line
+          at \((2,4)\), then calculate the tangent slope directly from the limit.
+  \end{itemize}
+\item Derivative
+  \begin{itemize}
+    \item The derivative \(f'(x)\) or \(\frac{d}{dx}[f(x)]\) of a function
+          gives the slope of the tangent lines for each point on the graph
+          \((x,f(x))\).
+    \item \(f'(x)=\lim_{\Delta x\to 0}\frac{\Delta y}{\Delta x}=
+            \lim_{\Delta x\to 0}\frac{f(x+\Delta x)-f(x)}{\Delta x}\)
+    \item (Example) Show that the derivative of \(f(x)=x^2\)
+          is \(f'(x)=2x\), then use this to find the slope of the tangent
+          line at \((2,4)\).
+    \item (Example 2) Prove that for \(y=6x-2x^3\), \(y'=\frac{dy}{dx}=6-6x^2\).
+    \item (Example 4) Prove that for \(g(x)=x^2+\frac{1}{x+1}\),
+          \(g'(x)=2x-\frac{1}{(x+1)^2}\).
+  \end{itemize}
+
+\item\textit{
+  HW: 1-24
+}
+\end{itemize}
+
+\section*{3.5 Derivatives of Polynomials}
+
+\begin{itemize}
+\item Derivatives of Constants and Identity
+  \begin{itemize}
+    \item \(\frac{d}{dt}[c]=0\)
+    \item (Example 1) Calculate the \(\frac{dy}{dx}\) for \(y=-5\).
+    \item (Example 3) Prove that if \(y=x\) then \(y'=1\).
+  \end{itemize}
+\item Derivatives of \(x^n\)
+  \begin{itemize}
+    \item (Example) Prove that if \(f(x)=x^5\) then \(f'(x)=5x^4\).
+    \item \(\frac{d}{dx}[x^p]=px^{p-1}\)
+    \item (Example 2) Find the derivative of \(y=x^3\).
+    \item (Example 4) Find \(\frac{dv}{dr}\) where \(v=r^10\).
+  \end{itemize}
+\item Constant Multiple Rule
+  \begin{itemize}
+    \item \(\frac{d}{dx}[cf(x)]=cf'(x)\)
+    \item (Example 5) Find the derivative of \(y=3x^2\).
+  \end{itemize}
+\item Sum/Difference Rule
+  \begin{itemize}
+    \item \(\frac{d}{dx}[f(x)+g(x)]=f'(x)+g'(x)\)
+    \item (Example 7) Find the slope of a line tangent to the curve
+          \(y=4x^7-x^4\) at the point \((1,3)\).
+  \end{itemize}
+
+\item\textit{
+  HW: 1-18
+}
+\end{itemize}
+
+\section*{3.4 The Derivative as an Instantaneous Rate of Change}
+
+\begin{itemize}
+\item Interpretation of \(\frac{du}{dv}\)
+  \begin{itemize}
+    \item The fraction \(\frac{\Delta u}{\Delta v}\) represents the
+    change in a variable \(u\) as compared to the change in another variable \(v\).
+    \item Therefore the expression
+    \(\frac{du}{dv}=\lim_{\Delta v\to 0}\frac{\Delta u}{\Delta v}\) measures
+    the instantaneous rate of change in \(u\) with respect to the rate of
+    change in \(v\).
+    \item In particular, if \(s\) is the position of an object and
+    \(t\) is the time, then \(\frac{ds}{dt}\) is the instantaneous rate of
+    change in position with respect to time, known as its velocity.
+    \item (Example 3) Objects at sea level fall roughly \(16t^2\) feet after
+    \(t\) seconds from release. Note that after \(4\) seconds, the object
+    has fallen \(256\) feet. Use the following chart to approximate
+    the instantaneous downward velocity of the object \(4\) seconds after
+    release, then compute it exactly using a derivative.
+    \[
+      \begin{array}{c|c|c|c|c|c}
+        t & 3 & 3.9 & 3.99 & 3.999 & 4 \\
+        \Delta t \text{ from } 4 & 1 & 0.1 & 0.01 & 0.001 & 0 \\\hline
+        s & 144 & 243.36 & 254.7216 & 255.872016 & 256 \\
+        \Delta s \text{ from } 256 & 112 & 12.64 & 1.2784 & 0.127984 & 0 \\\hline\hline
+        \frac{\Delta s}{\Delta t} & 112 & 126.4 & 127.84 & 127.984
+      \end{array}
+    \]
+    \item (Example 5) A spherical balloon is being inflated. Find a formula
+    for the instantaneous rate of change of volume with respect to its radius,
+    then compute it when the radius is \(2\) meters. (Hint: \(V=\frac{4}{3}\pi r^3\).)
+    \item (3.5 Example 8) Suppose the displacement of a piston is \(t^3-6t^2+8t\)
+    centimeters after \(t\) seconds have elapsed. Find the position and
+    velocity of the piston in one second intervals from \(t=0\) to \(t=4\).
+  \end{itemize}
+
+\item\textit{
+  HW \textbf{in section 3.5}: 25-32, 38-42
+}
+\end{itemize}
+
+
 
 \section*{Remaining Topics}
 
 \begin{itemize}
-  \item 3.2 The Slope of a Tangent to a Curve
-  \item 3.3 The Derivative
-  \item 3.4 The Derivative as an Instantaneous Rate of Change
-  \item 3.5 Derivatives of Polynomials
   \item 3.6 Derivatives of Products and Quotients of Functions
   \item 3.7 The Derivative of a Power of a Function
   \item 3.8 Differentiation of Implicit Functions
