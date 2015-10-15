@@ -1029,59 +1029,219 @@
 
 
 
+\section*{1.4 Cylindrical and Spherical Coordinates}
+
+\begin{itemize}
+  \item Transformation of variables
+    \begin{itemize}
+      \item A transformation of variables is a function
+            \(\vect T:\mathbb R^n\to\mathbb R^n\).
+      \item (Example) Sketch the integer lattice on the \(uv\) plane and
+            its image in the \(xy\) plane for
+            the transformation of variables \(\vect T(u,v)=(x,y)=(u,u+v)\).
+    \end{itemize}
+  \item Polar Coordinates
+    \begin{itemize}
+      \item \(\vect p(r,\theta)=(r\cos\theta,r\sin\theta)\)
+      \item Usually, assume \(r\geq0\) and \(0\leq\theta\leq2\pi\)
+      \item \(r^2=x^2+y^2\), \(\theta=\Arctan(\frac{y}{x})+k\pi\)
+      \item (Example)
+            Convert \(A=\vect p(4,2\pi/3)\) from polar to Cartesian.
+            Convert \(B=(3,-3)\) from Cartesian to polar. Plot both.
+      \item (Example)
+            Express the curves \(x=\sqrt{4-y^2}\) and \(y=3\) in terms
+            of polar coordinates.
+    \end{itemize}
+  \item Cylindrical Coordinates
+    \begin{itemize}
+      \item \(\vect c(r,\theta,z)=(r\cos\theta,r\sin\theta,z)\)
+      \item Usually, assume \(r\geq0\) and \(0\leq\theta\leq2\pi\)
+      \item \(r^2=x^2+y^2\), \(\theta=\Arctan(\frac{y}{x})+k\pi\), \(z=z\)
+      \item (Example 1) Convert \(A=\vect c(8,2\pi/3,-3)\) from cylindrical to
+            Cartesian. Convert \(B=(6,6,8)\) from Cartesian to cylindrical.
+            Plot both.
+      \item (Example) Express the surfaces \(x^2+y^2=9\) and \(z^2=x^2+y^2\)
+            in terms of cylindrical coordinates.
+    \end{itemize}
+  \item Spherical Coordinates
+    \begin{itemize}
+      \item \(
+              \vect s(\rho,\theta,\phi)
+                =
+              (
+                \rho\sin\phi\cos\theta,
+                \rho\sin\phi\sin\theta,
+                \rho\cos\phi
+              )
+            \)
+      \item Usually, assume \(\rho\geq0\), \(0\leq\theta\leq2\pi\), and
+            \(0\leq\phi\leq\pi\)
+      \item \(\rho^2=x^2+y^2+z^2\),
+            \(\theta=\Arctan(\frac{y}{x})+k\pi\),
+            \(\phi=\Arctan(\frac{\sqrt{x^2+y^2}}{z})\)
+      \item (Example 2) Convert \(A=(1,-1,1)\) from Cartesian to spherical.
+            Convert \(B=\vect s(3,\pi/6,\pi/4)\) from spherical to Cartesian.
+            Convert \(C=(2,-3,6)\) from Cartesian to spherical.
+            Convert \(D=\vect s(1,-\pi/2,\pi/4)\) from spherical to Cartesian.
+            Plot all four.
+      \item (Example 3) Express the surfaces \(xz=1\) and \(x^2+y^2-z^2=1\)
+            in terms of spherical coordiantes.
+    \end{itemize}
+  \item\textit{
+    HW: 1-16
+  }
+\end{itemize}
+
+
+\section*{6.1 The Geometry of Maps from \(\mb R^2\) to \(\mb R^2\)}
+\begin{itemize}
+  \item Images of regions by transformations
+    \begin{itemize}
+      \item (Example 1) Find the image of the rectangle
+            \([0,1]\times[0,2\pi]\) in the \(r\theta\) plane under the
+            polar coordinate transformation \(\vect p\).
+      \item (Example 2) Find the image of the square
+            \([-1,1]^2=[-1,1]\times[-1,1]\) in the \(uv\) plane under the
+            transformation
+            \(
+              \vect T(u,v)
+                =
+              \begin{bmatrix}
+                \frac{1}{2} & \frac{1}{2} \\
+                \frac{1}{2} & -\frac{1}{2}
+              \end{bmatrix}
+              \<u,v\>
+            \)
+    \end{itemize}
+  \item One-to-one and Onto
+    \begin{itemize}
+      \item A one-to-one transformation sends each point in the domain to
+            a distinct point in the range.
+      \item An onto transformation sends something in the domain onto each
+            point of the range.
+      \item (Example 3) Show that the polar coordinate transformation
+            \(\vect p\) is onto but not one-to-one.
+      \item (Example 4) Show that the transformation \(\vect T\) from example 2
+            is both one-to-one and onto.
+      \item (Example 5) Show that \(\vect T(u,v)=(u,0)\) is neither one-to-one
+            nor onto.
+      \item (Example 7) Find a rectangle in the \(r\theta\) plane which maps
+            onto the region \(\{(x,y):x,y\geq 0,a^2\leq x^2+y^2\leq b^2\}\)
+            in the Cartesian plane by the polar coordinate transformation.
+    \end{itemize}
+  \item Linear transformations
+    \begin{itemize}
+      \item Transformations \(\vect T:\mathbb R^n\to\mathbb R^n\) defined by
+            \(\vect T(\vect u)=A\vect u\) for an \(n\)-dimensional matrix \(A\)
+            are called linear transformations.
+      \item (Example 6) Find a region in the \(uv\) plane which maps onto
+            the square with vertices \((1,0),(0,1),(-1,0),(0,-1)\) in the
+            \(xy\) plane by the linear transformation given in Example 2.
+      \item Transformations \(\vect T:\mathbb R^n\to\mathbb R^n\) defined by
+            \(\vect T(\vect u)=A\vect u+\vect x_0\) for an \(n\)-dimensional
+            matrix \(A\) and \(n\)-dimensional vector \(\vect x_0\)
+            are called affine transformations. (Every linear transformation
+            is affine.)
+      \item (Example) Find an affine transformation which maps the
+            unit square in the \(uv\) plane onto the square with vertices
+            \((1,0),(0,1),(-1,0),(0,-1)\) in the
+            \(xy\) plane.
+      \item An affine transformation is both one-to-one and onto
+            exactly when \(\det A\not=0\).
+      \item (Example) Use this fact to reinvestigate examples 4 and 5.
+      \item (Example) Prove that affine transformations send
+            parallelograms to parallelograms.
+    \end{itemize}
+  \item\textit{
+    HW: 1-13
+  }
+\end{itemize}
+
+
+
+\section*{6.2 The Change of Variables Theorem}
+
+\begin{itemize}
+  \item Affine transformations of areas
+    \begin{itemize}
+      \item (Example) Prove that the area of the image of the unit square
+            under a linear transformation with matrix \(M\) is given by
+            \(|\det M|\). (Hint: the area of a parallelogram determined
+            by two vectors \(\vect v_1,\vect v_2\) is given by
+            \(\|\vect v_1\times\vect v_2\|\).)
+      \item An affine transformation with matrix \(M\) transforms hypervolumes
+            by a factor of \(|\det M|\).
+      \item (Example) Verify this fact for the parallelogram
+            with vertices \((2,0),(3,1),(1,3),(0,2)\) in the \(uv\) plane
+            and its image in the \(xy\) plane under
+            the transformation \(\vect T(u,v)=(2u+v+3,v-u-2)\).
+      \item Put another way, \(\iint_{D}1\dvar A=\iint_{D^*}|\det M|\dvar A\).
+    \end{itemize}
+  \item Affine transformations of single/double/triple integrals
+    \begin{itemize}
+      \item (Example) Let \(x=T(u)=mu+x_0\).
+            Use substitution to prove that
+            if the image of \([c_1,c_2]\) under \(T\) is \([b_1,b_2]\), then
+            \(\int_{b_1}^{b_2}f(x)\dvar x=|m|\int_{c_1}^{c_2}f(T(u))\dvar u\).
+      \item (Example) Use the previous fact to show that
+            \(\int_0^4 \sqrt{2x+1}\dvar x=\frac{1}{2}\int_1^9 u^{1/2}\dvar u\)
+      \item For any 2D affine transformation \(\vect T\) with matrix \(M\)
+            transforming \(D^*\) to \(D\),
+            \(\iint_D f(x,y)\dvar A=\iint_{D^*}f(\vect T(u,v))|\det M|\dvar A\).
+      \item (Example) Use a linear transformation to prove that
+            \(
+              \int_0^2\int_{y/2}^{(y+4)/2}2y\dvar x\dvar y
+                =
+              4\int_0^1\int_0^1 4v\dvar v\dvar u
+            \)
+            and compute both integrals directly to verify.
+      \item (Example)
+            Compute \(\iint_D (x+y)(x-y-2)\dvar{A}\) where \(T\) is the
+            triangle with vertices \((4,2)\), \((3,1)\), \((2,2)\).
+      \item For any 3D affine transformation \(\vect T\) with matrix \(M\)
+            transforming \(D^*\) to \(D\),
+            \(\iint_D f(x,y,z)\dvar V=\iint_{D^*}f(\vect T(u,v,w))|\det M|\dvar V\).
+    \end{itemize}
+  \item Jacobian
+    \begin{itemize}
+      \item The Jacobian \(\frac{\p \vect T}{\p \vect u}\) of a transformation
+            is defined to be the determinant of its partial derivative matrix:
+            \(\det(\vect D\vect T)\).
+      \item (Example) Prove that for an affine transformation \(\vect T\) with
+            matrix \(M\) that \(\vect D\vect T=M\) and therefore
+            \(\frac{\p\vect T}{\p\vect u}=\det M\).
+      \item For any 2D transformation \(\vect T\)
+            transforming \(D^*\) to \(D\),
+            \(
+              \iint_D f(\vect x)\dvar A
+                =
+              \iint_{D^*}f(\vect T(\vect u))|\frac{\p\vect T}{\p\vect u}|\dvar A
+            \).
+      \item For any 3D transformation \(\vect T\)
+            transforming \(D^*\) to \(D\),
+            \(
+              \iiint_D f(\vect x)\dvar A
+                =
+              \iiint_{D^*}f(\vect T(\vect u))|\frac{\p\vect T}{\p\vect u}|\dvar A
+            \).
+      \item (Example) Use a 2D transformation to compute
+            \(\iint_D e^x\cos(\pi e^x)\dvar{A}\) where
+            \(D\) is the region
+            bounded by \(y=0\), \(y=e^x-2\), \(y=\frac{e^x-1}{2}\).
+    \end{itemize}
+  \item Polar, cylindrical, spherical change of variables
+    \begin{itemize}
+      \item (TODO)
+    \end{itemize}
+  \item\textit{
+    HW: TBA
+  }
+\end{itemize}
+
+
 \section*{Remaining Topics}
 
 \begin{itemize}
-  \item 6.1 The Geometry of Maps from \(\mb R^2\) to \(\mb R^2\)
-
-% \section*{1.4 Cylindrical and Spherical Coordinates}
-
-% \begin{itemize}
-%   \item Transformation of variables
-%   \item Polar Coordinates
-%     \begin{itemize}
-%       \item \(p(r,\theta)=(r\cos\theta,r\sin\theta)\)
-%       \item Usually, assume \(r\geq0\) and \(0\leq\theta\leq2\pi\)
-%       \item \(r^2=x^2+y^2\), \(\theta=\Arctan(\frac{y}{x})+k\pi\)
-%     \end{itemize}
-%   \item Cylindrical Coordinates
-%     \begin{itemize}
-%       \item \(c(r,\theta,z)=(r\cos\theta,r\sin\theta,z)\)
-%       \item Usually, assume \(r\geq0\) and \(0\leq\theta\leq2\pi\)
-%       \item \(r^2=x^2+y^2\), \(\theta=\Arctan(\frac{y}{x})+k\pi\), \(z=z\)
-%       \item (Example 1) Convert \(A=c(8,2\pi/3,-3)\) from cylindrical to
-%             Cartesian. Convert \(B=(6,6,8)\) from Cartesian to cylindrical.
-%             Plot both.
-%     \end{itemize}
-%   \item Spherical Coordinates
-%     \begin{itemize}
-%       \item \(
-%               s(\rho,\theta,\phi)
-%                 =
-%               (
-%                 \rho\sin\phi\cos\theta,
-%                 \rho\sin\phi\sin\theta,
-%                 \rho\cos\phi
-%               )
-%             \)
-%       \item Usually, assume \(\rho\geq0\), \(0\leq\theta\leq2\pi\), and
-%             \(0\leq\phi\leq\pi\)
-%       \item \(\rho^2=x^2+y^2+z^2\),
-%             \(\theta=\Arctan(\frac{y}{x})+k\pi\),
-%             \(\phi=\Arctan(\frac{\sqrt{x^2+y^2}}{z})\)
-%       \item (Example 2) Convert \(A=(1,-1,1)\) from Cartesian to spherical.
-%             Convert \(B=s(3,\pi/6,\pi/4)\) from spherical to Cartesian.
-%             Convert \(C=(2,-3,6)\) from Cartesian to spherical.
-%             Convert \(D=s(1,-\pi/2,\pi/4)\) from spherical to Cartesian.
-%             Plot all four.
-%       \item (Example 3) Express the equations \(xz=1\) and \(x^2+y^2-z^2=1\)
-%             in terms of \(\rho,\phi,\theta\).
-%     \end{itemize}
-%   \item\textit{
-%     HW: 1-16
-%   }
-% \end{itemize}
-  \item 6.2 The Change of Variables Theorem
   \item 7.1 The Path Integral
   \item 7.2 Line Integrals
   \item 7.3 Parametrized Surfaces
