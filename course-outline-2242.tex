@@ -895,6 +895,12 @@
             triangle with vertices \((0,0),(1,0),(1,1)\)
             as an interated integral, then evaluate it.
     \end{itemize}
+  \item Applications
+    \begin{itemize}
+      \item \(\iint_D 1\dvar A\) is the area of \(D\)
+      \item \(\frac{1}{A(D)}\iint_D f(x,y)\dvar A\) is the average value
+            of the function \(f\) restricted to \(D\)
+    \end{itemize}
   \item\textit{
     HW: 1-17
   }
@@ -940,9 +946,8 @@
     \end{itemize}
   \item Estimating double integrals
     \begin{itemize}
-      \item By definition, \(\iint_D 1\dvar A=A(D)\).
-      \item If \(m\leq f(x,y)\leq M\), then
-      \(m\cdot A(D)\leq\iint_D f(x,y)\dvar A\leq M\cdot A(D)\).
+      \item If \(g(x,y)\leq f(x,y)\leq h(x,y)\) for \((x,y)\in D\), then
+      \(\iint_D g(x,y)\dvar A\leq\iint_D f(x,y)\dvar A\leq \iint_D h(x,y)\dvar A\).
       \item (Example 3) Prove that
       \(\frac{1}{\sqrt 3}\leq \iint_D \frac{1}{\sqrt{1+x^6+y^8}}\dvar A \leq 1\)
       where \(D\) is the unit square.
@@ -967,6 +972,15 @@
       \(D^\uparrow=\{(x,y,z,w)\in\mathbb R^3:(x,y,z)\in D,0\leq w\leq f(x,y,z)\}\)
       minus the hypervolume of
       \(D_\downarrow=\{(x,y,z,w)\in\mathbb R^3:(x,y,z)\in D,f(x,y,z)\leq w\leq 0\}\).
+    \end{itemize}
+  \item Applications
+    \begin{itemize}
+      \item \(\iiint_D 1\dvar V\) is the volume of \(D\)
+      \item \(\frac{1}{V(D)}\iiint_D f(x,y,z)\dvar V\) is the average value
+            of the function \(f\) restricted to \(D\)
+      \item If \(\rho(x,y,z)\) gives the density of a solid at the coordinate
+            \((x,y,z)\), then \(\iiint_D \rho(x,y,z)\dvar V\) calculates its
+            overall mass.
     \end{itemize}
   \item Rectangular Boxes
     \begin{itemize}
@@ -1012,15 +1026,6 @@
       solid in \(\mathbb R^3\) above the triangle with vertices
       \((0,0,0),(1,0,0),(1,1,0)\) and between the surfaces \(z=x^2+y^2\)
       and \(z=2\) as an iterated integral, then evaluate it.
-    \end{itemize}
-  \item Applications
-    \begin{itemize}
-      \item \(\iiint_D 1\dvar V\) is the volume of \(D\)
-      \item \(\frac{1}{V(D)}\iiint_D f(x,y,z)\dvar V\) is the average value
-            of the function \(f\) restricted to \(D\)
-      \item If \(\rho(x,y,z)\) gives the density of a solid at the coordinate
-            \((x,y,z)\), then \(\iiint_D \rho(x,y,z)\dvar V\) calculates its
-            overall mass.
     \end{itemize}
   \item\textit{
     HW: 1-22, 25-28
