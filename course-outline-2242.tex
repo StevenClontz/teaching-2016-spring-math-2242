@@ -1400,11 +1400,91 @@
 \end{itemize}
 
 
+
+\section*{7.3 Parametrized Surfaces}
+
+\begin{itemize}
+  \item Parametrization of a Surface
+    \begin{itemize}
+      \item Let \(S\subseteq \mathbb R^3\) be a surface and
+            \(D\subseteq \mathbb R^2\)
+            be a two-dimensional region. Then \(\vect\Phi:D\to S\) is a parametrization
+            of \(S\) by \(D\).
+      \item (Example) Show that the surface given by \(z=f(x,y)\)
+            has the parametrization \(\vect\Phi(x,y)=\<x,y,f(x,y)\>\).
+      \item (Example 1) Show that the plane passing through the point
+            \(P\in\mathbb R^3\)
+            and normal to the vector \(\vect a\times\vect b\) has a parametrization
+            \(\vect\Phi(u,v)=\vect P+\vect au+\vect bv\).
+      \item (Example 2) Show that the cone \(z=\sqrt{x^2+y^2}\) has a
+            parametrization \(\vect\Phi(r,\theta)=\<r\cos\theta,r\sin\theta,r\>\)
+            for \(r\geq 0,0\leq\theta\leq2\pi\).
+      \item Surfaces which are conveniently described using cylindrical
+            or spherical coordinates may be easily parameterized by adapting
+            the relevant transformation.
+      \item (Example) Use the cylindrical and spherical transformations to
+            find parametrizations of the cone \(z=\sqrt{x^2+y^2}\).
+    \end{itemize}
+  \item Tangent and Normal Vectors to a Surface
+    \begin{itemize}
+      \item The tangent plane to a surface parameterized by \(\vect\Phi\)
+            at the point \(\vect\Phi(\vect u_0)\) has parameterization
+            \(
+              \vect L(\vect u)
+                =
+              \vect\Phi(\vect u_0)+[\vect D\vect \Phi(\vect u_0)]\vect u
+            \).
+      \item (Example 3) Find a parameterization of the plane tangent
+            to the surface defined by
+            \(\vect\Phi(u,v)=\<u\cos v,u\sin v,u^2+v^2\>\) at the point
+            \((1,0,1)\).
+      \item The columns \(\frac{\p\vect\Phi}{\p u}(u_0,v_0)\),
+            \(\frac{\p\vect\Phi}{\p v}(u_0,v_0)\) give tangent vectors to
+            the surface, and their cross-product is normal to the surface.
+      \item (Example) Find an equation in \(x,y,z\) for the tangent plane
+            in Example 3.
+      \item (Example) Find a parameterization for the sphere cenetered at
+            the origin with radius \(3\). Then describe the plane tangent
+            to it at the point \((1,-2,2)\).
+    \end{itemize}
+  \item\textit{
+    HW: 1-3, 7-11, 13-15
+  }
+\end{itemize}
+
+
+
+\section*{7.4 Area of a Surface}
+
+\begin{itemize}
+  \item Definition of Surface Area
+    \begin{itemize}
+      \item The area of a surface parametrized by \(\vect\Phi\) with domain
+            \(D\) is given by
+            \(
+              \iint_D
+                \|\frac{\p\vect\Phi}{\p u}\times\frac{\p\vect\Phi}{\p v}\|
+              \dvar A
+            \)
+      \item (Example) Verify that this definition matches the area of the
+            rectangle given by the vectors \(\<3,0,-4\>\) and \(\<0,-2,0\>\).
+      \item (Example 1) Show that the surface area of a cone with slant length
+            \(L\) and radius \(R\) is given by the formula
+            \(A=\pi R^2+\pi RL\).
+      \item (Example 2) Find that the area of a helicoid parameterized by
+            \(\Phi(r,\theta)=\<r\cos\theta,r\sin\theta,\theta\>\) is
+            equal to \(2\pi\int_0^1\sqrt{r^2+1}\dvar r\).
+      \item TODO
+    \end{itemize}
+  \item\textit{
+    HW: tba
+  }
+\end{itemize}
+
+
 \section*{Remaining Topics}
 
 \begin{itemize}
-  \item 7.3 Parametrized Surfaces
-  \item 7.4 Area of a Surface
   \item 7.5 Integrals of Scalar Functions Over Surfaces
   \item 7.6 Surface Integrals of Vector Fields
   \item 8.1 Green's Theorem
