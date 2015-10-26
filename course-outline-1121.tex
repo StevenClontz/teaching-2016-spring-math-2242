@@ -630,42 +630,6 @@
 }
 \end{itemize}
 
-\section*{3.8 Differentiation of Implicit Functions}
-
-\begin{itemize}
-\item Implicit Functions
-  \begin{itemize}
-    \item The expression \(y=f(x)\) defines an explicit function.
-    \item An equation with variables \(x,y\) may define \(y\) as an
-          implicit function of \(x\).
-    \item (Example 1) Manipulate the equation \(3x+4y=5\) which defines
-          \(y\) as an implicit function of \(x\) so that \(y\) is defined
-          as an explicit function of \(x\).
-    \item (Example) Give an explicit function which describes the part of
-          the hyperbola centered at the origin
-          with focus \((0,5)\) and vertex \((0,3)\) passing through
-          the point \((-16/3,5)\).
-  \end{itemize}
-\item Implicit Differentiation
-  \begin{itemize}
-    \item (Example) Find the slope of the line tangent to the hyperbola
-          from the previous example at the point \((-16/3,5)\).
-    \item Implicit functions may be differentated directly by using the
-          chain rule: differentiate \(y\) terms as you would \(x\), but
-          tack on a \(\frac{dy}{dx}\) term each time you do.
-    \item (Example) Find the slope of the line described in Example 1 using both
-          implicit and explicit differentation.
-    \item (Example) Solve the hyperbola problem using implicit differentiation.
-    \item (Example 3) Find \(\frac{dy}{dx}\) in terms of \(x,y\) where
-          \(3y^4+xy^2=6-2x^3\).
-    \item (Example 5) Find the slope of a line tangent to the graph of
-          \(2y^3+xy+1=0\) at the point \((-3,1)\).
-  \end{itemize}
-\item\textit{
-  HW: 1-25, 28-30
-}
-\end{itemize}
-
 \section*{3.9 Higher Derivatives}
 
 \begin{itemize}
@@ -859,10 +823,48 @@
   \end{itemize}
 \item Finding the constant of integration
   \begin{itemize}
-    \item TODO
+    \item While \(\int f(x)\dvar x=F(x)+C\) represents all antiderivatives
+          of \(f(x)\), we sometimes need to solve for \(C\) to get a specific
+          antiderivative.
+    \item (Example 8) Find an equation for \(y\) in terms of \(x\) where
+          \(\frac{dy}{dx}=3x-1\) and its graph passes through \((1,4)\).
+    \item (Example 9) Find an equation for the displacement of an object
+          with velocity given by \(v=t\sqrt{9-t^2}\) assuming \(s=0\)
+          when \(t=0\).
   \end{itemize}
 \item\textit{
-  HW: tba
+  HW: 1-18, 21-27, 33-36
+}
+\end{itemize}
+
+\section*{5.3 The Area Under a Curve}
+
+\begin{itemize}
+\item Derivation
+  \begin{itemize}
+    \item Let \(\Delta A\) be the area under an increasing curve \(y=f(x)\) from
+          \(x\) to \(x+\Delta\).
+    \item Then \(f(x)\Delta x\leq \Delta A\leq f(x+\Delta x)\Delta x\)
+          and \(f(x)\leq\frac{\Delta A}{\Delta x}\leq f(x+\Delta x)\).
+    \item As \(\Delta x\to 0\), we get \(f(x)=\frac{dA}{dx}\).
+    \item Thus \(\int f(x)\dvar x=\int \frac{dA}{dx}\dvar x\)
+          can be used to measure the area under a curve between points.
+  \end{itemize}
+\item Formula
+  \begin{itemize}
+    \item Let \(F(x)\) be any antiderivative of \(f(x)\) (usually assuming
+          \(C=0\)). Then the definite integral
+          \(\int_a^b f(x)\dvar x = \left[F(x)\right]_a^b=F(b)-F(a)\) measures
+          the area under the curve \(y=f(x)\) from \(x=a\) to \(x=b\).
+    \item (Example 2) Find the area under the straight line \(y=2x\)
+          between \(x=0\) and \(x=4\).
+    \item (Example 4) Find the area under the curve \(y=x^3\) for
+          \(1\leq x\leq 2\).
+    \item (Example 5) Find the area in the first quadrant between the
+          coordinate axes and \(y=4-x^2\).
+  \end{itemize}
+\item\textit{
+  HW: 11-19
 }
 \end{itemize}
 
@@ -871,8 +873,6 @@
 \section*{Remaining Topics}
 
 \begin{itemize}
-  \item 5.3 The Area Under a Curve
-  \item 5.4 The Definite Integral
   \item 7.1 The Trigonometric Functions
   \item 7.2 Basic Trigonometric Relations
   \item 7.3 Derivatives of the Sine and Cosine Functions
