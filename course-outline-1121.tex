@@ -687,8 +687,8 @@
     \item (Example) The height of an object launched upward from the ground
           with an initial velocity of \(v_0\) m/s is roughly
           \(s=-4.9t^2+v_0t\) meters after \(t\) seconds.
-          Find the velocity and acceleration of this object when \(t=1\) and
-          \(v_0=10\).
+          Find the velocity and acceleration of this object after \(1\) second
+          given its initial velocity \(v_0=10\) meters per second.
   \end{itemize}
 \item\textit{
   HW: 1-34, 37-38
@@ -723,45 +723,45 @@
 }
 \end{itemize}
 
-\section*{4.5 Using Derivatives in Curve Sketching}
+% \section*{4.5 Using Derivatives in Curve Sketching}
 
-\begin{itemize}
-\item Graphical interpretations of derivatives
-  \begin{itemize}
-    \item Table of relationships between \(f'\) and \(f''\) and the graph
-          of \(f\): \\
-      \begin{tabular}{c|c|c|c|c}
-        \(f'\) & \(+\) & \(+\) & \(-\) & \(-\) \\
-        Graph of \(f\) & increasing & increasing & decreasing & decreasing \\
-        \(f''\) & \(+\) & \(-\) & \(+\) & \(-\) \\
-        Graph of \(f\) & concave up & concave down & concave up & concave down
-      \end{tabular}
-    \item Graphing polynomials with derivatives:
-      \begin{itemize}
-        \item Find your critical values where \(f'(x)=0\).
-        \item Find your inflection candidates where \(f''(x)=0\).
-        \item Label these on a number line.
-        \item Choose numbers between the labeled values and test them in
-              both \(f'\) and \(f''\).
-        \item Plot the critcal values and inflection candidates on the
-              coordinate plane.
-        \item Connect the dots using the increasing/decreasing and concavity
-              information from \(f'\), \(f''\).
-      \end{itemize}
-    \item (Example 4) Sketch the graph of \(y=6x-x^2\).
-    \item (Example 5) Sketch the graph of \(y=2x^3+3x^2-12x\).
-    \item A maximum point occurs when a graph changes from increasing to
-          decreasing. A minimum point occurs when a graph changes from
-          decreasing to increasing.
-    \item An inflection point occurs when the concavity of a graph
-          changes.
-    \item (Example) Label the maximum points, minimum points, and inflection
-          points on the graph of \(y=2x^3+3x^2-12x\).
-  \end{itemize}
-\item\textit{
-  HW: 13-28
-}
-\end{itemize}
+% \begin{itemize}
+% \item Graphical interpretations of derivatives
+%   \begin{itemize}
+%     \item Table of relationships between \(f'\) and \(f''\) and the graph
+%           of \(f\): \\
+%       \begin{tabular}{c|c|c|c|c}
+%         \(f'\) & \(+\) & \(+\) & \(-\) & \(-\) \\
+%         Graph of \(f\) & increasing & increasing & decreasing & decreasing \\
+%         \(f''\) & \(+\) & \(-\) & \(+\) & \(-\) \\
+%         Graph of \(f\) & concave up & concave down & concave up & concave down
+%       \end{tabular}
+%     \item Graphing polynomials with derivatives:
+%       \begin{itemize}
+%         \item Find your critical values where \(f'(x)=0\).
+%         \item Find your inflection candidates where \(f''(x)=0\).
+%         \item Label these on a number line.
+%         \item Choose numbers between the labeled values and test them in
+%               both \(f'\) and \(f''\).
+%         \item Plot the critcal values and inflection candidates on the
+%               coordinate plane.
+%         \item Connect the dots using the increasing/decreasing and concavity
+%               information from \(f'\), \(f''\).
+%       \end{itemize}
+%     \item (Example 4) Sketch the graph of \(y=6x-x^2\).
+%     \item (Example 5) Sketch the graph of \(y=2x^3+3x^2-12x\).
+%     \item A maximum point occurs when a graph changes from increasing to
+%           decreasing. A minimum point occurs when a graph changes from
+%           decreasing to increasing.
+%     \item An inflection point occurs when the concavity of a graph
+%           changes.
+%     \item (Example) Label the maximum points, minimum points, and inflection
+%           points on the graph of \(y=2x^3+3x^2-12x\).
+%   \end{itemize}
+% \item\textit{
+%   HW: 13-28
+% }
+% \end{itemize}
 
 \section*{4.7 Applied Maximum and Minimum Problems}
 
@@ -807,14 +807,16 @@
   \begin{itemize}
     \item The line tangent to a function approximates the function near that
           point.
-    \item \(L(x)=f(a)+f'(a)(x-a)\) approximates the function \(f(x)\) near \(x=a\).
+    \item \(L_a(x)=f(a)+f'(a)(x-a)\) approximates the function \(f(x)\) near \(x=a\).
     \item (Example 8) Approximate the value of \(\sqrt{9.06}\) using the
-          linear approximation of \(f(x)=\sqrt{2x+1}\) at \(x=4\).
+          linear approximation \(L_4(x)\) of \(f(x)=\sqrt{2x+1}\) at \(x=4\).
+          (A calculator gives \(3.00998\).)
+    \item (Example) Find the linear function \(L_0(x)\) which approximates
+          \(g(x)=3x^3-4x+7\) near \(x=0\), then approximate \(g(0.1)\).
+          (The exact value is \(6.603\).)
     \item (Example) Use \(f(x)=\frac{1}{\sqrt{3+x^2}}\) to show
           that \(\frac{1}{\sqrt{4.21}}\approx 0.4875\).
-          (This is almost the same as what a calculator gives: \(0.48737\).)
-    \item (Example) Find a linear function which approximates
-          \(g(x)=3x^3-4x+7\) near \(x=0\), then approximate \(g(0.1)\).
+          (A calculator gives \(0.48737\).)
   \end{itemize}
 \item\textit{
   HW: 21-24, 32-34
