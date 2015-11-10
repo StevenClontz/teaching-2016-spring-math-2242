@@ -1186,9 +1186,9 @@
       \item (Example) Let \(x=T(u)=mu+x_0\).
             Use substitution to prove that
             if the image of \([c_1,c_2]\) under \(T\) is \([b_1,b_2]\), then
-            \(\int_{b_1}^{b_2}f(x)\dvar x=|m|\int_{c_1}^{c_2}f(T(u))\dvar u\).
+            \(\int_{b_1}^{b_2}f(x)\dvar x=\int_{c_1}^{c_2}f(T(u))|m|\dvar u\).
       \item (Example) Use the previous fact to show that
-            \(\int_0^4 \sqrt{2x+1}\dvar x=\frac{1}{2}\int_1^9 u^{1/2}\dvar u\)
+            \(\int_0^4 \sqrt{2x+1}\dvar x=\int_1^9 \frac{1}{2}\sqrt{u}\dvar u\)
       \item For any 2D affine transformation \(\vect T\) with matrix \(M\)
             transforming \(D^*\) to \(D\),
             \(\iint_D f(x,y)\dvar A=\iint_{D^*}f(\vect T(u,v))|\det M|\dvar A\).
@@ -1224,9 +1224,9 @@
       \item For any 3D transformation \(\vect T\)
             transforming \(D^*\) to \(D\),
             \(
-              \iiint_D f(\vect x)\dvar A
+              \iiint_D f(\vect x)\dvar V
                 =
-              \iiint_{D^*}f(\vect T(\vect u))|\frac{\p\vect T}{\p\vect u}|\dvar A
+              \iiint_{D^*}f(\vect T(\vect u))|\frac{\p\vect T}{\p\vect u}|\dvar V
             \).
       \item (Example) Use a 2D transformation to compute
             \(\iint_D e^x\cos(\pi e^x)\dvar{A}\) where
@@ -1243,13 +1243,13 @@
             \)
       \item Cylindrical coordinates:
             \(
-              \iint_D f(x,y,z)\dvar A
+              \iint_D f(x,y,z)\dvar V
                 =
               \iint_{D^*}f(r\cos\theta,r\sin\theta,z)r\dvar V
             \)
       \item Spherical coordinates:
             \(
-              \iint_D f(x,y,z)\dvar A
+              \iint_D f(x,y,z)\dvar V
                 =
               \iint_{D^*} f(
                 \rho\sin\phi\cos\theta,
