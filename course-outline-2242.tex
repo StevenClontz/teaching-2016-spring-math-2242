@@ -1282,7 +1282,7 @@
       \item Recall that for a curve \(C\) defined by
             \(\vect r:\mathbb R\to\mathbb R^n\), the arclength function
             \(s:\mathbb R\to\mathbb R\) defined by
-            \(s(t)=\int_0^t\|\vect r(\tau)\|\dvar\tau\) gives the length
+            \(s(t)=\int_0^t\|\vect r'(\tau)\|\dvar\tau\) gives the length
             of the curve from \(0\) to \(t\).
       \item (Example) Prove that \(C=\pi D\) gives the circumference of
             a circle with diameter \(D\).
@@ -1363,7 +1363,7 @@
             by \(\vect c(t)=\<t,t^2,1\>\) for \(t\in[0,1]\).
       \item Note that
             \[
-              \int_C \vect F\cdot\dvar\vect c
+              \int_C \vect F\cdot\dvar\vect r
                 =
               \sum_{i=1}^n \int_C F_i\cdot\dvar x_i
             \]
@@ -1386,9 +1386,9 @@
       \item If \(C=C_1+C_2\), then
             \(\int_C f\dvar s=\int_{C_1}f\dvar s+\int_{C_2}f\dvar s\) and
             \(
-              \int_C \vect F\cdot\dvar r
+              \int_C \vect F\cdot\dvar \vect r
                 =
-              \int_{C_1}\vect F\cdot\dvar r+\int_{C_2}\vect F\cdot\dvar r
+              \int_{C_1}\vect F\cdot\dvar \vect r+\int_{C_2}\vect F\cdot\dvar \vect r
             \).
       \item (Example 11) Compute \(\int_C x^2\dvar x+xy\dvar y\) where
             \(C\) is the perimeter of the unit square oriented counter-clockwise.
