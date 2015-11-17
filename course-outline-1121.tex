@@ -814,7 +814,7 @@
   \end{itemize}
 \item Reverse Power Rule
   \begin{itemize}
-    \item \(\int x^p\dvar x = \frac{1}{p+1}x^{p+1}\)
+    \item \(\int x^p\dvar x = \frac{1}{p+1}x^{p+1}\) \textbf{except} when \(p=-1\)
     \item (Example) Find \(\int x^7\dvar x\).
   \end{itemize}
 \item Constant Multiple and Sum/Difference Rules
@@ -879,15 +879,80 @@
 }
 \end{itemize}
 
+\section*{7 Trigonometric Functions}
+
+\begin{itemize}
+\item Angles
+  \begin{itemize}
+    \item A full counter-clockwise rotation is represented
+          by \(2\pi\) radians or \(360^\circ\) degrees.
+    \item Smaller angles are measured as a ratio: e.g. a right angle is
+          \(2\pi/4=\pi/2\) radians or \(90^\circ\) degrees.
+    \item Angles/degrees may be converted by multiplying by the ratio
+          \(\frac{\pi}{180^\circ}\) or \(\frac{180^0}{\pi}\).
+    \item (7.1 Example 2) Convert \(45^\circ\) to radians, and
+          \(\frac{3\pi}{4}\) to degrees.
+  \end{itemize}
+\item Trig Functions
+  \begin{itemize}
+    \item The trigonometric functions measure the relationship between sides
+          of a right triangle in standard position on the \(xy\) plane:
+      \begin{itemize}
+        \item \(\sin\theta = \frac{opp}{hyp}\)
+        \item \(\cos\theta = \frac{adj}{hyp}\)
+        \item \(\tan\theta = \frac{opp}{adj}=\frac{\sin\theta}{\cos\theta}\)
+        \item \(\csc\theta = \frac{hyp}{opp}=\frac{1}{\sin\theta}\)
+        \item \(\sec\theta = \frac{hyp}{adj}=\frac{1}{\cos\theta}\)
+        \item \(\cot\theta =
+          \frac{adj}{opp}=\frac{1}{\tan\theta}=\frac{\cos\theta}{\sin\theta}\)
+      \end{itemize}
+    \item (Example) Compute \(\sin 60^\circ\).
+    \item (Example) Compute \(\cos -\pi\).
+    \item The unit circle is often used as a reference for common angles.
+  \end{itemize}
+\item Derivatives of Trig Functions
+  \begin{itemize}
+    \item Using the graphs of \(\sin\theta\), \(\cos\theta\), we may infer
+    that \(\frac{d}{d\theta}[\sin\theta]=\cos\theta\) and
+    \(\frac{d}{d\theta}[\cos\theta]=-\sin\theta\).
+    \item (7.3 Example 2) Compute the derivative of \(y=2\sin(x^2)\).
+    \item (7.3 Example 6) Compute the derivative of \(y=\sqrt{1+\cos 2x}\).
+    \item (Example) The door is shutting such that its angle away from the
+          wall is reducing at a rate of \(45^\circ\) per second. How fast
+          is the edge of the door moving towards the wall at the moment
+          it is slammed shut?
+    \item This full table of trig derivatives may be proven using the
+          quotient rule: \\
+      \begin{tabular}{c|c}
+        Original & Derivative \\\hline
+        \(\sin\theta\) & \(\cos\theta\) \\
+        \(\cos\theta\) & \(-\sin\theta\) \\
+        \(\tan\theta\) & \(\sec^2\theta\) \\
+        \(\cot\theta\) & \(-\csc^2\theta\) \\
+        \(\sec\theta\) & \(\sec\theta\tan\theta\) \\
+        \(\csc\theta\) & \(-\csc\theta\cot\theta\)
+      \end{tabular}
+    \item (7.4 Example 2) Find the derivative of \(y=2\tan 8x\).
+    \item (7.4 Example 4) Find the derivative of \(y=(\tan 2x+\sec 2x)^3\).
+    \item (7.4 Example 6) Find \(\frac{dy}{dx}\) where
+          \(\cot 2x - 3\csc xy = y^2\).
+  \end{itemize}
+\item\textit{
+  HW 7.1: 5-12, 21-22, 25-26
+}
+\item\textit{
+  HW 7.3: 1-10
+}
+\item\textit{
+  HW 7.4: 1-10
+}
+\end{itemize}
+
 
 
 \section*{Remaining Topics}
 
 \begin{itemize}
-  \item 7.1 The Trigonometric Functions
-  \item 7.2 Basic Trigonometric Relations
-  \item 7.3 Derivatives of the Sine and Cosine Functions
-  \item 7.4 Derivatives of the Other Trigonometric Functions
   \item 8.1 Exponential and Logarithmic Functions
   \item 8.2 Derivative of the Logarithmic Functions
   \item 8.3 Derivative of the Exponentials Function
