@@ -951,18 +951,116 @@
 }
 \end{itemize}
 
-
-
-\section*{Remaining Topics}
+\section*{8 Exponential and Logrithmic Functions}
 
 \begin{itemize}
-  \item 8.1 Exponential and Logarithmic Functions
-  \item 8.2 Derivative of the Logarithmic Functions
-  \item 8.3 Derivative of the Exponentials Function
-  \item 9.1 The General Power Formula
-  \item 9.2 Basic Logarithmic Form
-  \item 9.3 Exponential Form
-  \item 9.4 Basic Trigonometric Forms
+\item Exponential functions
+  \begin{itemize}
+    \item \(y=b^x\)
+    \item (8.1 Example 4) Sketch the graph of \(y=2^x\).
+  \end{itemize}
+\item Logrithmic functions
+  \begin{itemize}
+    \item For a positive real number \(b\),
+      \(y=\log_b x\) is equivalent to \(x=b^y\) and has a domain of
+      positive real numbers.
+    \item \(\log x = \log_{10} x\)
+    \item (Example) Solve for \(y\) by rewriting in an exponential form:
+      \begin{itemize}
+        \item \(y=\log_4 64\)
+        \item \(y=\log \frac{1}{1000}\)
+        \item \(y=\log_7 1\)
+      \end{itemize}
+    \item (Example) Sketch the graph of \(y=\log_2 x\).
+    \item Properties:
+      \begin{itemize}
+        \item \(\log_b 1=0\)
+        \item \(\log_b(xy)=\log_b x+\log_b y\)
+        \item \(\log_b(x/y)=\log_b x-\log_b y\)
+        \item \(\log_b(x^p)=p\log_b x\)
+      \end{itemize}
+  \end{itemize}
+\item The natural number
+  \begin{itemize}
+    \item \(
+      e
+        =
+      \lim_{x\to\infty}(1+\frac{1}{x})^x
+        =
+      1+\frac{1}{1}+\frac{1}{1\cdot2}+\frac{1}{1\cdot2\cdot3}+\dots
+        \approx
+      2.718
+    \)
+    \item The natural exponential function \(y=e^x=\exp x\)
+      and the natural logrithmic function \(y=\log_e x=\ln x\) occur often
+      in calculus.
+  \end{itemize}
+\item Derivatives
+  \begin{itemize}
+    \item \(\frac{d}{dx}[\log_b x]=\frac{1}{x}\log_b e\)
+    \item \(\frac{d}{dx}[\ln x]=\frac{1}{x}\)
+    \item (8.2 Example 1) Find the derivative of \(\log(4x)\).
+    \item (8.2 Example 4) Find the derivative of \(\ln\frac{x-1}{x+1}\).
+    \item \(\frac{d}{dx}[b^x]=b^x\ln b\)
+    \item \(\frac{d}{dx}[e^x]=e^x\)
+    \item (8.3 Example 2) Find the derivatives of \(y=(4x)^2\) and
+          \(y=2^{(4x)}\).
+    \item (8.3 Example 5) Find the derivative of \(y=(e^{1/x})^2\).
+  \end{itemize}
+\item\textit{
+  HW 8.1: 1-4, 21-24
+}
+\item\textit{
+  HW 8.2: 1-8
+}
+\item\textit{
+  HW 8.3: 1-8
+}
 \end{itemize}
+
+\section*{9 Advanced Integration Techniques}
+
+\begin{itemize}
+\item Advanced Substitution
+  \begin{itemize}
+    \item (9.1 Example 1) Find \(\int \sin^3 x\cos x\dvar x\).
+    \item (9.1 Example 3) Find \(\int \frac{\ln x}{x}\dvar x\).
+  \end{itemize}
+\item Integrals involving fractions
+  \begin{itemize}
+    \item \(\int \frac{1}{x}\dvar x=\ln|x|+C\)
+    \item (9.2 Example 3) Find \(\int\cot x\dvar x\) by first rewriting
+      the integral in terms of sine and cosine.
+    \item (9.2 Example 5) Find \(\int\frac{e^{4x}}{1+3e^{4x}}\dvar x\).
+  \end{itemize}
+\item Integrals involving exponentials
+  \begin{itemize}
+    \item \(\int e^x\dvar x= e^x+C\)
+    \item (9.3 Example 1) Find \(\int xe^{x^2}\dvar x\).
+    \item (9.3 Example 6) Find the curve with derivative
+      \(\frac{dy}{dx}=\frac{e^{\sqrt{x+1}}}{\sqrt{x+1}}\) which passes
+      through the point \((0,1)\).
+  \end{itemize}
+\item\textit{
+  HW 9.1: Review Examples 2, 5
+}
+\item\textit{
+  HW 9.2: Review Examples 1, 4, 6
+}
+\item\textit{
+  HW 9.3: Review Examples 3, 4, 5
+}
+\end{itemize}
+
+
+
+% \section*{Remaining Topics}
+
+% \begin{itemize}
+%   \item 9.1 The General Power Formula
+%   \item 9.2 Basic Logarithmic Form
+%   \item 9.3 Exponential Form
+%   \item 9.4 Basic Trigonometric Forms
+% \end{itemize}
 
 \end{document}
