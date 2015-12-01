@@ -1555,6 +1555,79 @@
 %   }
 % \end{itemize}
 
+\section*{Surface Integrals}
+
+\begin{itemize}
+  \item Definition
+    \begin{itemize}
+      \item If \(f:\mathbb R^n\to\mathbb R\) is a scalar function defined
+            on the surface \(S\) defined by \(\vect\Phi:\mathbb R^2\to\mathbb R^n\)
+            for \((u,v)\in D\), then
+            \[
+              \iint_S f(\vect x)\dvar S
+                =
+              \iint_D
+                f(\vect\Phi(u,v))
+                \left\|\frac{\p\vect\Phi}{\p u}\times\frac{\p\vect\Phi}{\p v}\right\|
+              \dvar A
+            \]
+      \item (Example) Use \(A=\iint_S 1\dvar S\) to derive a formula for the
+            surface area of a cone in terms of its height \(H\) and angle
+            \(\theta\).
+      \item If \(\vect F:\mathbb R^n\to\mathbb R\) is a scalar function defined
+            on the surface \(S\) defined by \(\vect\Phi:\mathbb R^2\to\mathbb R^n\)
+            for \((u,v)\in D\) preserving orientation, then
+            \[
+              \iint_S \vect F(\vect x)\cdot\dvar\vect S
+                =
+              \iint_D
+                \vect F(\vect\Phi(u,v))
+                \cdot
+                \left(\frac{\p\vect\Phi}{\p u}\times\frac{\p\vect\Phi}{\p v}\right)
+              \dvar A
+            \]
+    \end{itemize}
+  \item Stokes' Theorem %TODO use uniform s,S in integrals
+    \begin{itemize}
+      \item If \(\p S\) is the positively oriented boundary of a surface
+        \(S\), then
+        \(
+          \iint_S\curl\vect F\cdot\dvar\vect S
+            =
+          \int_{\p S}\vect F\cdot\dvar\vect r
+        \).
+      \item (8.2 Example 2) Evaluate \(\iint_S(3x^2+3y^2)\veck\cdot\dvar\vect S\)
+        where \(S\) is the portion of the plane \(z=1-x-y\) above the unit
+        disk \(x^2+y^2\leq 1\) oriented toward positive values of \(x,y,z\).
+    \end{itemize}
+  \item Gauss'/Divergence Theorem
+    \begin{itemize}
+      \item If \(\p W\) is the outward oriented boundary of a solid
+        \(W\), then
+        \(
+          \iint_{\p W} \vect F\cdot\dvar\vect S
+            =
+          \iiint_{W} \div\vect F\dvar V
+        \).
+      \item (8.3 Example 3) Evaluate \(\iint_S\<2x,y^2,z^2\>\cdot\dvar\vect S\)
+        where \(S\) is the outward oriented boundary of the unit
+        sphere \(x^2+y^2+z^2=1\).
+    \end{itemize}
+  \item\textit{
+    HW: Review above examples
+  }
+\end{itemize}
+
+\section*{Overview of integration theorems}
+
+\begin{itemize}
+  \item \(\int_a^b f'(x)\dvar x=f(b)-f(a)=[f]_{\p[a,b]}\)
+  \item \(\int_C \nabla f\cdot\dvar \vect r=f(B)-f(A)=[f]_{\p C}\)
+  \item \(\iint_S \curl \vect F\cdot\dvar \vect S=\int_{\p S} \vect F\cdot\dvar\vect  r \)
+  \item \(\iiint_W \div \vect F\dvar V=\iint_{\p W} \vect F\cdot\dvar \vect S \)
+\end{itemize}
+
+
 
 % \section*{Remaining Topics}
 
