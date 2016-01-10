@@ -356,8 +356,10 @@
   \item Identity and Inverse
     \begin{itemize}
       \item
+        The \(n\times n\) identity matrix \(I\) satisfies \(i_{jj}=1\)
+        and \(i_{jk}=0\) when \(j\not=k\). That is:
         \(
-          I_n =
+          I =
           \begin{bmatrix}
             1      & 0      & \cdots & 0      \\
             0      & 1      & \cdots & 0      \\
@@ -366,7 +368,7 @@
           \end{bmatrix}
         \)
       \item
-        If \(AA^{-1}=A^{-1}A=I_n\), then \(A\) is invertable and
+        If \(AA^{-1}=A^{-1}A=I\), then \(A\) is invertable and
         \(A^{-1}\) is its inverse.
     \end{itemize}
   \item Determinant
@@ -393,6 +395,62 @@
         to \(n\) and \(\sgn(\sigma)\) is \(1\) when \(\sigma\) is obtained by
         an even number of swaps, and \(-1\) when \(\sigma\) is obtained by
         an odd number of swaps.
+      \item (Example) Prove that
+        \[
+          \det
+          \begin{bmatrix}
+            a_1 & a_2 \\
+            b_1 & b_2
+          \end{bmatrix}
+            =
+          a_1b_2-a_2b_1
+        \]
+      and
+        \[
+          \det
+          \begin{bmatrix}
+            a_1 & a_2 & a_3 \\
+            b_1 & b_2 & b_3 \\
+            c_1 & c_2 & c_3
+          \end{bmatrix}
+            =
+          a_1\det
+          \begin{bmatrix}
+            b_2 & b_3 \\
+            c_2 & c_3
+          \end{bmatrix}
+            -
+          a_2\det
+          \begin{bmatrix}
+            b_1 & b_3 \\
+            c_1 & c_3
+          \end{bmatrix}
+            +
+          a_3\det
+          \begin{bmatrix}
+            b_1 & b_2 \\
+            c_1 & c_2
+          \end{bmatrix}
+        \]
+        \[
+            =
+          (a_1b_2c_3+a_2b_3c_1+a_3b_1c_2)-(a_1b_3c_2+a_2b_1c_3+a_3b_2c_1)
+        \]
+      \item
+        (Example) Prove that the inverse of the matrix
+        \(
+          A = \begin{bmatrix}
+            a_1 & a_2 \\
+            b_1 & b_2
+          \end{bmatrix}
+        \) is
+        \(
+          \frac{1}{\det A}
+          \begin{bmatrix}
+            b_2 & -a_2 \\
+            -b_1 & a_1
+          \end{bmatrix}
+        \).
       \item An \(n\times n\)
         matrix is invertable if and only if its determinant is nonzero.
     \end{itemize}
