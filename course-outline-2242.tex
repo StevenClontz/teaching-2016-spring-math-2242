@@ -225,7 +225,7 @@
           \|\vect{x}\|\|\vect{y}\|
         \)
         (the Cauchy-Schwarz inequality)
-      \item Prove the Cauchy-Schwarz inequality.
+      \item (Example) Prove the Cauchy-Schwarz inequality for \(\mathbb R^2\).
       \item
         \(
           \|\vect{x}+\vect{y}\|
@@ -233,7 +233,7 @@
           \|\vect{x}\|+\|\vect{y}\|
         \)
         (the triangle inequality)
-      \item Prove the triangle inequality.
+      \item (Example) Prove the triangle inequality.
     \end{itemize}
   \item Matrices
     \begin{itemize}
@@ -493,20 +493,28 @@
           \end{bmatrix}
         \)
       \item
-        We say \(\vect f\) is differentiable at \(\vect{x}\) if
+        We say \(\vect f\) is differentiable at \(\vect{x}_0\) if
         \(
-          \vect{f}(\vect x+\vect h)
+          \vect{f}(\vect x_0+\vect h)
             \approx
-          \vect{f}(\vect x)+[\vect{D}\vect{f}(\vect{x})]\vect{h}
+          \vect{f}(\vect x_0)+[\vect{D}\vect{f}(\vect{x}_0)]\vect{h}
         \)
-        for all \(\vect h\) near \(\vect 0\).
+        whenever \(\vect h \approx \vect 0\).
+      \item (Example) Prove that this is equivalent to saying
+        \(
+          \vect{f}(\vect x)
+            \approx
+          \vect{f}(\vect x_0)+[\vect{D}\vect{f}(\vect{x}_0)](\vect x-\vect x_0)
+        \)
+        whenever \(\vect x\approx\vect x_0\).
       \item (Example) Let \(\vect f:\mb R^2\to\mb R^2\) be defined by
         \(\vect f(x,y)=\<x^2+y^2,xy\>\), and let
         \(\vect{T}=\vect{D}\vect{f}(1,0)\). Compute
         \(\vect{f}(1.1,-0.1)\) and \(\vect{f}(1,0)+\vect{T}\<0.1,-0.1\>\).
       \item If each \(\frac{\p f_i}{\p x_j}:\mb R^n\to\mb R\)
-        is a continuous function near \(\vect x\), then we say \(\vect{f}\)
-        is strongly differentiable or class \(C^1\) at \(\vect x\).
+        is a continuous function near \(\vect x_0\), then we say \(\vect{f}\)
+        is strongly differentiable or class \(C^1\) at \(\vect x_0\).
+        All \(C^1\) functions are differentiable.
     \end{itemize}
   \item Gradient
     \begin{itemize}
@@ -527,29 +535,21 @@
         \)
     \end{itemize}
   \item Linearizations and Tangent Hyperplanes
-    %TODO: clean this up with Taylor's Theorem section
     \begin{itemize}
-      \item Letting \(\vect y = \vect x+\vect h\) and \(\vect y_0=\vect x\),
-        we have
-        \(
-          \vect{f}(\vect y)
-            \approx
-          \vect{f}(\vect y_0)+[\vect{D}\vect{f}(\vect{y_0})](\vect{y}-\vect{y}_0)
-        \)
-        for differentiable \(\vect f\).
       \item For \(\vect f:\mb R^n\to\mb R^m\) and a point \(\vect x_0\in\mb R^n\),
-        let the linearization of \(\vect f\) at \(x_0\) be
+        let the linearization of \(\vect f\) at \(\vect x_0\) be
           \(
             \vect L(\vect x)
               =
             \vect{f}(\vect x_0)+[\vect{D}\vect{f}(\vect{x_0})](\vect{x}-\vect{x}_0)
           \).
-        Note \(\vect L(\vect x)\approx \vect f(\vect x)\) for \(\vect x\) near
-        \(\vect x_0\).
-      \item (Example 5) Find the linearization \(L(x,y)\)
-        of \(f(x,y)=x^2+y^4+e^{xy}\) at the point \((1,0)\), and observe that this
-        gives the equation of a tangent plane to the surface \(z=f(x,y)\)
-        at the point \((1,0,2)\).
+        Note \(\vect f(\vect x)\approx\vect L(\vect x)\) whenever
+        \(\vect x\approx\vect x_0\).
+      \item (Example 5) Recall that the tangent plane to a surface \(z=f(x,y)\)
+        given by \(f:\mb R^2\to\mb R\) passing through \(\vect x_0\in\mb R^3\)
+        is given by the normal vector \(\nabla f\).
+        Show that \(z=L(x,y)\) gives an equation for the tangent plane to the
+        surface \(z=x^2+y^4+e^{xy}\) at the point \((1,0,2)\).
     \end{itemize}
   \item\textit{
     HW: 1-3, 5-21
@@ -565,6 +565,7 @@
     \begin{itemize}
       \item \(\vect D[\alpha \vect f]=\alpha\vect D\vect f\)
       \item \(\vect D[\vect f+\vect g]=\vect D\vect f+\vect D\vect g\)
+      \item (Example) Prove the sum rule above.
       \item
         \(
           \vect D[fg]=g\vect Df + f\vect Dg
@@ -579,7 +580,6 @@
             g^2
           }
         \)
-      \item Sketch proofs for strongly differentiable \(f,g\).
     \end{itemize}
   \item Chain Rule
     \begin{itemize}
@@ -587,7 +587,7 @@
         \(
           \vect D [\vect f\circ \vect g]
             =
-          [\vect D\vect f](\vect g)\vect D\vect g
+          \vect D\vect f(\vect g)\vect D\vect g
         \)
       \item
         (Example) Find the rate of change of \(f(x,y)=x^2+y^2\) along
@@ -609,50 +609,44 @@
 \section*{3.2 Taylor's Theorem}
 
 \begin{itemize}
+  \item Single-variable Taylor Series
+    \begin{itemize}
+      \item
+        \(\displaystyle
+          f(x)
+            =
+          \sum_{n=0}^\infty \frac{f^{(n)}(x_0)}{n!}(x-x_0)^n
+        \)
+
+        \(\displaystyle
+            =
+          f(x_0)+f'(x_0)(x-x_0)+\frac{1}{2}f'(x_0)(x-x_0)^2
+          +\frac{1}{6}f'(x_0)(x-x_0)^3+\dots
+        \)
+      \item
+        \(\displaystyle
+          f(x)
+            \approx
+          \sum_{n=0}^m \frac{f^{(n)}(x_0)}{n!}(x-x_0)
+        \)
+    \end{itemize}
   \item First-Order Taylor Formula
     \begin{itemize}
       \item
         \(
-          f(\vect x + \vect h)
-            \approx
-          f(\vect x) + [\vect Df(\vect x)]\vect h
-        \)
-          or
-        \(
           f(\vect x)
             \approx
+          L(\vect x)
+            =
           f(\vect x_0) + [\vect Df(\vect x_0)](\vect x - \vect x_0)
-        \)
-      \item Alternate form:
-        \(
-          f(\vect x + \vect h)
-            \approx
-          f(\vect x)
-            +
-          \sum_{i=1}^{n}\frac{\p f}{\p x_i}(\vect x)h_i
-        \)
-          or
-        \(
-          f(\vect x)
-            \approx
+            =
           f(\vect x_0)
             +
-          \sum_{i=1}^{n}\frac{\p f}{\p x_i}(\vect x_0)(x_i - x_{0,i})
+          \sum_{i=1}^{n}\frac{\p f}{\p x_i}(\vect x_0)(x_i - x_{0i})
         \)
     \end{itemize}
   \item Second-Order Taylor Formula
     \begin{itemize}
-      \item
-        \(
-          f(\vect x + \vect h)
-            \approx
-          f(\vect x)
-            +
-          \sum_{i=1}^{n}\frac{\p f}{\p x_i}(\vect x)h_i
-            +
-          \frac{1}{2}
-          \sum_{i,j=1}^{n}\frac{\p^2 f}{\p x_i\p x_j}(\vect x)h_ih_j
-        \)
       \item
         \(
           f(\vect x)
@@ -673,1027 +667,1027 @@
   }
 \end{itemize}
 
-  % \item 4.1 Acceleration and Newton's Second Law
-  % \item 4.2 Arc Length
+%   % \item 4.1 Acceleration and Newton's Second Law
+%   % \item 4.2 Arc Length
 
-\section*{4.3 Vector Fields}
-
-\begin{itemize}
-  \item Vector Fields
-    \begin{itemize}
-      \item A vector field is a map \(f:\mb R^n\to\mb R^n\) assinging an
-        \(n\)-dimensional vector to each point in \(\mb R^n\)
-      \item (Example 1) The velocity field of a fluid may be modeled as a
-        vector field.
-      \item (Example 2) Sketch the rotary motion given by the vector
-        field \(\vect V(x,y)=\<-y,x\>\).
-    \end{itemize}
-  \item Gradient Vector Fields
-    \begin{itemize}
-      \item \(\nabla f = \<\frac{\p f}{\p x_1},\dots,\frac{\p f}{\p x_n}\>\)
-      \item (Example) The derivative of a scalar function
-        \(f:\mb R^n\to \mb R\) in the direction given by a unit vector
-        \(\vect v\)
-        is given by \(\nabla f\cdot \vect v\). Show that the maximum value
-        of a directional derivative for a fixed point
-        is given by \(\|\nabla f\|\)
-        and attained by the direction \(\frac{1}{\|\nabla f\|}\nabla f\).
-      \item (Example 4) If temperature is given by \(T(x,y,z)\), then the
-        energy or heat flux field is given by \(\vect J = -k\nabla T\) where
-        \(k\) is the conductivity of the body. Level sets are called isotherms.
-      \item (Example 5) The gravitational potential of bodies with mass \(m,M\)
-        is given by \(V=-\frac{mMG}{r}\) where \(G\) is the gravitational
-        constant and \(r\) is the distance between the bodies, and the
-        gravitational force field is given by \(\vect F=-\nabla V\).
-        Show that \(\vect F = -\frac{mMG}{r^3}\vect r\), where \(\vect r\)
-        is the vector pointing from the center of mass \(M\) to the center
-        of mass \(m\).
-      \item A vector field \(\vect F:\mb R^n\to\mb R^n\) is conservative iff
-        there exists
-        a potential function \(f:\mb R^n\to\mb R\) such that
-        \(\vect F=\nabla f\).
-      \item (Example) Show that \(\vect W=\<2y+1,2x\>\) is conservative.
-      \item (Example 7) Show that \(\vect V=\<y,-x\>\) is not conservative.
-    \end{itemize}
-  \item Flow Lines
-    \begin{itemize}
-      \item A flow line for a vector field \(\vect F:\mb R^n\to\mb R^n\)
-        is a path \(\vect c:\mb R\to\mb R^n\) satisfying
-        \(\vect c'(t)=\vect F(\vect c(t))\).
-      \item (Example 8) Show that \(\vect c(t)=\<\cos t,\sin t\>\) is a flow
-        line for \(\vect F=\<-y,x\>\), and find some other flow lines.
-    \end{itemize}
-  \item\textit{
-    HW: 1-22
-  }
-\end{itemize}
-
-\section*{4.4 Divergence and Curl}
-\begin{itemize}
-  \item Divergence
-    \begin{itemize}
-      \item The divergence of a vector field
-        \(\vect F:\mathbb R^n\to\mathbb R^n\) is denoted by
-        \(\div{\vect F}:\mathbb R^n\to \mathbb R\) and defined by
-        \(\div{\vect F} = \nabla \cdot \vect F = \sum_{i=1}^n \frac{\p F_i}{\p x_i}\)
-      \item (Examples 3-5) Compute the divergences of \(\vect F=\<x,y\>\),
-        \(\vect G=\<-x,-y\>\) and \(\vect H=\<-y,x\>\) at
-        any point on \(\mathbb R^2\). How does divergence correspond with
-        the motion described by the vector field plots?
-      \item (Example) Compute the divergence of \(\vect F=\<x^2,y\>\) various
-        points and interpret those values against a plot of the vector field.
-    \end{itemize}
-  \item Curl
-    \begin{itemize}
-      \item The curl of a three-dimensional vector field
-        \(\vect F:\mathbb R^3\to\mathbb R^3\) is denoted by
-        \(\curl{\vect F}:\mathbb R^3\to\mathbb R^3\) and defined by
-        \(
-          \curl{\vect F}
-            =
-          \nabla \times \vect F
-            =
-          \<
-            \frac{\p F_3}{\p y}-\frac{\p F_2}{\p z},
-            \frac{\p F_1}{\p z}-\frac{\p F_3}{\p x},
-            \frac{\p F_2}{\p x}-\frac{\p F_1}{\p y}
-          \>
-        \)
-      \item The scalar curl of a two-dimensional vector field
-        \(\vect F:\mathbb R^2\to\mathbb R^2\) is denoted by
-        \(\scurl{\vect F}:\mathbb R^2\to\mathbb R\) and defined by
-        \(
-          \scurl{\vect F}
-            =
-          \curl{\vect F} \cdot \veck
-            =
-          \frac{\p F_2}{\p x}-\frac{\p F_1}{\p y}
-        \)
-      \item (Example) Compute the scalar curl of \(\vect F=\<x,y\>\),
-        \(\vect G=\<-x,-y\>\) and \(\vect H=\<-y,x\>\) at every point in
-        \(\mathbb R^2\).
-        How does this scalar curl correspond with
-        the motion described by the vector field plots?
-      \item (Example) Compute the curl of \(\vect F=\<y,-x,z\>\) at every
-        point in \(\mathbb R^3\). How does curl correspond with the motion
-        described by the vector field plot?
-    \end{itemize}
-  \item Facts about \(\nabla f\), \(\div \vect F\), \(\curl \vect F\)
-    \begin{itemize}
-      \item The curl of a conservative field is zero:
-        \(\curl \nabla f = \nabla \times (\nabla f) = \vect 0\).
-      \item (Example) Prove the above theorem.
-      \item (Example) Prove that \(\vect F=\<x^2+z,y-z,z^3+3xy\>\) is not a
-            conservative field.
-      \item The divergence of a curl field is zero:
-        \(\div \curl \vect F = \nabla\cdot(\nabla\times \vect F)=0\)
-      \item Many identities on pg. 255 of Marsden text.
-      \item (Example) Sketch proof of identity \#8:
-        \(\div(\vect F\times\vect G)=\vect G\cdot\curl\vect F-\vect F\cdot\curl\vect G\).
-    \end{itemize}
-  % \item Laplace operator
-  %   \begin{itemize}
-  %     \item The laplacian of a scalar function
-  %       \(f:\mathbb R^n\to\mathbb R\) is denoted by
-  %       \(\nabla^2 f:\mathbb R^n\to\mathbb R\) and defined by
-  %       \(
-  %         \nabla^2 f
-  %           =
-  %         \nabla \cdot (\nabla f)
-  %           =
-  %         \sum_{i=1}^n \frac{\p^2 f}{\p x_i^2}
-  %       \).
-    % \end{itemize}
-  \item\textit{
-    HW: 1-37
-  }
-\end{itemize}
-
-\section*{5.3 The Double Integral Over More General Regions}
-\begin{itemize}
-  \item Hypervolume
-    \begin{itemize}
-      \item The hypervolume \(HV_1\)
-      of an interval \([a,b]\) in \(\mathbb R\) is just its length \(b-a\).
-      \item The hypervolume of a well-behaved bounded subset
-      \(D\subseteq\mathbb R^{n+1}\) is defined for each
-      \(i\in\{1,\dots,n+1\}\) by
-        \[
-          HV_{n+1}
-            =
-          \int_{x_i\in I}
-          HV(Z_i)
-          \dvar{x_i}
-            =
-          \int_{x_i=a}^{x_i=b}
-          HV_n(D_i)
-          \dvar{x_i}
-        \]
-      where \(I=[a,b]\) is an interval containing all values \(x_i\) included
-      in the \(i\)th coordinate of \(D\), and \(D_i\) is the projection of
-      of all points in \(D\) onto \(\mathbb R^n\) by removing the \(i\)th
-      coordinate.
-      \item (Example) For \(n=1\) and
-      \(D=\{(x,y)\in\mathbb R^2:a\leq x\leq b,f(x)\leq y\leq g(x)\}\), we
-      have that
-        \[
-          HV_2
-            =
-          A
-            =
-          \int_{x\in[a,b]}
-          g(x)-f(x)
-          \dvar{x}
-            =
-          \int_a^b
-          g(x)-f(x)
-          \dvar{x}
-        \]
-      (assuming \(f(x)\leq g(x)\) whenever \(a\leq x\leq b\)).
-      \item (Example) For \(n=2\) and \(D\subseteq R^3\) including values
-      of \(x\) between \(a\) and \(b\), we have that
-        \[
-          HV_3
-            =
-          V
-            =
-          \int_{x=a}^{x=b}
-          A(x)
-          \dvar{x}
-        \]
-        \[
-          HV_3
-            =
-          V
-            =
-          \int_{y=c}^{y=d}
-          A(y)
-          \dvar{x}
-        \]
-      where \(A(x)\) is the area of the cross-section of \(D\) taken by fixing
-      each value of \(x\) (or similar for \(y\)).
-    \end{itemize}
-  \item Double Integrals
-    \begin{itemize}
-      \item
-      For a bounded region \(D\subseteq\mathbb R^2\) and continuous
-      \(f:D\to\mathbb R\), the double integral
-        \[
-          \iint_D f\dvar A
-        \]
-      is defined to be the volume of
-      \(D^\uparrow=\{(x,y,z)\in\mathbb R^3:(x,y)\in D,0\leq z\leq f(x,y)\}\)
-      minus the volume of
-      \(D_\downarrow=\{(x,y,z)\in\mathbb R^3:(x,y)\in D,f(x,y)\leq z\leq 0\}\)
-      (sometimes called net volume or signed volume).
-      \item Assuming \(f(x,y)\geq 0\), we may apply the definition of volume
-      above to get
-        \[
-          \iint_D F\dvar A
-            =
-          \int_{x=a}^{x=b}
-          A(x)
-          \dvar x
-        \]
-      And if each cross section \(A(x)\) is described by \(\phi_1(x)\leq y\leq\phi_2(x)\)
-      and \(0\leq z\leq f(x,y)\),
-      we have that
-        \[
-          \iint_D F\dvar A
-            =
-          \int_{x=a}^{x=b}
-          A(x)
-          \dvar x
-            =
-          \int_{x=a}^{x=b}
-          \left[
-          \int_{y=\phi_1(x)}^{y=\phi_2(x)}
-          f(x,y) \dvar y
-          \right] \dvar x
-        \]
-      \item Similarly, if \(D\) is described by \(c\leq y\leq d\) and
-        \(\psi_1(y)\leq x\leq \psi_2(y)\), then
-        \[
-          \iint_D F\dvar A
-            =
-          \int_{y=c}^{y=d}
-          \left[
-          \int_{x=\psi_1(y)}^{x=\psi_2(y)}
-          f(x,y) \dvar x
-          \right] \dvar y
-        \]
-      \item The above holds even when \(f(x,y)\geq 0\) doesn't hold.
-    \end{itemize}
-  \item Iterated integrals
-    \begin{itemize}
-      \item An iterated integral is a shorthand for the expansion of two
-        or more nested integrals, e.g.:
-        \[
-          \int_a^b
-          \int_{\phi_1(x)}^{\phi_2(x)}
-          f(x,y)
-          \dvar y\dvar x
-            =
-          \int_{x=a}^{x=b}
-          \left[
-          \int_{y=\phi_1(x)}^{y=\phi_2(x)}
-          f(x,y) \dvar y
-          \right] \dvar x
-        \]
-      \item (Example) Sketch the region of integration for
-            \(\int_0^\pi\int_{-x}^x \cos(y)\dvar y\dvar x\),
-            evaluate it,
-            and interpret it as the signed volume of a region in \(\mathbb R^3\).
-      \item (Example) Express \(\iint_R (12x^3y-1)\dvar A\) where
-            \(R\) is the
-            rectangle with vertices \((0,0),(3,0),(3,2),(0,2)\)
-            as an interated integral, then evaluate it.
-      \item (Example) Express \(\iint_T (12x^3y-1)\dvar A\) where
-            \(T\) is the
-            triangle with vertices \((0,0),(1,0),(1,1)\)
-            as an interated integral, then evaluate it.
-    \end{itemize}
-  \item Applications
-    \begin{itemize}
-      \item \(\iint_D 1\dvar A\) is the area of \(D\)
-      \item \(\frac{1}{A(D)}\iint_D f(x,y)\dvar A\) is the average value
-            of the function \(f\) restricted to \(D\)
-    \end{itemize}
-  \item\textit{
-    HW: 1-17
-  }
-\end{itemize}
-
-\section*{5.4 Changing the Order of Integration}
-\begin{itemize}
-  \item Rectangular regions of integration
-    \begin{itemize}
-      \item For constant bounds of integration:
-        \[
-          \int_a^b\int_c^d f(x,y)\dvar y\dvar x
-            =
-          \int_c^d\int_a^b f(x,y)\dvar x\dvar y
-        \]
-      \item (Example) Verify that
-        \(
-          \int_0^1\int_1^2 x^2+2xy\dvar y\dvar x
-            =
-          \int_1^2\int_0^1 x^2+2xy\dvar x\dvar y
-        \).
-    \end{itemize}
-  \item Nonrectangular regions of integration
-    \begin{itemize}
-      \item Bounds of integration cannot be directly swapped; however, by
-      interpreting the region of integration new bounds may be found in
-      the other order.
-      \item (Example) Verify that
-        \(
-          \int_0^4\int_0^{\frac{4-y}{2}} x+y \dvar x\dvar y
-        \)
-      and
-        \(
-          \int_0^2\int_0^{4-2x} x+y \dvar y\dvar x
-        \)
-      share the same region of integration and are equal.
-      \item (Example) Evaluate
-        \(
-          \int_1^e\int_0^{\log x}\frac{(2x-e)\sqrt{1+e^y}}{e-e^y}\dvar y\dvar x
-        \).
-        (Note that this is technically improper, but that this does not effect
-        the solution.)
-    \end{itemize}
-  \item Estimating double integrals
-    \begin{itemize}
-      \item If \(g(x,y)\leq f(x,y)\leq h(x,y)\) for \((x,y)\in D\), then
-      \(\iint_D g(x,y)\dvar A\leq\iint_D f(x,y)\dvar A\leq \iint_D h(x,y)\dvar A\).
-      \item (Example 3) Prove that
-      \(\frac{1}{\sqrt 3}\leq \iint_D \frac{1}{\sqrt{1+x^6+y^8}}\dvar A \leq 1\)
-      where \(D\) is the unit square.
-    \end{itemize}
-  \item\textit{
-    HW: 1-15
-  }
-\end{itemize}
-
-\section*{5.5 The Triple Integral}
-
-\begin{itemize}
-  \item Triple Integrals
-    \begin{itemize}
-      \item
-      For a bounded region \(D\subseteq\mathbb R^3\) and continuous
-      \(f:D\to\mathbb R\), the triple integral
-        \[
-          \iiint_D f\dvar V
-        \]
-      is defined to be the hypervolume of
-      \(D^\uparrow=\{(x,y,z,w)\in\mathbb R^3:(x,y,z)\in D,0\leq w\leq f(x,y,z)\}\)
-      minus the hypervolume of
-      \(D_\downarrow=\{(x,y,z,w)\in\mathbb R^3:(x,y,z)\in D,f(x,y,z)\leq w\leq 0\}\).
-    \end{itemize}
-  \item Applications
-    \begin{itemize}
-      \item \(\iiint_D 1\dvar V\) is the volume of \(D\)
-      \item \(\frac{1}{V(D)}\iiint_D f(x,y,z)\dvar V\) is the average value
-            of the function \(f\) restricted to \(D\)
-      \item If \(\rho(x,y,z)\) gives the density of a solid at the coordinate
-            \((x,y,z)\), then \(\iiint_D \rho(x,y,z)\dvar V\) calculates its
-            overall mass.
-    \end{itemize}
-  \item Rectangular Boxes
-    \begin{itemize}
-      \item
-      If \(B=[a_1,b_1]\times[a_2,b_2]\times[a_3,b_3]\), then
-        \[
-          \begin{matrix}
-            \iiint_B f\dvar V
-              & = &
-            \int_{a_3}^{b_3}\int_{a_2}^{b_2}\int_{a_1}^{b_1}
-            f(x,y,z) \dvar x\dvar y\dvar z
-              \\ & = &
-            \int_{a_2}^{b_2}\int_{a_1}^{b_1}\int_{a_3}^{b_3}
-            f(x,y,z) \dvar z\dvar x\dvar y
-              \\ & = &
-            \text{etc.}
-          \end{matrix}
-        \]
-      \item
-      (Example)
-      Write \(\iiint_D e^{x+y+z}\dvar V\) where
-      \(D=[0,4]\times[0,2]\times[1,3]\) as a few different iterated integrals,
-      then evaluate one.
-    \end{itemize}
-  \item General regions of integration
-    \begin{itemize}
-      \item
-      If \(E\subseteq\mathbb R^2\) and
-      \(D=\{(x,y,z)\in\mathbb R^3:(x,y)\in E,\gamma_1(x,y)\leq z\leq\gamma_2(x,y)\}\),
-      then
-      \[
-        \iiint_D f(x,y,z)\dvar V
-          =
-        \iint_E
-          \left[\int_{\gamma_1(x,y)}^{\gamma_2(x,y)} f(x,y,z)\dvar z\right]
-        \dvar A
-      \]
-      (and similar for \(x,y\) instead of \(z\)).
-      \item (Example 5) Express \(\iiint_W x\dvar V\) where \(W\) is the
-      solid for which \(x,y,z\) are positive and \(x^2+y^2\leq z\leq 2\)
-      as a few different iterated integrals.
-      \item (Example 6) Express \(\iiint_W x\dvar V\) where \(W\) is the
-      solid in \(\mathbb R^3\) above the triangle with vertices
-      \((0,0,0),(1,0,0),(1,1,0)\) and between the surfaces \(z=x^2+y^2\)
-      and \(z=2\) as an iterated integral, then evaluate it.
-    \end{itemize}
-  \item\textit{
-    HW: 1-22, 25-28
-  }
-\end{itemize}
-
-
-
-\section*{1.4 Cylindrical and Spherical Coordinates}
-
-\begin{itemize}
-  \item Transformation of variables
-    \begin{itemize}
-      \item A transformation of variables is a function
-            \(\vect T:\mathbb R^n\to\mathbb R^n\).
-      \item (Example) Sketch the integer lattice on the \(uv\) plane and
-            its image in the \(xy\) plane for
-            the transformation of variables \(\vect T(u,v)=(x,y)=(u,u+v)\).
-    \end{itemize}
-  \item Polar Coordinates
-    \begin{itemize}
-      \item \(\vect p(r,\theta)=(r\cos\theta,r\sin\theta)\)
-      \item \(r^2=x^2+y^2\), \(\tan\theta=\frac{y}{x}\)
-      \item (Example)
-            Convert \(A=\vect p(4,2\pi/3)\) from polar to Cartesian.
-            Convert \(B=(3,-3)\) from Cartesian to polar. Plot both.
-      \item (Example)
-            Express the curves \(x=\sqrt{4-y^2}\) and \(y=3\) in terms
-            of polar coordinates.
-    \end{itemize}
-  \item Cylindrical Coordinates
-    \begin{itemize}
-      \item \(\vect c(r,\theta,z)=(r\cos\theta,r\sin\theta,z)\)
-      \item Usually, assume \(r\geq0\) and \(0\leq\theta\leq2\pi\)
-      \item \(r^2=x^2+y^2\), \(\tan\theta=\frac{y}{x}\)
-      \item (Example 1) Convert \(A=\vect c(8,2\pi/3,-3)\) from cylindrical to
-            Cartesian. Convert \(B=(6,6,8)\) from Cartesian to cylindrical.
-            Plot both.
-      \item (Example) Express the surfaces \(x^2+y^2=9\) and \(z^2=x^2+y^2\)
-            in terms of cylindrical coordinates.
-    \end{itemize}
-  \item Spherical Coordinates
-    \begin{itemize}
-      \item \(
-              \vect s(\rho,\theta,\phi)
-                =
-              (
-                \rho\sin\phi\cos\theta,
-                \rho\sin\phi\sin\theta,
-                \rho\cos\phi
-              )
-            \)
-      \item Usually, assume \(\rho\geq0\), \(0\leq\theta\leq2\pi\), and
-            \(0\leq\phi\leq\pi\)
-      \item \(\rho^2=x^2+y^2+z^2\),
-            \(\tan\theta=\frac{y}{x}\),
-            \(\tan\phi=\frac{r}{z}=\frac{\sqrt{x^2+y^2}}{z}\)
-      \item (Example 2) Convert \(A=(1,-1,1)\) from Cartesian to spherical.
-            Convert \(B=\vect s(3,\pi/6,\pi/4)\) from spherical to Cartesian.
-            Convert \(C=(2,-3,6)\) from Cartesian to spherical.
-            Convert \(D=\vect s(1,-\pi/2,\pi/4)\) from spherical to Cartesian.
-            Plot all four.
-      \item (Example 3) Express the surfaces \(xz=1\) and \(x^2+y^2-z^2=1\)
-            in terms of spherical coordiantes.
-    \end{itemize}
-  \item\textit{
-    HW: 1-12, 15-16
-  }
-\end{itemize}
-
-
-\section*{6.1 The Geometry of Maps from \(\mb R^2\) to \(\mb R^2\)}
-\begin{itemize}
-  \item Images of regions by transformations
-    \begin{itemize}
-      \item (Example 1) Find the image of the rectangle
-            \([0,1]\times[0,2\pi]\) in the \(r\theta\) plane under the
-            polar coordinate transformation \(\vect p\).
-      \item (Example 2) Find the image of the square
-            \([-1,1]^2=[-1,1]\times[-1,1]\) in the \(uv\) plane under the
-            transformation
-            \(
-              \vect T(u,v)
-                =
-              \begin{bmatrix}
-                \frac{1}{2} & \frac{1}{2} \\
-                \frac{1}{2} & -\frac{1}{2}
-              \end{bmatrix}
-              \<u,v\>
-            \)
-    \end{itemize}
-  \item One-to-one and Onto
-    \begin{itemize}
-      \item A one-to-one transformation sends each point in the domain to
-            a distinct point in the range.
-      \item An onto transformation sends something in the domain onto each
-            point of the range.
-      \item (Example 3) Show that the polar coordinate transformation
-            \(\vect p\) is onto but not one-to-one.
-      \item (Example 4) Show that the transformation \(\vect T\) from example 2
-            is both one-to-one and onto.
-      \item (Example 5) Show that \(\vect T(u,v)=(u,0)\) is neither one-to-one
-            nor onto.
-      \item (Example 7) Find a rectangle in the \(r\theta\) plane which maps
-            onto the region \(\{(x,y):x,y\geq 0,a^2\leq x^2+y^2\leq b^2\}\)
-            in the Cartesian plane by the polar coordinate transformation.
-    \end{itemize}
-  \item Linear transformations
-    \begin{itemize}
-      \item Transformations \(\vect T:\mathbb R^n\to\mathbb R^n\) defined by
-            \(\vect T(\vect u)=A\vect u\) for an \(n\)-dimensional matrix \(A\)
-            are called linear transformations.
-      \item (Example 6) Find a region in the \(uv\) plane which maps onto
-            the square with vertices \((1,0),(0,1),(-1,0),(0,-1)\) in the
-            \(xy\) plane by the linear transformation given in Example 2.
-      \item Transformations \(\vect T:\mathbb R^n\to\mathbb R^n\) defined by
-            \(\vect T(\vect u)=A\vect u+\vect x_0\) for an \(n\)-dimensional
-            matrix \(A\) and \(n\)-dimensional vector \(\vect x_0\)
-            are called affine transformations. (Every linear transformation
-            is affine.)
-      \item (Example) Find an affine transformation which maps the
-            unit square in the \(uv\) plane onto the square with vertices
-            \((1,0),(0,1),(-1,0),(0,-1)\) in the
-            \(xy\) plane.
-      \item An affine transformation is both one-to-one and onto
-            exactly when \(\det A\not=0\).
-      \item (Example) Use this fact to reinvestigate examples 4 and 5.
-      \item (Example) Prove that affine transformations send
-            parallelograms to parallelograms.
-    \end{itemize}
-  \item\textit{
-    HW: 1-13
-  }
-\end{itemize}
-
-
-
-\section*{6.2 The Change of Variables Theorem}
-
-\begin{itemize}
-  \item Affine transformations of areas
-    \begin{itemize}
-      \item (Example) Prove that the area of the image of the unit square
-            under a linear transformation with matrix \(M\) is given by
-            \(|\det M|\). (Hint: the area of a parallelogram determined
-            by two vectors \(\vect v_1,\vect v_2\) is given by
-            \(\|\vect v_1\times\vect v_2\|\).)
-      \item An affine transformation with matrix \(M\) transforms hypervolumes
-            by a factor of \(|\det M|\).
-      \item (Example) Verify this fact for the parallelogram
-            with vertices \((2,0),(3,1),(1,3),(0,2)\) in the \(uv\) plane
-            and its image in the \(xy\) plane under
-            the transformation \(\vect T(u,v)=(2u+v+3,v-u-2)\).
-      \item Put another way, \(\iint_{D}1\dvar A=\iint_{D^*}|\det M|\dvar A\).
-    \end{itemize}
-  \item Affine transformations of single/double/triple integrals
-    \begin{itemize}
-      \item (Example) Let \(x=T(u)=mu+x_0\).
-            Use substitution to prove that
-            if the image of \([c_1,c_2]\) under \(T\) is \([b_1,b_2]\), then
-            \(\int_{b_1}^{b_2}f(x)\dvar x=\int_{c_1}^{c_2}f(T(u))|m|\dvar u\).
-      \item (Example) Use the previous fact to show that
-            \(\int_0^4 \sqrt{2x+1}\dvar x=\int_1^9 \frac{1}{2}\sqrt{u}\dvar u\)
-      \item For any 2D affine transformation \(\vect T\) with matrix \(M\)
-            transforming \(D^*\) to \(D\),
-            \(\iint_D f(x,y)\dvar A=\iint_{D^*}f(\vect T(u,v))|\det M|\dvar A\).
-      \item (Example) Use a linear transformation to prove that
-            \(
-              \int_0^2\int_{y/2}^{(y+4)/2}2y\dvar x\dvar y
-                =
-              4\int_0^1\int_0^1 4v\dvar v\dvar u
-            \)
-            and compute both integrals directly to verify.
-      \item (Example)
-            Compute \(\iint_D (x+y)(x-y-2)\dvar{A}\) where \(T\) is the
-            triangle with vertices \((4,2)\), \((3,1)\), \((2,2)\).
-      \item For any 3D affine transformation \(\vect T\) with matrix \(M\)
-            transforming \(D^*\) to \(D\),
-            \(\iint_D f(x,y,z)\dvar V=\iint_{D^*}f(\vect T(u,v,w))|\det M|\dvar V\).
-    \end{itemize}
-  \item Jacobian
-    \begin{itemize}
-      \item The Jacobian \(\frac{\p \vect T}{\p \vect u}\) of a transformation
-            is defined to be the determinant of its partial derivative matrix:
-            \(\det(\vect D\vect T)\).
-      \item (Example) Prove that for an affine transformation \(\vect T\) with
-            matrix \(M\) that \(\vect D\vect T=M\) and therefore
-            \(\frac{\p\vect T}{\p\vect u}=\det M\).
-      \item For any 2D transformation \(\vect T\)
-            transforming \(D^*\) to \(D\),
-            \(
-              \iint_D f(\vect x)\dvar A
-                =
-              \iint_{D^*}f(\vect T(\vect u))|\frac{\p\vect T}{\p\vect u}|\dvar A
-            \).
-      \item For any 3D transformation \(\vect T\)
-            transforming \(D^*\) to \(D\),
-            \(
-              \iiint_D f(\vect x)\dvar V
-                =
-              \iiint_{D^*}f(\vect T(\vect u))|\frac{\p\vect T}{\p\vect u}|\dvar V
-            \).
-      \item (Example) Use a 2D transformation to compute
-            \(\iint_D e^x\cos(\pi e^x)\dvar{A}\) where
-            \(D\) is the region
-            bounded by \(y=0\), \(y=e^x-2\), \(y=\frac{e^x-1}{2}\).
-    \end{itemize}
-  \item Polar, cylindrical, spherical change of variables
-    \begin{itemize}
-      \item Polar coordinates:
-            \(
-              \iint_D f(x,y)\dvar A
-                =
-              \iint_{D^*}f(r\cos\theta,r\sin\theta)r\dvar A
-            \)
-      \item Cylindrical coordinates:
-            \(
-              \iint_D f(x,y,z)\dvar V
-                =
-              \iint_{D^*}f(r\cos\theta,r\sin\theta,z)r\dvar V
-            \)
-      \item Spherical coordinates:
-            \(
-              \iint_D f(x,y,z)\dvar V
-                =
-              \iint_{D^*} f(
-                \rho\sin\phi\cos\theta,
-                \rho\sin\phi\sin\theta,
-                \rho\cos\phi
-              )\rho^2\sin\phi\dvar V
-            \)
-      \item (Example 4) Evaluate \(\iint_D\log(x^2+y^2)\dvar A\) where \(D\)
-            is the region in the first quadrant between the circles
-            \(x^2+y^2=a^2\) and \(x^2+y^2=b^2\) for \(0<a<b\).
-      \item (Example 6) Evaluate \(\iiint_W\exp[(x^2+y^2+z^3)^{3/2}]\dvar V\)
-            where \(W\) is unit ball centered at the origin.
-      \item (Example) Find a formula for the volume of a cone with radius
-            \(R\) and height \(H\).
-      \item (Example 7) Find a formula for the volume of a sphere with
-            radius \(R\).
-    \end{itemize}
-  \item\textit{
-    HW: 1-8, 11, 13-16, 21, 23-28
-  }
-\end{itemize}
-
-
-
-\section*{7.1 The Path Integral}
-
-\begin{itemize}
-  \item Path Integral with respect to Arclength
-    \begin{itemize}
-      \item Recall that for a curve \(C\) defined by
-            \(\vect r:\mathbb R\to\mathbb R^n\), the arclength function
-            \(s:\mathbb R\to\mathbb R\) defined by
-            \(s(t)=\int_0^t\|\vect r'(\tau)\|\dvar\tau\) gives the length
-            of the curve from \(0\) to \(t\).
-      \item (Example) Prove that \(C=\pi D\) gives the circumference of
-            a circle with diameter \(D\).
-      \item If \(f:\mathbb R^n\to\mathbb R\) is a function defined
-            along the curve \(C\) defined by \(\vect r:\mathbb R\to\mathbb R^n\)
-            for \(t\in[a,b]\), then
-            \[
-              \int_C f\dvar s
-                =
-              \int_a^b f(\vect r(t))\frac{ds}{dt}\dvar t
-            \]
-            where \(\frac{ds}{dt}=\|\frac{d\vect r}{dt}\|\).
-      \item (Example 1) Find the average value of the function
-            \(f(x,y,z)=x^2+y^2+z^2\) along the portion of the helix given by
-            \(\vect c(t)=\<\cos t,\sin t,t\>\) for \(t\in[0,2\pi]\).
-      \item (Example 2) The base of a fence is given by the curve
-            \(\vect c(t)=\<30\cos^3t,30\sin^3t\>\), and the height of the
-            fence is given by \(f(x,y)=1+\frac{y}{3}\). How much paint is
-            required to cover both sides of this fence?
-    \end{itemize}
-  \item\textit{
-    HW: 1-15, 17-19, 21-23, 25-27
-  }
-\end{itemize}
-
-
-
-\section*{7.2 Line Integrals}
-
-\begin{itemize}
-  \item Line Integral with respect to a Curve
-    \begin{itemize}
-      \item If \(\vect F:\mathbb R^n\to\mathbb R^n\) is a vector field defined
-            along the curve \(C\) defined by \(\vect r:\mathbb R\to\mathbb R^n\)
-            for \(t\in[a,b]\), then
-            \[
-              \int_C \vect F\cdot\dvar\vect r
-                =
-              \int_a^b \vect F(\vect c(t))\frac{d\vect r}{dt}\dvar t
-            \]
-      \item The work done in moving an object along the curve \(C\) defined
-            by \(\vect r:\mathbb R\to\mathbb R^n\) for \(t\in[a,b]\)
-            using a force vector
-            field \(\vect F:\mathbb R^n\to\mathbb R^n\) is given by
-            \[
-              \int_C \vect F\cdot\vect T\dvar s
-                =
-              \int_C \vect F\cdot\dvar \vect r
-                =
-              \int_a^b \vect F(\vect r(t))\cdot\frac{d\vect r}{dt}\dvar t
-            \]
-      \item (Example) An object is pushed around the unit circle with
-            a force \(\<-y,x\>\) at each point \((x,y)\). Compute the precise
-            work done in pushing the box around \(3\) full counter-clockwise
-            rotations.
-      \item (Example 1) Let \(\vect r(t)=\<\sin t,\cos t,t\>\) for \(t\in[0,2\pi]\)
-            define the curve \(C\), and define the vector field \(\vect F\)
-            by \(\vect F(\vect x)=\vect x\cdot\<1,1,1\>\). Compute
-            \(\int_C\vect F\cdot\dvar\vect c\).
-      \item (Example 5) Let \(C\) be a circle in the \(yz\) plane centered
-            at the origin.
-            Show that no work is done by a force \(\vect F=\<x^3,y,z\>\)
-            acting on an object moving around the circle.
-    \end{itemize}
-  \item Line integrals with respect to variables
-    \begin{itemize}
-      \item If \(f:\mathbb R^n\to\mathbb R\) is a function defined
-            along the curve \(C\) defined by \(\vect c:\mathbb R\to\mathbb R^n\)
-            for \(t\in[a,b]\), then for \(1\leq i\leq n\)
-            \[
-              \int_C f\dvar x_i
-                =
-              \int_a^b f(\vect c(t))\frac{dx_i}{dt}\dvar t
-            \]
-            where \(\vect r=\<x_1,x_2,\dots\>\).
-      \item (Example)
-            Compute \(\int_C xy\dvar y\) where \(C\) is the parabola defined
-            by \(\vect c(t)=\<t,t^2,1\>\) for \(t\in[0,1]\).
-      \item Note that
-            \[
-              \int_C \vect F\cdot\dvar\vect r
-                =
-              \sum_{i=1}^n \int_C F_i\cdot\dvar x_i
-            \]
-      \item (Example 2) Evaluate and interpret
-            \(\int_C x^2\dvar x+xy\dvar y+\dvar z\) where \(C\) is the
-            parabola defined
-            by \(\vect c(t)=\<t,t^2,1\>\) for \(t\in[0,1]\).
-    \end{itemize}
-  \item Reparametrizations and partitions
-    \begin{itemize}
-      \item The value of \(\int_C f\dvar s\)
-            is independent of the choice of parametrization \(\vect r(t)\)
-            regardless of orientation.
-      \item The value of \(\int_C \vect F\cdot\dvar \vect r\)
-            is independent of the choice of parametrization \(\vect r(t)\)
-            provided it respects the orientation of \(C\).
-      \item If \(C\) and \(-C\) represent the same curve with opposite
-            orientations, then
-            \(\int_C \vect F\cdot\dvar\vect r=-\int_{-C}\vect F\cdot\dvar\vect r\).
-      \item If \(C=C_1+C_2\), then
-            \(\int_C f\dvar s=\int_{C_1}f\dvar s+\int_{C_2}f\dvar s\) and
-            \(
-              \int_C \vect F\cdot\dvar \vect r
-                =
-              \int_{C_1}\vect F\cdot\dvar \vect r+\int_{C_2}\vect F\cdot\dvar \vect r
-            \).
-      \item (Example 11) Compute \(\int_C x^2\dvar x+xy\dvar y\) where
-            \(C\) is the perimeter of the unit square oriented counter-clockwise.
-    \end{itemize}
-  \item\textit{
-    HW: 1-9, 11-14, 16-20
-  }
-\end{itemize}
-
-
-
-\section*{8.1 Green's Theorem}
-
-\begin{itemize}
-  \item Green's Theorem
-    \begin{itemize}
-      \item Let \(\p D\) be the c.c.w. oriented boundary of a simple region
-        \(D\subseteq \mb R^2\). Then
-        \(
-          \int_{\p D}\vect F\cdot\dvar\vect r
-            =
-          \iint_D \scurl \vect F \dvar A
-            =
-          \iint_D \curl \vect F\cdot \veck \dvar A
-            =
-          \iint_D \frac{\p F_2}{\p x}-\frac{\p F_1}{\p y}\dvar A
-        \).
-      \item Note that the book lets \(\vect F=\<F_1,F_2\>=\<P,Q\>\).
-      \item (Example 1) Verify Green's Theorem for \(\vect F=\<x,xy\>\)
-        and \(D=\{(x,y):x^2+y^2\leq 1\}\).
-      \item (Example) Use Green's Theorem to prove that the area of \(D\)
-        is \(\frac{1}{2}\int_{\p D}x\dvar y-y\dvar x\).
-      \item (Example 3) Compute the work done using a force
-        \(\vect F=\<xy^2,y+x\>\) in moving an object from the origin to \((1,1)\)
-        along the curve \(y=x^2\) and then back to the origin along the line
-        \(y=x\).
-    \end{itemize}
-  \item\textit{
-    HW: 1-6, 9-10, 15
-  }
-\end{itemize}
-
-
-
-\section*{8.3 Conservative Fields}
-
-\begin{itemize}
-  \item Characterizations of Conservative Fields
-    \begin{itemize}
-      \item These are all equivalent to \(\vect F:\mb R^n\to\mb R^n\)
-        being conservative:
-        \begin{enumerate}[(1)]
-          \item There exists a potential function \(f:\mb R^n\to\mb R\) such
-            that \(\vect F=\nabla f\).
-          \item \(\curl \vect F=0\).
-          \item \(\vect F\) is path-independent: for any two curves \(C_1,C_2\)
-            which share starting and ending points,
-            \(
-              \int_{C_1}\vect F\cdot\dvar\vect r
-                =
-              \int_{C_2}\vect F\cdot\dvar\vect r
-            \).
-          \item For any simple closed curve \(C\),
-            \(\int_C\vect F\cdot\dvar\vect r=0\).
-          \item For any curve starting at \(A\) and ending at \(B\), and any
-            potential function \(f\) for \(\vect F\):
-            \(\int_C\vect F\cdot\dvar\vect r=[f]_A^B=f(B)-f(A)\).
-        \end{enumerate}
-      \item (Example) Prove that (4) implies (3) above.
-      \item (7.2 Example 9) Evaluate \(\int_C y\dvar x+x\dvar y\) where
-        \(C\) is the curve given by \(\vect r(t)=(t^4/4,\sin^3(t\pi/2))\)
-        for \(t\in[0,1]\).
-      \item (Example 4) Find \(\int_C 2x\cos y\dvar x-x^2\sin y\dvar y\)
-        where \(C\) is given by \(\vect r:[1,2]\to\mb R^2\) defined by
-        \(x=e^{t-1},y=\sin(\pi/t)\).
-      \item (Example 1) Show that
-        \(\int_C \<y,z\cos yz+x,y\cos yz\>\cdot\dvar\vect r=0\) for any
-        simple closed curve \(C\).
-    \end{itemize}
-  \item\textit{
-    HW: 1-2, 5-8, 10-11
-  }
-\end{itemize}
-
-
-
-% \section*{7.3 Parametrized Surfaces}
+% \section*{4.3 Vector Fields}
 
 % \begin{itemize}
-%   \item Parametrization of a Surface
+%   \item Vector Fields
 %     \begin{itemize}
-%       \item Let \(S\subseteq \mathbb R^3\) be a surface and
-%             \(D\subseteq \mathbb R^2\)
-%             be a two-dimensional region. Then \(\vect\Phi:D\to S\) is a parametrization
-%             of \(S\) by \(D\).
-%       \item (Example) Show that the surface given by \(z=f(x,y)\)
-%             has the parametrization \(\vect\Phi(x,y)=\<x,y,f(x,y)\>\).
-%       \item (Example 1) Show that the plane passing through the point
-%             \(P\in\mathbb R^3\)
-%             and normal to the vector \(\vect a\times\vect b\) has a parametrization
-%             \(\vect\Phi(u,v)=\vect P+\vect au+\vect bv\).
-%       \item (Example 2) Show that the cone \(z=\sqrt{x^2+y^2}\) has a
-%             parametrization \(\vect\Phi(r,\theta)=\<r\cos\theta,r\sin\theta,r\>\)
-%             for \(r\geq 0,0\leq\theta\leq2\pi\).
-%       \item Surfaces which are conveniently described using cylindrical
-%             or spherical coordinates may be easily parameterized by adapting
-%             the relevant transformation.
-%       \item (Example) Use the cylindrical and spherical transformations to
-%             find parametrizations of the cone \(z=\sqrt{x^2+y^2}\).
+%       \item A vector field is a map \(f:\mb R^n\to\mb R^n\) assinging an
+%         \(n\)-dimensional vector to each point in \(\mb R^n\)
+%       \item (Example 1) The velocity field of a fluid may be modeled as a
+%         vector field.
+%       \item (Example 2) Sketch the rotary motion given by the vector
+%         field \(\vect V(x,y)=\<-y,x\>\).
 %     \end{itemize}
-%   \item Tangent and Normal Vectors to a Surface
+%   \item Gradient Vector Fields
 %     \begin{itemize}
-%       \item The tangent plane to a surface parameterized by \(\vect\Phi\)
-%             at the point \(\vect\Phi(\vect u_0)\) has parameterization
-%             \(
-%               \vect L(\vect u)
+%       \item \(\nabla f = \<\frac{\p f}{\p x_1},\dots,\frac{\p f}{\p x_n}\>\)
+%       \item (Example) The derivative of a scalar function
+%         \(f:\mb R^n\to \mb R\) in the direction given by a unit vector
+%         \(\vect v\)
+%         is given by \(\nabla f\cdot \vect v\). Show that the maximum value
+%         of a directional derivative for a fixed point
+%         is given by \(\|\nabla f\|\)
+%         and attained by the direction \(\frac{1}{\|\nabla f\|}\nabla f\).
+%       \item (Example 4) If temperature is given by \(T(x,y,z)\), then the
+%         energy or heat flux field is given by \(\vect J = -k\nabla T\) where
+%         \(k\) is the conductivity of the body. Level sets are called isotherms.
+%       \item (Example 5) The gravitational potential of bodies with mass \(m,M\)
+%         is given by \(V=-\frac{mMG}{r}\) where \(G\) is the gravitational
+%         constant and \(r\) is the distance between the bodies, and the
+%         gravitational force field is given by \(\vect F=-\nabla V\).
+%         Show that \(\vect F = -\frac{mMG}{r^3}\vect r\), where \(\vect r\)
+%         is the vector pointing from the center of mass \(M\) to the center
+%         of mass \(m\).
+%       \item A vector field \(\vect F:\mb R^n\to\mb R^n\) is conservative iff
+%         there exists
+%         a potential function \(f:\mb R^n\to\mb R\) such that
+%         \(\vect F=\nabla f\).
+%       \item (Example) Show that \(\vect W=\<2y+1,2x\>\) is conservative.
+%       \item (Example 7) Show that \(\vect V=\<y,-x\>\) is not conservative.
+%     \end{itemize}
+%   \item Flow Lines
+%     \begin{itemize}
+%       \item A flow line for a vector field \(\vect F:\mb R^n\to\mb R^n\)
+%         is a path \(\vect c:\mb R\to\mb R^n\) satisfying
+%         \(\vect c'(t)=\vect F(\vect c(t))\).
+%       \item (Example 8) Show that \(\vect c(t)=\<\cos t,\sin t\>\) is a flow
+%         line for \(\vect F=\<-y,x\>\), and find some other flow lines.
+%     \end{itemize}
+%   \item\textit{
+%     HW: 1-22
+%   }
+% \end{itemize}
+
+% \section*{4.4 Divergence and Curl}
+% \begin{itemize}
+%   \item Divergence
+%     \begin{itemize}
+%       \item The divergence of a vector field
+%         \(\vect F:\mathbb R^n\to\mathbb R^n\) is denoted by
+%         \(\div{\vect F}:\mathbb R^n\to \mathbb R\) and defined by
+%         \(\div{\vect F} = \nabla \cdot \vect F = \sum_{i=1}^n \frac{\p F_i}{\p x_i}\)
+%       \item (Examples 3-5) Compute the divergences of \(\vect F=\<x,y\>\),
+%         \(\vect G=\<-x,-y\>\) and \(\vect H=\<-y,x\>\) at
+%         any point on \(\mathbb R^2\). How does divergence correspond with
+%         the motion described by the vector field plots?
+%       \item (Example) Compute the divergence of \(\vect F=\<x^2,y\>\) various
+%         points and interpret those values against a plot of the vector field.
+%     \end{itemize}
+%   \item Curl
+%     \begin{itemize}
+%       \item The curl of a three-dimensional vector field
+%         \(\vect F:\mathbb R^3\to\mathbb R^3\) is denoted by
+%         \(\curl{\vect F}:\mathbb R^3\to\mathbb R^3\) and defined by
+%         \(
+%           \curl{\vect F}
+%             =
+%           \nabla \times \vect F
+%             =
+%           \<
+%             \frac{\p F_3}{\p y}-\frac{\p F_2}{\p z},
+%             \frac{\p F_1}{\p z}-\frac{\p F_3}{\p x},
+%             \frac{\p F_2}{\p x}-\frac{\p F_1}{\p y}
+%           \>
+%         \)
+%       \item The scalar curl of a two-dimensional vector field
+%         \(\vect F:\mathbb R^2\to\mathbb R^2\) is denoted by
+%         \(\scurl{\vect F}:\mathbb R^2\to\mathbb R\) and defined by
+%         \(
+%           \scurl{\vect F}
+%             =
+%           \curl{\vect F} \cdot \veck
+%             =
+%           \frac{\p F_2}{\p x}-\frac{\p F_1}{\p y}
+%         \)
+%       \item (Example) Compute the scalar curl of \(\vect F=\<x,y\>\),
+%         \(\vect G=\<-x,-y\>\) and \(\vect H=\<-y,x\>\) at every point in
+%         \(\mathbb R^2\).
+%         How does this scalar curl correspond with
+%         the motion described by the vector field plots?
+%       \item (Example) Compute the curl of \(\vect F=\<y,-x,z\>\) at every
+%         point in \(\mathbb R^3\). How does curl correspond with the motion
+%         described by the vector field plot?
+%     \end{itemize}
+%   \item Facts about \(\nabla f\), \(\div \vect F\), \(\curl \vect F\)
+%     \begin{itemize}
+%       \item The curl of a conservative field is zero:
+%         \(\curl \nabla f = \nabla \times (\nabla f) = \vect 0\).
+%       \item (Example) Prove the above theorem.
+%       \item (Example) Prove that \(\vect F=\<x^2+z,y-z,z^3+3xy\>\) is not a
+%             conservative field.
+%       \item The divergence of a curl field is zero:
+%         \(\div \curl \vect F = \nabla\cdot(\nabla\times \vect F)=0\)
+%       \item Many identities on pg. 255 of Marsden text.
+%       \item (Example) Sketch proof of identity \#8:
+%         \(\div(\vect F\times\vect G)=\vect G\cdot\curl\vect F-\vect F\cdot\curl\vect G\).
+%     \end{itemize}
+%   % \item Laplace operator
+%   %   \begin{itemize}
+%   %     \item The laplacian of a scalar function
+%   %       \(f:\mathbb R^n\to\mathbb R\) is denoted by
+%   %       \(\nabla^2 f:\mathbb R^n\to\mathbb R\) and defined by
+%   %       \(
+%   %         \nabla^2 f
+%   %           =
+%   %         \nabla \cdot (\nabla f)
+%   %           =
+%   %         \sum_{i=1}^n \frac{\p^2 f}{\p x_i^2}
+%   %       \).
+%     % \end{itemize}
+%   \item\textit{
+%     HW: 1-37
+%   }
+% \end{itemize}
+
+% \section*{5.3 The Double Integral Over More General Regions}
+% \begin{itemize}
+%   \item Hypervolume
+%     \begin{itemize}
+%       \item The hypervolume \(HV_1\)
+%       of an interval \([a,b]\) in \(\mathbb R\) is just its length \(b-a\).
+%       \item The hypervolume of a well-behaved bounded subset
+%       \(D\subseteq\mathbb R^{n+1}\) is defined for each
+%       \(i\in\{1,\dots,n+1\}\) by
+%         \[
+%           HV_{n+1}
+%             =
+%           \int_{x_i\in I}
+%           HV(Z_i)
+%           \dvar{x_i}
+%             =
+%           \int_{x_i=a}^{x_i=b}
+%           HV_n(D_i)
+%           \dvar{x_i}
+%         \]
+%       where \(I=[a,b]\) is an interval containing all values \(x_i\) included
+%       in the \(i\)th coordinate of \(D\), and \(D_i\) is the projection of
+%       of all points in \(D\) onto \(\mathbb R^n\) by removing the \(i\)th
+%       coordinate.
+%       \item (Example) For \(n=1\) and
+%       \(D=\{(x,y)\in\mathbb R^2:a\leq x\leq b,f(x)\leq y\leq g(x)\}\), we
+%       have that
+%         \[
+%           HV_2
+%             =
+%           A
+%             =
+%           \int_{x\in[a,b]}
+%           g(x)-f(x)
+%           \dvar{x}
+%             =
+%           \int_a^b
+%           g(x)-f(x)
+%           \dvar{x}
+%         \]
+%       (assuming \(f(x)\leq g(x)\) whenever \(a\leq x\leq b\)).
+%       \item (Example) For \(n=2\) and \(D\subseteq R^3\) including values
+%       of \(x\) between \(a\) and \(b\), we have that
+%         \[
+%           HV_3
+%             =
+%           V
+%             =
+%           \int_{x=a}^{x=b}
+%           A(x)
+%           \dvar{x}
+%         \]
+%         \[
+%           HV_3
+%             =
+%           V
+%             =
+%           \int_{y=c}^{y=d}
+%           A(y)
+%           \dvar{x}
+%         \]
+%       where \(A(x)\) is the area of the cross-section of \(D\) taken by fixing
+%       each value of \(x\) (or similar for \(y\)).
+%     \end{itemize}
+%   \item Double Integrals
+%     \begin{itemize}
+%       \item
+%       For a bounded region \(D\subseteq\mathbb R^2\) and continuous
+%       \(f:D\to\mathbb R\), the double integral
+%         \[
+%           \iint_D f\dvar A
+%         \]
+%       is defined to be the volume of
+%       \(D^\uparrow=\{(x,y,z)\in\mathbb R^3:(x,y)\in D,0\leq z\leq f(x,y)\}\)
+%       minus the volume of
+%       \(D_\downarrow=\{(x,y,z)\in\mathbb R^3:(x,y)\in D,f(x,y)\leq z\leq 0\}\)
+%       (sometimes called net volume or signed volume).
+%       \item Assuming \(f(x,y)\geq 0\), we may apply the definition of volume
+%       above to get
+%         \[
+%           \iint_D F\dvar A
+%             =
+%           \int_{x=a}^{x=b}
+%           A(x)
+%           \dvar x
+%         \]
+%       And if each cross section \(A(x)\) is described by \(\phi_1(x)\leq y\leq\phi_2(x)\)
+%       and \(0\leq z\leq f(x,y)\),
+%       we have that
+%         \[
+%           \iint_D F\dvar A
+%             =
+%           \int_{x=a}^{x=b}
+%           A(x)
+%           \dvar x
+%             =
+%           \int_{x=a}^{x=b}
+%           \left[
+%           \int_{y=\phi_1(x)}^{y=\phi_2(x)}
+%           f(x,y) \dvar y
+%           \right] \dvar x
+%         \]
+%       \item Similarly, if \(D\) is described by \(c\leq y\leq d\) and
+%         \(\psi_1(y)\leq x\leq \psi_2(y)\), then
+%         \[
+%           \iint_D F\dvar A
+%             =
+%           \int_{y=c}^{y=d}
+%           \left[
+%           \int_{x=\psi_1(y)}^{x=\psi_2(y)}
+%           f(x,y) \dvar x
+%           \right] \dvar y
+%         \]
+%       \item The above holds even when \(f(x,y)\geq 0\) doesn't hold.
+%     \end{itemize}
+%   \item Iterated integrals
+%     \begin{itemize}
+%       \item An iterated integral is a shorthand for the expansion of two
+%         or more nested integrals, e.g.:
+%         \[
+%           \int_a^b
+%           \int_{\phi_1(x)}^{\phi_2(x)}
+%           f(x,y)
+%           \dvar y\dvar x
+%             =
+%           \int_{x=a}^{x=b}
+%           \left[
+%           \int_{y=\phi_1(x)}^{y=\phi_2(x)}
+%           f(x,y) \dvar y
+%           \right] \dvar x
+%         \]
+%       \item (Example) Sketch the region of integration for
+%             \(\int_0^\pi\int_{-x}^x \cos(y)\dvar y\dvar x\),
+%             evaluate it,
+%             and interpret it as the signed volume of a region in \(\mathbb R^3\).
+%       \item (Example) Express \(\iint_R (12x^3y-1)\dvar A\) where
+%             \(R\) is the
+%             rectangle with vertices \((0,0),(3,0),(3,2),(0,2)\)
+%             as an interated integral, then evaluate it.
+%       \item (Example) Express \(\iint_T (12x^3y-1)\dvar A\) where
+%             \(T\) is the
+%             triangle with vertices \((0,0),(1,0),(1,1)\)
+%             as an interated integral, then evaluate it.
+%     \end{itemize}
+%   \item Applications
+%     \begin{itemize}
+%       \item \(\iint_D 1\dvar A\) is the area of \(D\)
+%       \item \(\frac{1}{A(D)}\iint_D f(x,y)\dvar A\) is the average value
+%             of the function \(f\) restricted to \(D\)
+%     \end{itemize}
+%   \item\textit{
+%     HW: 1-17
+%   }
+% \end{itemize}
+
+% \section*{5.4 Changing the Order of Integration}
+% \begin{itemize}
+%   \item Rectangular regions of integration
+%     \begin{itemize}
+%       \item For constant bounds of integration:
+%         \[
+%           \int_a^b\int_c^d f(x,y)\dvar y\dvar x
+%             =
+%           \int_c^d\int_a^b f(x,y)\dvar x\dvar y
+%         \]
+%       \item (Example) Verify that
+%         \(
+%           \int_0^1\int_1^2 x^2+2xy\dvar y\dvar x
+%             =
+%           \int_1^2\int_0^1 x^2+2xy\dvar x\dvar y
+%         \).
+%     \end{itemize}
+%   \item Nonrectangular regions of integration
+%     \begin{itemize}
+%       \item Bounds of integration cannot be directly swapped; however, by
+%       interpreting the region of integration new bounds may be found in
+%       the other order.
+%       \item (Example) Verify that
+%         \(
+%           \int_0^4\int_0^{\frac{4-y}{2}} x+y \dvar x\dvar y
+%         \)
+%       and
+%         \(
+%           \int_0^2\int_0^{4-2x} x+y \dvar y\dvar x
+%         \)
+%       share the same region of integration and are equal.
+%       \item (Example) Evaluate
+%         \(
+%           \int_1^e\int_0^{\log x}\frac{(2x-e)\sqrt{1+e^y}}{e-e^y}\dvar y\dvar x
+%         \).
+%         (Note that this is technically improper, but that this does not effect
+%         the solution.)
+%     \end{itemize}
+%   \item Estimating double integrals
+%     \begin{itemize}
+%       \item If \(g(x,y)\leq f(x,y)\leq h(x,y)\) for \((x,y)\in D\), then
+%       \(\iint_D g(x,y)\dvar A\leq\iint_D f(x,y)\dvar A\leq \iint_D h(x,y)\dvar A\).
+%       \item (Example 3) Prove that
+%       \(\frac{1}{\sqrt 3}\leq \iint_D \frac{1}{\sqrt{1+x^6+y^8}}\dvar A \leq 1\)
+%       where \(D\) is the unit square.
+%     \end{itemize}
+%   \item\textit{
+%     HW: 1-15
+%   }
+% \end{itemize}
+
+% \section*{5.5 The Triple Integral}
+
+% \begin{itemize}
+%   \item Triple Integrals
+%     \begin{itemize}
+%       \item
+%       For a bounded region \(D\subseteq\mathbb R^3\) and continuous
+%       \(f:D\to\mathbb R\), the triple integral
+%         \[
+%           \iiint_D f\dvar V
+%         \]
+%       is defined to be the hypervolume of
+%       \(D^\uparrow=\{(x,y,z,w)\in\mathbb R^3:(x,y,z)\in D,0\leq w\leq f(x,y,z)\}\)
+%       minus the hypervolume of
+%       \(D_\downarrow=\{(x,y,z,w)\in\mathbb R^3:(x,y,z)\in D,f(x,y,z)\leq w\leq 0\}\).
+%     \end{itemize}
+%   \item Applications
+%     \begin{itemize}
+%       \item \(\iiint_D 1\dvar V\) is the volume of \(D\)
+%       \item \(\frac{1}{V(D)}\iiint_D f(x,y,z)\dvar V\) is the average value
+%             of the function \(f\) restricted to \(D\)
+%       \item If \(\rho(x,y,z)\) gives the density of a solid at the coordinate
+%             \((x,y,z)\), then \(\iiint_D \rho(x,y,z)\dvar V\) calculates its
+%             overall mass.
+%     \end{itemize}
+%   \item Rectangular Boxes
+%     \begin{itemize}
+%       \item
+%       If \(B=[a_1,b_1]\times[a_2,b_2]\times[a_3,b_3]\), then
+%         \[
+%           \begin{matrix}
+%             \iiint_B f\dvar V
+%               & = &
+%             \int_{a_3}^{b_3}\int_{a_2}^{b_2}\int_{a_1}^{b_1}
+%             f(x,y,z) \dvar x\dvar y\dvar z
+%               \\ & = &
+%             \int_{a_2}^{b_2}\int_{a_1}^{b_1}\int_{a_3}^{b_3}
+%             f(x,y,z) \dvar z\dvar x\dvar y
+%               \\ & = &
+%             \text{etc.}
+%           \end{matrix}
+%         \]
+%       \item
+%       (Example)
+%       Write \(\iiint_D e^{x+y+z}\dvar V\) where
+%       \(D=[0,4]\times[0,2]\times[1,3]\) as a few different iterated integrals,
+%       then evaluate one.
+%     \end{itemize}
+%   \item General regions of integration
+%     \begin{itemize}
+%       \item
+%       If \(E\subseteq\mathbb R^2\) and
+%       \(D=\{(x,y,z)\in\mathbb R^3:(x,y)\in E,\gamma_1(x,y)\leq z\leq\gamma_2(x,y)\}\),
+%       then
+%       \[
+%         \iiint_D f(x,y,z)\dvar V
+%           =
+%         \iint_E
+%           \left[\int_{\gamma_1(x,y)}^{\gamma_2(x,y)} f(x,y,z)\dvar z\right]
+%         \dvar A
+%       \]
+%       (and similar for \(x,y\) instead of \(z\)).
+%       \item (Example 5) Express \(\iiint_W x\dvar V\) where \(W\) is the
+%       solid for which \(x,y,z\) are positive and \(x^2+y^2\leq z\leq 2\)
+%       as a few different iterated integrals.
+%       \item (Example 6) Express \(\iiint_W x\dvar V\) where \(W\) is the
+%       solid in \(\mathbb R^3\) above the triangle with vertices
+%       \((0,0,0),(1,0,0),(1,1,0)\) and between the surfaces \(z=x^2+y^2\)
+%       and \(z=2\) as an iterated integral, then evaluate it.
+%     \end{itemize}
+%   \item\textit{
+%     HW: 1-22, 25-28
+%   }
+% \end{itemize}
+
+
+
+% \section*{1.4 Cylindrical and Spherical Coordinates}
+
+% \begin{itemize}
+%   \item Transformation of variables
+%     \begin{itemize}
+%       \item A transformation of variables is a function
+%             \(\vect T:\mathbb R^n\to\mathbb R^n\).
+%       \item (Example) Sketch the integer lattice on the \(uv\) plane and
+%             its image in the \(xy\) plane for
+%             the transformation of variables \(\vect T(u,v)=(x,y)=(u,u+v)\).
+%     \end{itemize}
+%   \item Polar Coordinates
+%     \begin{itemize}
+%       \item \(\vect p(r,\theta)=(r\cos\theta,r\sin\theta)\)
+%       \item \(r^2=x^2+y^2\), \(\tan\theta=\frac{y}{x}\)
+%       \item (Example)
+%             Convert \(A=\vect p(4,2\pi/3)\) from polar to Cartesian.
+%             Convert \(B=(3,-3)\) from Cartesian to polar. Plot both.
+%       \item (Example)
+%             Express the curves \(x=\sqrt{4-y^2}\) and \(y=3\) in terms
+%             of polar coordinates.
+%     \end{itemize}
+%   \item Cylindrical Coordinates
+%     \begin{itemize}
+%       \item \(\vect c(r,\theta,z)=(r\cos\theta,r\sin\theta,z)\)
+%       \item Usually, assume \(r\geq0\) and \(0\leq\theta\leq2\pi\)
+%       \item \(r^2=x^2+y^2\), \(\tan\theta=\frac{y}{x}\)
+%       \item (Example 1) Convert \(A=\vect c(8,2\pi/3,-3)\) from cylindrical to
+%             Cartesian. Convert \(B=(6,6,8)\) from Cartesian to cylindrical.
+%             Plot both.
+%       \item (Example) Express the surfaces \(x^2+y^2=9\) and \(z^2=x^2+y^2\)
+%             in terms of cylindrical coordinates.
+%     \end{itemize}
+%   \item Spherical Coordinates
+%     \begin{itemize}
+%       \item \(
+%               \vect s(\rho,\theta,\phi)
 %                 =
-%               \vect\Phi(\vect u_0)+[\vect D\vect \Phi(\vect u_0)]\vect u
-%             \).
-%       \item (Example 3) Find a parameterization of the plane tangent
-%             to the surface defined by
-%             \(\vect\Phi(u,v)=\<u\cos v,u\sin v,u^2+v^2\>\) at the point
-%             \((1,0,1)\).
-%       \item The columns \(\frac{\p\vect\Phi}{\p u}(u_0,v_0)\),
-%             \(\frac{\p\vect\Phi}{\p v}(u_0,v_0)\) give tangent vectors to
-%             the surface, and their cross-product is normal to the surface.
-%       \item (Example) Find an equation in \(x,y,z\) for the tangent plane
-%             in Example 3.
-%       \item (Example) Find a parameterization for the sphere cenetered at
-%             the origin with radius \(3\). Then describe the plane tangent
-%             to it at the point \((1,-2,2)\).
-%     \end{itemize}
-%   \item\textit{
-%     HW: 1-3, 7-11, 13-15
-%   }
-% \end{itemize}
-
-
-
-% \section*{7.4 Area of a Surface}
-
-% \begin{itemize}
-%   \item Definition of Surface Area
-%     \begin{itemize}
-%       \item The area of a surface parametrized by \(\vect\Phi\) with domain
-%             \(D\) is given by
-%             \(
-%               \iint_D
-%                 \|\frac{\p\vect\Phi}{\p u}\times\frac{\p\vect\Phi}{\p v}\|
-%               \dvar A
+%               (
+%                 \rho\sin\phi\cos\theta,
+%                 \rho\sin\phi\sin\theta,
+%                 \rho\cos\phi
+%               )
 %             \)
-%       \item (Example) Verify that this definition matches the area of the
-%             rectangle given by the vectors \(\<3,0,-4\>\) and \(\<0,-2,0\>\).
-%       \item (Example 1) Show that the surface area of a cone with slant length
-%             \(L\) and radius \(R\) is given by the formula
-%             \(A=\pi R^2+\pi RL\).
-%       \item (Example 2) Find that the area of a helicoid parameterized by
-%             \(\Phi(r,\theta)=\<r\cos\theta,r\sin\theta,\theta\>\) is
-%             equal to \(2\pi\int_0^1\sqrt{r^2+1}\dvar r\).
-%       \item TODO
+%       \item Usually, assume \(\rho\geq0\), \(0\leq\theta\leq2\pi\), and
+%             \(0\leq\phi\leq\pi\)
+%       \item \(\rho^2=x^2+y^2+z^2\),
+%             \(\tan\theta=\frac{y}{x}\),
+%             \(\tan\phi=\frac{r}{z}=\frac{\sqrt{x^2+y^2}}{z}\)
+%       \item (Example 2) Convert \(A=(1,-1,1)\) from Cartesian to spherical.
+%             Convert \(B=\vect s(3,\pi/6,\pi/4)\) from spherical to Cartesian.
+%             Convert \(C=(2,-3,6)\) from Cartesian to spherical.
+%             Convert \(D=\vect s(1,-\pi/2,\pi/4)\) from spherical to Cartesian.
+%             Plot all four.
+%       \item (Example 3) Express the surfaces \(xz=1\) and \(x^2+y^2-z^2=1\)
+%             in terms of spherical coordiantes.
 %     \end{itemize}
 %   \item\textit{
-%     HW: tba
+%     HW: 1-12, 15-16
 %   }
 % \end{itemize}
 
-\section*{Surface Integrals}
 
-\begin{itemize}
-  \item Definition
-    \begin{itemize}
-      \item If \(f:\mathbb R^n\to\mathbb R\) is a scalar function defined
-            on the surface \(S\) defined by \(\vect\Phi:\mathbb R^2\to\mathbb R^n\)
-            for \((u,v)\in D\), then
-            \[
-              \iint_S f(\vect x)\dvar S
-                =
-              \iint_D
-                f(\vect\Phi(u,v))
-                \left\|\frac{\p\vect\Phi}{\p u}\times\frac{\p\vect\Phi}{\p v}\right\|
-              \dvar A
-            \]
-      \item (Example) Use \(A=\iint_S 1\dvar S\) to derive a formula for the
-            surface area of a cone in terms of its height \(H\) and angle
-            \(\theta\).
-      \item If \(\vect F:\mathbb R^n\to\mathbb R\) is a scalar function defined
-            on the surface \(S\) defined by \(\vect\Phi:\mathbb R^2\to\mathbb R^n\)
-            for \((u,v)\in D\) preserving orientation, then
-            \[
-              \iint_S \vect F(\vect x)\cdot\dvar\vect S
-                =
-              \iint_D
-                \vect F(\vect\Phi(u,v))
-                \cdot
-                \left(\frac{\p\vect\Phi}{\p u}\times\frac{\p\vect\Phi}{\p v}\right)
-              \dvar A
-            \]
-    \end{itemize}
-  \item Stokes' Theorem %TODO use uniform s,S in integrals
-    \begin{itemize}
-      \item If \(\p S\) is the positively oriented boundary of a surface
-        \(S\), then
-        \(
-          \iint_S\curl\vect F\cdot\dvar\vect S
-            =
-          \int_{\p S}\vect F\cdot\dvar\vect r
-        \).
-      \item (8.2 Example 2) Evaluate \(\iint_S(3x^2+3y^2)\veck\cdot\dvar\vect S\)
-        where \(S\) is the portion of the plane \(z=1-x-y\) above the unit
-        disk \(x^2+y^2\leq 1\) oriented toward positive values of \(x,y,z\).
-    \end{itemize}
-  \item Gauss'/Divergence Theorem
-    \begin{itemize}
-      \item If \(\p W\) is the outward oriented boundary of a solid
-        \(W\), then
-        \(
-          \iint_{\p W} \vect F\cdot\dvar\vect S
-            =
-          \iiint_{W} \div\vect F\dvar V
-        \).
-      \item (8.3 Example 3) Evaluate \(\iint_S\<2x,y^2,z^2\>\cdot\dvar\vect S\)
-        where \(S\) is the outward oriented boundary of the unit
-        sphere \(x^2+y^2+z^2=1\).
-    \end{itemize}
-  \item\textit{
-    HW: Review above examples
-  }
-\end{itemize}
-
-\section*{Overview of integration theorems}
-
-\begin{itemize}
-  \item \(\int_a^b f'(x)\dvar x=f(b)-f(a)=[f]_{\p[a,b]}\)
-  \item \(\int_C \nabla f\cdot\dvar \vect r=f(B)-f(A)=[f]_{\p C}\)
-  \item \(\iint_S \curl \vect F\cdot\dvar \vect S=\int_{\p S} \vect F\cdot\dvar\vect  r \)
-  \item \(\iiint_W \div \vect F\dvar V=\iint_{\p W} \vect F\cdot\dvar \vect S \)
-\end{itemize}
+% \section*{6.1 The Geometry of Maps from \(\mb R^2\) to \(\mb R^2\)}
+% \begin{itemize}
+%   \item Images of regions by transformations
+%     \begin{itemize}
+%       \item (Example 1) Find the image of the rectangle
+%             \([0,1]\times[0,2\pi]\) in the \(r\theta\) plane under the
+%             polar coordinate transformation \(\vect p\).
+%       \item (Example 2) Find the image of the square
+%             \([-1,1]^2=[-1,1]\times[-1,1]\) in the \(uv\) plane under the
+%             transformation
+%             \(
+%               \vect T(u,v)
+%                 =
+%               \begin{bmatrix}
+%                 \frac{1}{2} & \frac{1}{2} \\
+%                 \frac{1}{2} & -\frac{1}{2}
+%               \end{bmatrix}
+%               \<u,v\>
+%             \)
+%     \end{itemize}
+%   \item One-to-one and Onto
+%     \begin{itemize}
+%       \item A one-to-one transformation sends each point in the domain to
+%             a distinct point in the range.
+%       \item An onto transformation sends something in the domain onto each
+%             point of the range.
+%       \item (Example 3) Show that the polar coordinate transformation
+%             \(\vect p\) is onto but not one-to-one.
+%       \item (Example 4) Show that the transformation \(\vect T\) from example 2
+%             is both one-to-one and onto.
+%       \item (Example 5) Show that \(\vect T(u,v)=(u,0)\) is neither one-to-one
+%             nor onto.
+%       \item (Example 7) Find a rectangle in the \(r\theta\) plane which maps
+%             onto the region \(\{(x,y):x,y\geq 0,a^2\leq x^2+y^2\leq b^2\}\)
+%             in the Cartesian plane by the polar coordinate transformation.
+%     \end{itemize}
+%   \item Linear transformations
+%     \begin{itemize}
+%       \item Transformations \(\vect T:\mathbb R^n\to\mathbb R^n\) defined by
+%             \(\vect T(\vect u)=A\vect u\) for an \(n\)-dimensional matrix \(A\)
+%             are called linear transformations.
+%       \item (Example 6) Find a region in the \(uv\) plane which maps onto
+%             the square with vertices \((1,0),(0,1),(-1,0),(0,-1)\) in the
+%             \(xy\) plane by the linear transformation given in Example 2.
+%       \item Transformations \(\vect T:\mathbb R^n\to\mathbb R^n\) defined by
+%             \(\vect T(\vect u)=A\vect u+\vect x_0\) for an \(n\)-dimensional
+%             matrix \(A\) and \(n\)-dimensional vector \(\vect x_0\)
+%             are called affine transformations. (Every linear transformation
+%             is affine.)
+%       \item (Example) Find an affine transformation which maps the
+%             unit square in the \(uv\) plane onto the square with vertices
+%             \((1,0),(0,1),(-1,0),(0,-1)\) in the
+%             \(xy\) plane.
+%       \item An affine transformation is both one-to-one and onto
+%             exactly when \(\det A\not=0\).
+%       \item (Example) Use this fact to reinvestigate examples 4 and 5.
+%       \item (Example) Prove that affine transformations send
+%             parallelograms to parallelograms.
+%     \end{itemize}
+%   \item\textit{
+%     HW: 1-13
+%   }
+% \end{itemize}
 
 
 
-% \section*{Remaining Topics}
+% \section*{6.2 The Change of Variables Theorem}
 
 % \begin{itemize}
-%   \item 7.5 Integrals of Scalar Functions Over Surfaces
-%   \item 7.6 Surface Integrals of Vector Fields
-%   \item 8.2 Stokes' Thoerem
-%   \item 8.4 Gauss' Theorem
+%   \item Affine transformations of areas
+%     \begin{itemize}
+%       \item (Example) Prove that the area of the image of the unit square
+%             under a linear transformation with matrix \(M\) is given by
+%             \(|\det M|\). (Hint: the area of a parallelogram determined
+%             by two vectors \(\vect v_1,\vect v_2\) is given by
+%             \(\|\vect v_1\times\vect v_2\|\).)
+%       \item An affine transformation with matrix \(M\) transforms hypervolumes
+%             by a factor of \(|\det M|\).
+%       \item (Example) Verify this fact for the parallelogram
+%             with vertices \((2,0),(3,1),(1,3),(0,2)\) in the \(uv\) plane
+%             and its image in the \(xy\) plane under
+%             the transformation \(\vect T(u,v)=(2u+v+3,v-u-2)\).
+%       \item Put another way, \(\iint_{D}1\dvar A=\iint_{D^*}|\det M|\dvar A\).
+%     \end{itemize}
+%   \item Affine transformations of single/double/triple integrals
+%     \begin{itemize}
+%       \item (Example) Let \(x=T(u)=mu+x_0\).
+%             Use substitution to prove that
+%             if the image of \([c_1,c_2]\) under \(T\) is \([b_1,b_2]\), then
+%             \(\int_{b_1}^{b_2}f(x)\dvar x=\int_{c_1}^{c_2}f(T(u))|m|\dvar u\).
+%       \item (Example) Use the previous fact to show that
+%             \(\int_0^4 \sqrt{2x+1}\dvar x=\int_1^9 \frac{1}{2}\sqrt{u}\dvar u\)
+%       \item For any 2D affine transformation \(\vect T\) with matrix \(M\)
+%             transforming \(D^*\) to \(D\),
+%             \(\iint_D f(x,y)\dvar A=\iint_{D^*}f(\vect T(u,v))|\det M|\dvar A\).
+%       \item (Example) Use a linear transformation to prove that
+%             \(
+%               \int_0^2\int_{y/2}^{(y+4)/2}2y\dvar x\dvar y
+%                 =
+%               4\int_0^1\int_0^1 4v\dvar v\dvar u
+%             \)
+%             and compute both integrals directly to verify.
+%       \item (Example)
+%             Compute \(\iint_D (x+y)(x-y-2)\dvar{A}\) where \(T\) is the
+%             triangle with vertices \((4,2)\), \((3,1)\), \((2,2)\).
+%       \item For any 3D affine transformation \(\vect T\) with matrix \(M\)
+%             transforming \(D^*\) to \(D\),
+%             \(\iint_D f(x,y,z)\dvar V=\iint_{D^*}f(\vect T(u,v,w))|\det M|\dvar V\).
+%     \end{itemize}
+%   \item Jacobian
+%     \begin{itemize}
+%       \item The Jacobian \(\frac{\p \vect T}{\p \vect u}\) of a transformation
+%             is defined to be the determinant of its partial derivative matrix:
+%             \(\det(\vect D\vect T)\).
+%       \item (Example) Prove that for an affine transformation \(\vect T\) with
+%             matrix \(M\) that \(\vect D\vect T=M\) and therefore
+%             \(\frac{\p\vect T}{\p\vect u}=\det M\).
+%       \item For any 2D transformation \(\vect T\)
+%             transforming \(D^*\) to \(D\),
+%             \(
+%               \iint_D f(\vect x)\dvar A
+%                 =
+%               \iint_{D^*}f(\vect T(\vect u))|\frac{\p\vect T}{\p\vect u}|\dvar A
+%             \).
+%       \item For any 3D transformation \(\vect T\)
+%             transforming \(D^*\) to \(D\),
+%             \(
+%               \iiint_D f(\vect x)\dvar V
+%                 =
+%               \iiint_{D^*}f(\vect T(\vect u))|\frac{\p\vect T}{\p\vect u}|\dvar V
+%             \).
+%       \item (Example) Use a 2D transformation to compute
+%             \(\iint_D e^x\cos(\pi e^x)\dvar{A}\) where
+%             \(D\) is the region
+%             bounded by \(y=0\), \(y=e^x-2\), \(y=\frac{e^x-1}{2}\).
+%     \end{itemize}
+%   \item Polar, cylindrical, spherical change of variables
+%     \begin{itemize}
+%       \item Polar coordinates:
+%             \(
+%               \iint_D f(x,y)\dvar A
+%                 =
+%               \iint_{D^*}f(r\cos\theta,r\sin\theta)r\dvar A
+%             \)
+%       \item Cylindrical coordinates:
+%             \(
+%               \iint_D f(x,y,z)\dvar V
+%                 =
+%               \iint_{D^*}f(r\cos\theta,r\sin\theta,z)r\dvar V
+%             \)
+%       \item Spherical coordinates:
+%             \(
+%               \iint_D f(x,y,z)\dvar V
+%                 =
+%               \iint_{D^*} f(
+%                 \rho\sin\phi\cos\theta,
+%                 \rho\sin\phi\sin\theta,
+%                 \rho\cos\phi
+%               )\rho^2\sin\phi\dvar V
+%             \)
+%       \item (Example 4) Evaluate \(\iint_D\log(x^2+y^2)\dvar A\) where \(D\)
+%             is the region in the first quadrant between the circles
+%             \(x^2+y^2=a^2\) and \(x^2+y^2=b^2\) for \(0<a<b\).
+%       \item (Example 6) Evaluate \(\iiint_W\exp[(x^2+y^2+z^3)^{3/2}]\dvar V\)
+%             where \(W\) is unit ball centered at the origin.
+%       \item (Example) Find a formula for the volume of a cone with radius
+%             \(R\) and height \(H\).
+%       \item (Example 7) Find a formula for the volume of a sphere with
+%             radius \(R\).
+%     \end{itemize}
+%   \item\textit{
+%     HW: 1-8, 11, 13-16, 21, 23-28
+%   }
 % \end{itemize}
+
+
+
+% \section*{7.1 The Path Integral}
+
+% \begin{itemize}
+%   \item Path Integral with respect to Arclength
+%     \begin{itemize}
+%       \item Recall that for a curve \(C\) defined by
+%             \(\vect r:\mathbb R\to\mathbb R^n\), the arclength function
+%             \(s:\mathbb R\to\mathbb R\) defined by
+%             \(s(t)=\int_0^t\|\vect r'(\tau)\|\dvar\tau\) gives the length
+%             of the curve from \(0\) to \(t\).
+%       \item (Example) Prove that \(C=\pi D\) gives the circumference of
+%             a circle with diameter \(D\).
+%       \item If \(f:\mathbb R^n\to\mathbb R\) is a function defined
+%             along the curve \(C\) defined by \(\vect r:\mathbb R\to\mathbb R^n\)
+%             for \(t\in[a,b]\), then
+%             \[
+%               \int_C f\dvar s
+%                 =
+%               \int_a^b f(\vect r(t))\frac{ds}{dt}\dvar t
+%             \]
+%             where \(\frac{ds}{dt}=\|\frac{d\vect r}{dt}\|\).
+%       \item (Example 1) Find the average value of the function
+%             \(f(x,y,z)=x^2+y^2+z^2\) along the portion of the helix given by
+%             \(\vect c(t)=\<\cos t,\sin t,t\>\) for \(t\in[0,2\pi]\).
+%       \item (Example 2) The base of a fence is given by the curve
+%             \(\vect c(t)=\<30\cos^3t,30\sin^3t\>\), and the height of the
+%             fence is given by \(f(x,y)=1+\frac{y}{3}\). How much paint is
+%             required to cover both sides of this fence?
+%     \end{itemize}
+%   \item\textit{
+%     HW: 1-15, 17-19, 21-23, 25-27
+%   }
+% \end{itemize}
+
+
+
+% \section*{7.2 Line Integrals}
+
+% \begin{itemize}
+%   \item Line Integral with respect to a Curve
+%     \begin{itemize}
+%       \item If \(\vect F:\mathbb R^n\to\mathbb R^n\) is a vector field defined
+%             along the curve \(C\) defined by \(\vect r:\mathbb R\to\mathbb R^n\)
+%             for \(t\in[a,b]\), then
+%             \[
+%               \int_C \vect F\cdot\dvar\vect r
+%                 =
+%               \int_a^b \vect F(\vect c(t))\frac{d\vect r}{dt}\dvar t
+%             \]
+%       \item The work done in moving an object along the curve \(C\) defined
+%             by \(\vect r:\mathbb R\to\mathbb R^n\) for \(t\in[a,b]\)
+%             using a force vector
+%             field \(\vect F:\mathbb R^n\to\mathbb R^n\) is given by
+%             \[
+%               \int_C \vect F\cdot\vect T\dvar s
+%                 =
+%               \int_C \vect F\cdot\dvar \vect r
+%                 =
+%               \int_a^b \vect F(\vect r(t))\cdot\frac{d\vect r}{dt}\dvar t
+%             \]
+%       \item (Example) An object is pushed around the unit circle with
+%             a force \(\<-y,x\>\) at each point \((x,y)\). Compute the precise
+%             work done in pushing the box around \(3\) full counter-clockwise
+%             rotations.
+%       \item (Example 1) Let \(\vect r(t)=\<\sin t,\cos t,t\>\) for \(t\in[0,2\pi]\)
+%             define the curve \(C\), and define the vector field \(\vect F\)
+%             by \(\vect F(\vect x)=\vect x\cdot\<1,1,1\>\). Compute
+%             \(\int_C\vect F\cdot\dvar\vect c\).
+%       \item (Example 5) Let \(C\) be a circle in the \(yz\) plane centered
+%             at the origin.
+%             Show that no work is done by a force \(\vect F=\<x^3,y,z\>\)
+%             acting on an object moving around the circle.
+%     \end{itemize}
+%   \item Line integrals with respect to variables
+%     \begin{itemize}
+%       \item If \(f:\mathbb R^n\to\mathbb R\) is a function defined
+%             along the curve \(C\) defined by \(\vect c:\mathbb R\to\mathbb R^n\)
+%             for \(t\in[a,b]\), then for \(1\leq i\leq n\)
+%             \[
+%               \int_C f\dvar x_i
+%                 =
+%               \int_a^b f(\vect c(t))\frac{dx_i}{dt}\dvar t
+%             \]
+%             where \(\vect r=\<x_1,x_2,\dots\>\).
+%       \item (Example)
+%             Compute \(\int_C xy\dvar y\) where \(C\) is the parabola defined
+%             by \(\vect c(t)=\<t,t^2,1\>\) for \(t\in[0,1]\).
+%       \item Note that
+%             \[
+%               \int_C \vect F\cdot\dvar\vect r
+%                 =
+%               \sum_{i=1}^n \int_C F_i\cdot\dvar x_i
+%             \]
+%       \item (Example 2) Evaluate and interpret
+%             \(\int_C x^2\dvar x+xy\dvar y+\dvar z\) where \(C\) is the
+%             parabola defined
+%             by \(\vect c(t)=\<t,t^2,1\>\) for \(t\in[0,1]\).
+%     \end{itemize}
+%   \item Reparametrizations and partitions
+%     \begin{itemize}
+%       \item The value of \(\int_C f\dvar s\)
+%             is independent of the choice of parametrization \(\vect r(t)\)
+%             regardless of orientation.
+%       \item The value of \(\int_C \vect F\cdot\dvar \vect r\)
+%             is independent of the choice of parametrization \(\vect r(t)\)
+%             provided it respects the orientation of \(C\).
+%       \item If \(C\) and \(-C\) represent the same curve with opposite
+%             orientations, then
+%             \(\int_C \vect F\cdot\dvar\vect r=-\int_{-C}\vect F\cdot\dvar\vect r\).
+%       \item If \(C=C_1+C_2\), then
+%             \(\int_C f\dvar s=\int_{C_1}f\dvar s+\int_{C_2}f\dvar s\) and
+%             \(
+%               \int_C \vect F\cdot\dvar \vect r
+%                 =
+%               \int_{C_1}\vect F\cdot\dvar \vect r+\int_{C_2}\vect F\cdot\dvar \vect r
+%             \).
+%       \item (Example 11) Compute \(\int_C x^2\dvar x+xy\dvar y\) where
+%             \(C\) is the perimeter of the unit square oriented counter-clockwise.
+%     \end{itemize}
+%   \item\textit{
+%     HW: 1-9, 11-14, 16-20
+%   }
+% \end{itemize}
+
+
+
+% \section*{8.1 Green's Theorem}
+
+% \begin{itemize}
+%   \item Green's Theorem
+%     \begin{itemize}
+%       \item Let \(\p D\) be the c.c.w. oriented boundary of a simple region
+%         \(D\subseteq \mb R^2\). Then
+%         \(
+%           \int_{\p D}\vect F\cdot\dvar\vect r
+%             =
+%           \iint_D \scurl \vect F \dvar A
+%             =
+%           \iint_D \curl \vect F\cdot \veck \dvar A
+%             =
+%           \iint_D \frac{\p F_2}{\p x}-\frac{\p F_1}{\p y}\dvar A
+%         \).
+%       \item Note that the book lets \(\vect F=\<F_1,F_2\>=\<P,Q\>\).
+%       \item (Example 1) Verify Green's Theorem for \(\vect F=\<x,xy\>\)
+%         and \(D=\{(x,y):x^2+y^2\leq 1\}\).
+%       \item (Example) Use Green's Theorem to prove that the area of \(D\)
+%         is \(\frac{1}{2}\int_{\p D}x\dvar y-y\dvar x\).
+%       \item (Example 3) Compute the work done using a force
+%         \(\vect F=\<xy^2,y+x\>\) in moving an object from the origin to \((1,1)\)
+%         along the curve \(y=x^2\) and then back to the origin along the line
+%         \(y=x\).
+%     \end{itemize}
+%   \item\textit{
+%     HW: 1-6, 9-10, 15
+%   }
+% \end{itemize}
+
+
+
+% \section*{8.3 Conservative Fields}
+
+% \begin{itemize}
+%   \item Characterizations of Conservative Fields
+%     \begin{itemize}
+%       \item These are all equivalent to \(\vect F:\mb R^n\to\mb R^n\)
+%         being conservative:
+%         \begin{enumerate}[(1)]
+%           \item There exists a potential function \(f:\mb R^n\to\mb R\) such
+%             that \(\vect F=\nabla f\).
+%           \item \(\curl \vect F=0\).
+%           \item \(\vect F\) is path-independent: for any two curves \(C_1,C_2\)
+%             which share starting and ending points,
+%             \(
+%               \int_{C_1}\vect F\cdot\dvar\vect r
+%                 =
+%               \int_{C_2}\vect F\cdot\dvar\vect r
+%             \).
+%           \item For any simple closed curve \(C\),
+%             \(\int_C\vect F\cdot\dvar\vect r=0\).
+%           \item For any curve starting at \(A\) and ending at \(B\), and any
+%             potential function \(f\) for \(\vect F\):
+%             \(\int_C\vect F\cdot\dvar\vect r=[f]_A^B=f(B)-f(A)\).
+%         \end{enumerate}
+%       \item (Example) Prove that (4) implies (3) above.
+%       \item (7.2 Example 9) Evaluate \(\int_C y\dvar x+x\dvar y\) where
+%         \(C\) is the curve given by \(\vect r(t)=(t^4/4,\sin^3(t\pi/2))\)
+%         for \(t\in[0,1]\).
+%       \item (Example 4) Find \(\int_C 2x\cos y\dvar x-x^2\sin y\dvar y\)
+%         where \(C\) is given by \(\vect r:[1,2]\to\mb R^2\) defined by
+%         \(x=e^{t-1},y=\sin(\pi/t)\).
+%       \item (Example 1) Show that
+%         \(\int_C \<y,z\cos yz+x,y\cos yz\>\cdot\dvar\vect r=0\) for any
+%         simple closed curve \(C\).
+%     \end{itemize}
+%   \item\textit{
+%     HW: 1-2, 5-8, 10-11
+%   }
+% \end{itemize}
+
+
+
+% % \section*{7.3 Parametrized Surfaces}
+
+% % \begin{itemize}
+% %   \item Parametrization of a Surface
+% %     \begin{itemize}
+% %       \item Let \(S\subseteq \mathbb R^3\) be a surface and
+% %             \(D\subseteq \mathbb R^2\)
+% %             be a two-dimensional region. Then \(\vect\Phi:D\to S\) is a parametrization
+% %             of \(S\) by \(D\).
+% %       \item (Example) Show that the surface given by \(z=f(x,y)\)
+% %             has the parametrization \(\vect\Phi(x,y)=\<x,y,f(x,y)\>\).
+% %       \item (Example 1) Show that the plane passing through the point
+% %             \(P\in\mathbb R^3\)
+% %             and normal to the vector \(\vect a\times\vect b\) has a parametrization
+% %             \(\vect\Phi(u,v)=\vect P+\vect au+\vect bv\).
+% %       \item (Example 2) Show that the cone \(z=\sqrt{x^2+y^2}\) has a
+% %             parametrization \(\vect\Phi(r,\theta)=\<r\cos\theta,r\sin\theta,r\>\)
+% %             for \(r\geq 0,0\leq\theta\leq2\pi\).
+% %       \item Surfaces which are conveniently described using cylindrical
+% %             or spherical coordinates may be easily parameterized by adapting
+% %             the relevant transformation.
+% %       \item (Example) Use the cylindrical and spherical transformations to
+% %             find parametrizations of the cone \(z=\sqrt{x^2+y^2}\).
+% %     \end{itemize}
+% %   \item Tangent and Normal Vectors to a Surface
+% %     \begin{itemize}
+% %       \item The tangent plane to a surface parameterized by \(\vect\Phi\)
+% %             at the point \(\vect\Phi(\vect u_0)\) has parameterization
+% %             \(
+% %               \vect L(\vect u)
+% %                 =
+% %               \vect\Phi(\vect u_0)+[\vect D\vect \Phi(\vect u_0)]\vect u
+% %             \).
+% %       \item (Example 3) Find a parameterization of the plane tangent
+% %             to the surface defined by
+% %             \(\vect\Phi(u,v)=\<u\cos v,u\sin v,u^2+v^2\>\) at the point
+% %             \((1,0,1)\).
+% %       \item The columns \(\frac{\p\vect\Phi}{\p u}(u_0,v_0)\),
+% %             \(\frac{\p\vect\Phi}{\p v}(u_0,v_0)\) give tangent vectors to
+% %             the surface, and their cross-product is normal to the surface.
+% %       \item (Example) Find an equation in \(x,y,z\) for the tangent plane
+% %             in Example 3.
+% %       \item (Example) Find a parameterization for the sphere cenetered at
+% %             the origin with radius \(3\). Then describe the plane tangent
+% %             to it at the point \((1,-2,2)\).
+% %     \end{itemize}
+% %   \item\textit{
+% %     HW: 1-3, 7-11, 13-15
+% %   }
+% % \end{itemize}
+
+
+
+% % \section*{7.4 Area of a Surface}
+
+% % \begin{itemize}
+% %   \item Definition of Surface Area
+% %     \begin{itemize}
+% %       \item The area of a surface parametrized by \(\vect\Phi\) with domain
+% %             \(D\) is given by
+% %             \(
+% %               \iint_D
+% %                 \|\frac{\p\vect\Phi}{\p u}\times\frac{\p\vect\Phi}{\p v}\|
+% %               \dvar A
+% %             \)
+% %       \item (Example) Verify that this definition matches the area of the
+% %             rectangle given by the vectors \(\<3,0,-4\>\) and \(\<0,-2,0\>\).
+% %       \item (Example 1) Show that the surface area of a cone with slant length
+% %             \(L\) and radius \(R\) is given by the formula
+% %             \(A=\pi R^2+\pi RL\).
+% %       \item (Example 2) Find that the area of a helicoid parameterized by
+% %             \(\Phi(r,\theta)=\<r\cos\theta,r\sin\theta,\theta\>\) is
+% %             equal to \(2\pi\int_0^1\sqrt{r^2+1}\dvar r\).
+% %       \item TODO
+% %     \end{itemize}
+% %   \item\textit{
+% %     HW: tba
+% %   }
+% % \end{itemize}
+
+% \section*{Surface Integrals}
+
+% \begin{itemize}
+%   \item Definition
+%     \begin{itemize}
+%       \item If \(f:\mathbb R^n\to\mathbb R\) is a scalar function defined
+%             on the surface \(S\) defined by \(\vect\Phi:\mathbb R^2\to\mathbb R^n\)
+%             for \((u,v)\in D\), then
+%             \[
+%               \iint_S f(\vect x)\dvar S
+%                 =
+%               \iint_D
+%                 f(\vect\Phi(u,v))
+%                 \left\|\frac{\p\vect\Phi}{\p u}\times\frac{\p\vect\Phi}{\p v}\right\|
+%               \dvar A
+%             \]
+%       \item (Example) Use \(A=\iint_S 1\dvar S\) to derive a formula for the
+%             surface area of a cone in terms of its height \(H\) and angle
+%             \(\theta\).
+%       \item If \(\vect F:\mathbb R^n\to\mathbb R\) is a scalar function defined
+%             on the surface \(S\) defined by \(\vect\Phi:\mathbb R^2\to\mathbb R^n\)
+%             for \((u,v)\in D\) preserving orientation, then
+%             \[
+%               \iint_S \vect F(\vect x)\cdot\dvar\vect S
+%                 =
+%               \iint_D
+%                 \vect F(\vect\Phi(u,v))
+%                 \cdot
+%                 \left(\frac{\p\vect\Phi}{\p u}\times\frac{\p\vect\Phi}{\p v}\right)
+%               \dvar A
+%             \]
+%     \end{itemize}
+%   \item Stokes' Theorem %TODO use uniform s,S in integrals
+%     \begin{itemize}
+%       \item If \(\p S\) is the positively oriented boundary of a surface
+%         \(S\), then
+%         \(
+%           \iint_S\curl\vect F\cdot\dvar\vect S
+%             =
+%           \int_{\p S}\vect F\cdot\dvar\vect r
+%         \).
+%       \item (8.2 Example 2) Evaluate \(\iint_S(3x^2+3y^2)\veck\cdot\dvar\vect S\)
+%         where \(S\) is the portion of the plane \(z=1-x-y\) above the unit
+%         disk \(x^2+y^2\leq 1\) oriented toward positive values of \(x,y,z\).
+%     \end{itemize}
+%   \item Gauss'/Divergence Theorem
+%     \begin{itemize}
+%       \item If \(\p W\) is the outward oriented boundary of a solid
+%         \(W\), then
+%         \(
+%           \iint_{\p W} \vect F\cdot\dvar\vect S
+%             =
+%           \iiint_{W} \div\vect F\dvar V
+%         \).
+%       \item (8.3 Example 3) Evaluate \(\iint_S\<2x,y^2,z^2\>\cdot\dvar\vect S\)
+%         where \(S\) is the outward oriented boundary of the unit
+%         sphere \(x^2+y^2+z^2=1\).
+%     \end{itemize}
+%   \item\textit{
+%     HW: Review above examples
+%   }
+% \end{itemize}
+
+% \section*{Overview of integration theorems}
+
+% \begin{itemize}
+%   \item \(\int_a^b f'(x)\dvar x=f(b)-f(a)=[f]_{\p[a,b]}\)
+%   \item \(\int_C \nabla f\cdot\dvar \vect r=f(B)-f(A)=[f]_{\p C}\)
+%   \item \(\iint_S \curl \vect F\cdot\dvar \vect S=\int_{\p S} \vect F\cdot\dvar\vect  r \)
+%   \item \(\iiint_W \div \vect F\dvar V=\iint_{\p W} \vect F\cdot\dvar \vect S \)
+% \end{itemize}
+
+
+
+% % \section*{Remaining Topics}
+
+% % \begin{itemize}
+% %   \item 7.5 Integrals of Scalar Functions Over Surfaces
+% %   \item 7.6 Surface Integrals of Vector Fields
+% %   \item 8.2 Stokes' Thoerem
+% %   \item 8.4 Gauss' Theorem
+% % \end{itemize}
 
 \end{document}
