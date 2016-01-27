@@ -474,7 +474,7 @@
           \<f_1(\vect{x}),\dots,f_m(\vect{x})\>
         \) where \(f_i:\mb R^n\to \mb R\)
     \end{itemize}
-  \item Partial Derivative Matrix
+  \item Partial Derivative Matrix %TODO: change \vect D to just D since it's a matrix
     \begin{itemize}
       \item
         \(\displaystyle
@@ -659,11 +659,15 @@
           \sum_{i,j=1}^{n}\frac{\p^2 f}{\p x_i\p x_j}(\vect x_0)(x_i-x_{0,i})(x_j-x_{0,j})
         \)
       \item
+        (Example) Use the second-order Taylor formula for
+        \(f(x,y)=\sqrt{x+2y}\) near the point \((2,1)\) to approximate
+        \(\sqrt{4.05}\).
+      \item
         (Example 3) Find linear and quadratic functions of \(x,y\) which
         approximate \(f(x,y)=\sin(xy)\) near the point \((1,\pi/2)\).
     \end{itemize}
   \item\textit{
-    HW: 1-12
+    HW: 3-7, 12
   }
 \end{itemize}
 
@@ -722,86 +726,73 @@
   }
 \end{itemize}
 
-% \section*{4.4 Divergence and Curl}
-% \begin{itemize}
-%   \item Divergence
-%     \begin{itemize}
-%       \item The divergence of a vector field
-%         \(\vect F:\mathbb R^n\to\mathbb R^n\) is denoted by
-%         \(\div{\vect F}:\mathbb R^n\to \mathbb R\) and defined by
-%         \(\div{\vect F} = \nabla \cdot \vect F = \sum_{i=1}^n \frac{\p F_i}{\p x_i}\)
-%       \item (Examples 3-5) Compute the divergences of \(\vect F=\<x,y\>\),
-%         \(\vect G=\<-x,-y\>\) and \(\vect H=\<-y,x\>\) at
-%         any point on \(\mathbb R^2\). How does divergence correspond with
-%         the motion described by the vector field plots?
-%       \item (Example) Compute the divergence of \(\vect F=\<x^2,y\>\) various
-%         points and interpret those values against a plot of the vector field.
-%     \end{itemize}
-%   \item Curl
-%     \begin{itemize}
-%       \item The curl of a three-dimensional vector field
-%         \(\vect F:\mathbb R^3\to\mathbb R^3\) is denoted by
-%         \(\curl{\vect F}:\mathbb R^3\to\mathbb R^3\) and defined by
-%         \(
-%           \curl{\vect F}
-%             =
-%           \nabla \times \vect F
-%             =
-%           \<
-%             \frac{\p F_3}{\p y}-\frac{\p F_2}{\p z},
-%             \frac{\p F_1}{\p z}-\frac{\p F_3}{\p x},
-%             \frac{\p F_2}{\p x}-\frac{\p F_1}{\p y}
-%           \>
-%         \)
-%       \item The scalar curl of a two-dimensional vector field
-%         \(\vect F:\mathbb R^2\to\mathbb R^2\) is denoted by
-%         \(\scurl{\vect F}:\mathbb R^2\to\mathbb R\) and defined by
-%         \(
-%           \scurl{\vect F}
-%             =
-%           \curl{\vect F} \cdot \veck
-%             =
-%           \frac{\p F_2}{\p x}-\frac{\p F_1}{\p y}
-%         \)
-%       \item (Example) Compute the scalar curl of \(\vect F=\<x,y\>\),
-%         \(\vect G=\<-x,-y\>\) and \(\vect H=\<-y,x\>\) at every point in
-%         \(\mathbb R^2\).
-%         How does this scalar curl correspond with
-%         the motion described by the vector field plots?
-%       \item (Example) Compute the curl of \(\vect F=\<y,-x,z\>\) at every
-%         point in \(\mathbb R^3\). How does curl correspond with the motion
-%         described by the vector field plot?
-%     \end{itemize}
-%   \item Facts about \(\nabla f\), \(\div \vect F\), \(\curl \vect F\)
-%     \begin{itemize}
-%       \item The curl of a conservative field is zero:
-%         \(\curl \nabla f = \nabla \times (\nabla f) = \vect 0\).
-%       \item (Example) Prove the above theorem.
-%       \item (Example) Prove that \(\vect F=\<x^2+z,y-z,z^3+3xy\>\) is not a
-%             conservative field.
-%       \item The divergence of a curl field is zero:
-%         \(\div \curl \vect F = \nabla\cdot(\nabla\times \vect F)=0\)
-%       \item Many identities on pg. 255 of Marsden text.
-%       \item (Example) Sketch proof of identity \#8:
-%         \(\div(\vect F\times\vect G)=\vect G\cdot\curl\vect F-\vect F\cdot\curl\vect G\).
-%     \end{itemize}
-%   % \item Laplace operator
-%   %   \begin{itemize}
-%   %     \item The laplacian of a scalar function
-%   %       \(f:\mathbb R^n\to\mathbb R\) is denoted by
-%   %       \(\nabla^2 f:\mathbb R^n\to\mathbb R\) and defined by
-%   %       \(
-%   %         \nabla^2 f
-%   %           =
-%   %         \nabla \cdot (\nabla f)
-%   %           =
-%   %         \sum_{i=1}^n \frac{\p^2 f}{\p x_i^2}
-%   %       \).
-%     % \end{itemize}
-%   \item\textit{
-%     HW: 1-37
-%   }
-% \end{itemize}
+\section*{4.4 Divergence and Curl}
+\begin{itemize}
+  \item Divergence
+    \begin{itemize}
+      \item The divergence of a vector field
+        \(\vect F:\mathbb R^n\to\mathbb R^n\) is denoted by
+        \(\div{\vect F}:\mathbb R^n\to \mathbb R\) and defined by
+        \(\div{\vect F} = \nabla \cdot \vect F = \sum_{i=1}^n \frac{\p F_i}{\p x_i}\)
+      \item (Examples 3-5) Compute the divergences of \(\vect F=\<x,y\>\),
+        \(\vect G=\<-x,-y\>\) and \(\vect H=\<-y,x\>\) at
+        any point on \(\mathbb R^2\). How does divergence correspond with
+        the motion described by the vector field plots?
+      \item (Example) Compute the divergence of \(\vect F=\<x^2,y\>\) various
+        points and interpret those values against a plot of the vector field.
+    \end{itemize}
+  \item Curl
+    \begin{itemize}
+      \item The curl of a three-dimensional vector field
+        \(\vect F:\mathbb R^3\to\mathbb R^3\) is denoted by
+        \(\curl{\vect F}:\mathbb R^3\to\mathbb R^3\) and defined by
+        \(
+          \curl{\vect F}
+            =
+          \nabla \times \vect F
+            =
+          \<
+            \frac{\p F_3}{\p y}-\frac{\p F_2}{\p z},
+            \frac{\p F_1}{\p z}-\frac{\p F_3}{\p x},
+            \frac{\p F_2}{\p x}-\frac{\p F_1}{\p y}
+          \>
+        \)
+      \item The scalar curl of a two-dimensional vector field
+        \(\vect F:\mathbb R^2\to\mathbb R^2\) is denoted by
+        \(\scurl{\vect F}:\mathbb R^2\to\mathbb R\) and defined by
+        \(
+          \scurl{\vect F}
+            =
+          \curl{\vect F} \cdot \veck
+            =
+          \frac{\p F_2}{\p x}-\frac{\p F_1}{\p y}
+        \)
+      \item (Example) Compute the scalar curl of \(\vect F=\<x,y\>\),
+        \(\vect G=\<-x,-y\>\) and \(\vect H=\<-y,x\>\) at every point in
+        \(\mathbb R^2\).
+        How does this scalar curl correspond with
+        the motion described by the vector field plots?
+      \item (Example) Compute the curl of \(\vect F=\<y,-x,z\>\) at every
+        point in \(\mathbb R^3\). How does curl correspond with the motion
+        described by the vector field plot?
+    \end{itemize}
+  \item Facts about \(\nabla f\), \(\div \vect F\), \(\curl \vect F\)
+    \begin{itemize}
+      \item The curl of a conservative field is zero:
+        \(\curl \nabla f = \nabla \times (\nabla f) = \vect 0\).
+      \item (Example) Prove the above theorem.
+      \item (Example) Prove that \(\vect F=\<x^2+z,y-z,z^3+3xy\>\) is not a
+            conservative field.
+      \item The divergence of a curl field is zero:
+        \(\div \curl \vect F = \nabla\cdot(\nabla\times \vect F)=0\)
+      \item Many identities on pg. 255 of Marsden text.
+      \item (Example) Sketch proof of identity \#8:
+        \(\div(\vect F\times\vect G)=\vect G\cdot\curl\vect F-\vect F\cdot\curl\vect G\).
+    \end{itemize}
+  \item\textit{
+    HW: 1-4, 9-17, 22-25, 29-30
+  }
+\end{itemize}
 
 % \section*{5.3 The Double Integral Over More General Regions}
 % \begin{itemize}
