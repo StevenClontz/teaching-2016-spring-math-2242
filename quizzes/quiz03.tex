@@ -1,0 +1,105 @@
+\documentclass[12pt]{exam}
+
+\newcommand{\ds}{\ensuremath{\displaystyle}}
+
+\usepackage{amsmath,amsfonts, amsthm}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{harpoon}
+\renewcommand{\arraystretch}{1.5}
+
+\newcommand{\harpvec}[1]{\overrightharp{\ensuremath{\mathbf{#1}}}}
+\newcommand{\vect}[1]{\ensuremath{\mathbf{#1}}}
+\newcommand{\<}{(}
+\renewcommand{\>}{)}
+\newcommand{\p}{\partial}
+
+% ref: http://pgfplots.sourceforge.net/gallery.html
+% ref: http://tex.stackexchange.com/a/74575/79754
+\usepackage{pgfplots}% This uses tikz
+\pgfplotsset{compat=newest}% use newest version
+\tikzset{LineStyle/.style={smooth, ultra thick, samples=400}}
+
+% \printanswers
+
+\begin{document}
+
+\begin{center}
+\fbox{\fbox{\parbox{5.5in}{\centering
+MATH 2242-090 | Spring 2016 | Dr. Clontz | Quiz 3
+}}}
+\end{center}
+\vspace{0.1in}
+\makebox[\textwidth]{
+  Name:\enspace\hrulefill\hrulefill\hrulefill
+}
+
+\vspace{12pt}
+
+\begin{itemize}
+  \item Each quiz question is labeled with its worth toward your total quiz
+        grade for the semester.
+  \item On multiple choice problems, you do not need to show your work. No
+        partial credit will be given.
+  \item On full response problems, show all of your work and give a
+        complete solution. When in doubt, don't skip any steps. Partial
+        credit will be given at the discretion of the professor.
+  \item This quiz is open notes and open book.
+  \item This quiz is due at the end of class. Quizzes submitted over one minute
+        late will be penalized by \(50\%\).
+\end{itemize}
+
+\newpage
+
+\begin{questions}
+
+\question[10]
+The partial derivative matrix of the differentiable function
+\[
+  \vect f(x,y,z) = \<e^x,\sqrt{yz},x+3z\>
+\]
+at the point \((0,12,3)\) is
+\[
+  \vect D\vect f(0,12,3)
+    =
+  \left[\begin{matrix}
+    1 & 0 & 0 \\
+    0 & 0.25 & 1 \\
+    1 & 0 & 3
+  \end{matrix}\right]
+.\]
+
+Explain why \(\vect f(0.1,11.9,3.1)\approx \<1.1,6.075,9.4\>\) using
+the linear approximation \(\vect L(x,y)\) for \(\vect f\) at \((0,12,3)\).
+
+
+\vfill
+\newpage
+
+\question[10]
+Let \(\vect f(u,v)=\<\tan(u-1)-e^v,u^2-v^2\>\),
+\(\vect g(x,y)=\<e^{x-y},x-y\>\). It follows that
+\[
+  \vect D\vect f(u,v)
+    =
+  \left[\begin{matrix}
+    \sec^2(u-1) & -e^v \\
+    2u & -2v
+  \end{matrix}\right]
+  \text{~~and~~}
+  \vect D\vect g(x,y)
+    =
+  \left[\begin{matrix}
+    e^{x-y} & -e^{x-y} \\
+    1 & -1
+  \end{matrix}\right]
+.\]
+Use the above matrices and the chain rule to compute
+\(\vect D(\vect f\circ\vect g)(0,0)\). HINT: don't forget to plug
+\(\vect g(0,0)\) into \(\vect D\vect f\) rather than just plugging in \((0,0)\).
+
+
+\vfill
+\end{questions}
+
+\end{document}
