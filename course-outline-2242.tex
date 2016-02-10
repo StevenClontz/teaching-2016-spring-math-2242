@@ -781,160 +781,151 @@
   }
 \end{itemize}
 
-% \section*{5.3 The Double Integral Over More General Regions}
-% \begin{itemize}
-%   \item Hypervolume
-%     \begin{itemize}
-%       \item The hypervolume \(HV_1\)
-%       of an interval \([a,b]\) in \(\mathbb R\) is just its length \(b-a\).
-%       \item The hypervolume of a well-behaved bounded subset
-%       \(D\subseteq\mathbb R^{n+1}\) is defined for each
-%       \(i\in\{1,\dots,n+1\}\) by
-%         \[
-%           HV_{n+1}
-%             =
-%           \int_{x_i\in I}
-%           HV(Z_i)
-%           \dvar{x_i}
-%             =
-%           \int_{x_i=a}^{x_i=b}
-%           HV_n(D_i)
-%           \dvar{x_i}
-%         \]
-%       where \(I=[a,b]\) is an interval containing all values \(x_i\) included
-%       in the \(i\)th coordinate of \(D\), and \(D_i\) is the projection of
-%       of all points in \(D\) onto \(\mathbb R^n\) by removing the \(i\)th
-%       coordinate.
-%       \item (Example) For \(n=1\) and
-%       \(D=\{(x,y)\in\mathbb R^2:a\leq x\leq b,f(x)\leq y\leq g(x)\}\), we
-%       have that
-%         \[
-%           HV_2
-%             =
-%           A
-%             =
-%           \int_{x\in[a,b]}
-%           g(x)-f(x)
-%           \dvar{x}
-%             =
-%           \int_a^b
-%           g(x)-f(x)
-%           \dvar{x}
-%         \]
-%       (assuming \(f(x)\leq g(x)\) whenever \(a\leq x\leq b\)).
-%       \item (Example) For \(n=2\) and \(D\subseteq R^3\) including values
-%       of \(x\) between \(a\) and \(b\), we have that
-%         \[
-%           HV_3
-%             =
-%           V
-%             =
-%           \int_{x=a}^{x=b}
-%           A(x)
-%           \dvar{x}
-%         \]
-%         \[
-%           HV_3
-%             =
-%           V
-%             =
-%           \int_{y=c}^{y=d}
-%           A(y)
-%           \dvar{x}
-%         \]
-%       where \(A(x)\) is the area of the cross-section of \(D\) taken by fixing
-%       each value of \(x\) (or similar for \(y\)).
-%     \end{itemize}
-%   \item Double Integrals
-%     \begin{itemize}
-%       \item
-%       For a bounded region \(D\subseteq\mathbb R^2\) and continuous
-%       \(f:D\to\mathbb R\), the double integral
-%         \[
-%           \iint_D f\dvar A
-%         \]
-%       is defined to be the volume of
-%       \(D^\uparrow=\{(x,y,z)\in\mathbb R^3:(x,y)\in D,0\leq z\leq f(x,y)\}\)
-%       minus the volume of
-%       \(D_\downarrow=\{(x,y,z)\in\mathbb R^3:(x,y)\in D,f(x,y)\leq z\leq 0\}\)
-%       (sometimes called net volume or signed volume).
-%       \item Assuming \(f(x,y)\geq 0\), we may apply the definition of volume
-%       above to get
-%         \[
-%           \iint_D F\dvar A
-%             =
-%           \int_{x=a}^{x=b}
-%           A(x)
-%           \dvar x
-%         \]
-%       And if each cross section \(A(x)\) is described by \(\phi_1(x)\leq y\leq\phi_2(x)\)
-%       and \(0\leq z\leq f(x,y)\),
-%       we have that
-%         \[
-%           \iint_D F\dvar A
-%             =
-%           \int_{x=a}^{x=b}
-%           A(x)
-%           \dvar x
-%             =
-%           \int_{x=a}^{x=b}
-%           \left[
-%           \int_{y=\phi_1(x)}^{y=\phi_2(x)}
-%           f(x,y) \dvar y
-%           \right] \dvar x
-%         \]
-%       \item Similarly, if \(D\) is described by \(c\leq y\leq d\) and
-%         \(\psi_1(y)\leq x\leq \psi_2(y)\), then
-%         \[
-%           \iint_D F\dvar A
-%             =
-%           \int_{y=c}^{y=d}
-%           \left[
-%           \int_{x=\psi_1(y)}^{x=\psi_2(y)}
-%           f(x,y) \dvar x
-%           \right] \dvar y
-%         \]
-%       \item The above holds even when \(f(x,y)\geq 0\) doesn't hold.
-%     \end{itemize}
-%   \item Iterated integrals
-%     \begin{itemize}
-%       \item An iterated integral is a shorthand for the expansion of two
-%         or more nested integrals, e.g.:
-%         \[
-%           \int_a^b
-%           \int_{\phi_1(x)}^{\phi_2(x)}
-%           f(x,y)
-%           \dvar y\dvar x
-%             =
-%           \int_{x=a}^{x=b}
-%           \left[
-%           \int_{y=\phi_1(x)}^{y=\phi_2(x)}
-%           f(x,y) \dvar y
-%           \right] \dvar x
-%         \]
-%       \item (Example) Sketch the region of integration for
-%             \(\int_0^\pi\int_{-x}^x \cos(y)\dvar y\dvar x\),
-%             evaluate it,
-%             and interpret it as the signed volume of a region in \(\mathbb R^3\).
-%       \item (Example) Express \(\iint_R (12x^3y-1)\dvar A\) where
-%             \(R\) is the
-%             rectangle with vertices \((0,0),(3,0),(3,2),(0,2)\)
-%             as an interated integral, then evaluate it.
-%       \item (Example) Express \(\iint_T (12x^3y-1)\dvar A\) where
-%             \(T\) is the
-%             triangle with vertices \((0,0),(1,0),(1,1)\)
-%             as an interated integral, then evaluate it.
-%     \end{itemize}
-%   \item Applications
-%     \begin{itemize}
-%       \item \(\iint_D 1\dvar A\) is the area of \(D\)
-%       \item \(\frac{1}{A(D)}\iint_D f(x,y)\dvar A\) is the average value
-%             of the function \(f\) restricted to \(D\)
-%     \end{itemize}
-%   \item\textit{
-%     HW: 1-17
-%   }
-% \end{itemize}
+\section*{5.3 The Double Integral Over More General Regions}
+\begin{itemize}
+  \item Hypervolume
+    \begin{itemize}
+      \item The hypervolume \(HV_1(D)\)
+      of an interval \(D=[a,b]\) in \(\mathbb R\) is just its length \(b-a\).
+      \item The hypervolume of a well-behaved bounded subset
+      \(D\subseteq\mathbb R^{n+1}\) is defined for each
+      \(n\in\{1,2,\dots\}\) by
+        \[
+          HV_{n+1}(D)
+            =
+          \int_{x_i\in I}
+          HV(D_i)
+          \dvar{x_i}
+            =
+          \int_{x_i=a}^{x_i=b}
+          HV_n(D_i)
+          \dvar{x_i}
+        \]
+      where \(I=[a,b]\) is an interval containing all values \(x_i\) included
+      in the \(i\)th coordinate of \(D\), and \(D_i\) is the projection of
+      of all points in \(D\) onto \(\mathbb R^n\) by removing the \(i\)th
+      coordinate.
+      \item (Example) For \(n=1\) and
+      \(D=\{(x,y)\in\mathbb R^2:a\leq x\leq b,f(x)\leq y\leq g(x)\}\), we
+      have that
+        \[
+          HV_2
+            =
+          A
+            =
+          \int_{x\in[a,b]}
+          g(x)-f(x)
+          \dvar{x}
+            =
+          \int_a^b
+          g(x)-f(x)
+          \dvar{x}
+        .\]
+      \item (Example) For \(n=2\) and \(D\subseteq R^3\) including values
+      of \(x\) between \(a\) and \(b\), we have that
+        \[
+          HV_3
+            =
+          V
+            =
+          \int_{x=a}^{x=b}
+          A(x)
+          \dvar{x}
+        \]
+      where \(A(x)\) is the area of the cross-section of \(D\) taken by fixing
+      each value of \(x\) (or similar for \(y\)).
+    \end{itemize}
+  \item Double Integrals
+    \begin{itemize}
+      \item
+      For a bounded region \(D\subseteq\mathbb R^2\) and continuous
+      nonnegative
+      \(f:D\to\mathbb R\), the double integral
+        \[
+          \iint_D f\dvar A
+        \]
+      is defined to be the volume of
+      \(\{(x,y,z)\in\mathbb R^3:(x,y)\in D,0\leq z\leq f(x,y)\}\).
+      \item We may apply the definition of volume
+      above to get
+        \[
+          \iint_D F\dvar A
+            =
+          \int_{x=a}^{x=b}
+          A(x)
+          \dvar x
+        \]
+      where \(D\) lies between the lines \(x=a\) and \(x=b\).
+      \item If \(D\) is described by \(a\leq x\leq b\) and
+        \(\phi_1(x)\leq y\leq \phi_2(x)\), then
+        \[
+          \iint_D F\dvar A
+            =
+          \int_{x=a}^{x=b}
+          A(x)
+          \dvar x
+            =
+          \int_{x=a}^{x=b}
+          \left[
+          \int_{y=\phi_1(x)}^{y=\phi_2(x)}
+          f(x,y) \dvar y
+          \right] \dvar x
+        \]
+      \item Similarly, if \(D\) is described by \(c\leq y\leq d\) and
+        \(\psi_1(y)\leq x\leq \psi_2(y)\), then
+        \[
+          \iint_D F\dvar A
+            =
+          \int_{y=c}^{y=d}
+          \left[
+          \int_{x=\psi_1(y)}^{x=\psi_2(y)}
+          f(x,y) \dvar x
+          \right] \dvar y
+        \]
+      \item If \(f\) is sometimes negative on the domain \(D\), then
+        \(\iint_D f\dvar A\) is the net volume between \(z=f(x,y)\)
+        and \(D\) (volume above the
+        \(xy\) plane minus volume below) and the above formulas still hold.
+    \end{itemize}
+  \item Iterated integrals
+    \begin{itemize}
+      \item An iterated integral is a shorthand for the expansion of two
+        or more nested integrals, that is:
+        \[
+          \int_a^b
+          \int_{\phi_1(x)}^{\phi_2(x)}
+          f(x,y)
+          \dvar y\dvar x
+            =
+          \int_{x=a}^{x=b}
+          \left[
+          \int_{y=\phi_1(x)}^{y=\phi_2(x)}
+          f(x,y) \dvar y
+          \right] \dvar x
+        \]
+      \item (Example) Sketch the region of integration for
+            \(\int_0^\pi\int_{-x}^x \cos(y)\dvar y\dvar x\),
+            evaluate it,
+            and interpret it as the signed volume of a region in \(\mathbb R^3\).
+      \item (Example) Express \(\iint_R (12x^3y-1)\dvar A\) where
+            \(R\) is the
+            rectangle with vertices \((0,0),(3,0),(3,2),(0,2)\)
+            as an interated integral, then evaluate it.
+      \item (Example) Express \(\iint_T (12x^3y-1)\dvar A\) where
+            \(T\) is the
+            triangle with vertices \((0,0),(1,0),(1,1)\)
+            as an interated integral, then evaluate it.
+    \end{itemize}
+  \item Applications
+    \begin{itemize}
+      \item \(\iint_D 1\dvar A\) is the area of \(D\)
+      \item \(\frac{1}{A(D)}\iint_D f(x,y)\dvar A\) is the average value
+            of the function \(f\) restricted to \(D\)
+    \end{itemize}
+  \item\textit{
+    HW: 1-9
+  }
+\end{itemize}
 
 % \section*{5.4 Changing the Order of Integration}
 % \begin{itemize}
