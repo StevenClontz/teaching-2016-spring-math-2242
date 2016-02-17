@@ -927,56 +927,59 @@
   }
 \end{itemize}
 
-% \section*{5.4 Changing the Order of Integration}
-% \begin{itemize}
-%   \item Rectangular regions of integration
-%     \begin{itemize}
-%       \item For constant bounds of integration:
-%         \[
-%           \int_a^b\int_c^d f(x,y)\dvar y\dvar x
-%             =
-%           \int_c^d\int_a^b f(x,y)\dvar x\dvar y
-%         \]
-%       \item (Example) Verify that
-%         \(
-%           \int_0^1\int_1^2 x^2+2xy\dvar y\dvar x
-%             =
-%           \int_1^2\int_0^1 x^2+2xy\dvar x\dvar y
-%         \).
-%     \end{itemize}
-%   \item Nonrectangular regions of integration
-%     \begin{itemize}
-%       \item Bounds of integration cannot be directly swapped; however, by
-%       interpreting the region of integration new bounds may be found in
-%       the other order.
-%       \item (Example) Verify that
-%         \(
-%           \int_0^4\int_0^{\frac{4-y}{2}} x+y \dvar x\dvar y
-%         \)
-%       and
-%         \(
-%           \int_0^2\int_0^{4-2x} x+y \dvar y\dvar x
-%         \)
-%       share the same region of integration and are equal.
-%       \item (Example) Evaluate
-%         \(
-%           \int_1^e\int_0^{\log x}\frac{(2x-e)\sqrt{1+e^y}}{e-e^y}\dvar y\dvar x
-%         \).
-%         (Note that this is technically improper, but that this does not effect
-%         the solution.)
-%     \end{itemize}
-%   \item Estimating double integrals
-%     \begin{itemize}
-%       \item If \(g(x,y)\leq f(x,y)\leq h(x,y)\) for \((x,y)\in D\), then
-%       \(\iint_D g(x,y)\dvar A\leq\iint_D f(x,y)\dvar A\leq \iint_D h(x,y)\dvar A\).
-%       \item (Example 3) Prove that
-%       \(\frac{1}{\sqrt 3}\leq \iint_D \frac{1}{\sqrt{1+x^6+y^8}}\dvar A \leq 1\)
-%       where \(D\) is the unit square.
-%     \end{itemize}
-%   \item\textit{
-%     HW: 1-15
-%   }
-% \end{itemize}
+\section*{5.4 Changing the Order of Integration}
+\begin{itemize}
+  \item Rectangular regions of integration
+    \begin{itemize}
+      \item For constant bounds of integration:
+        \[
+          \int_a^b\int_c^d f(x,y)\dvar y\dvar x
+            =
+          \int_c^d\int_a^b f(x,y)\dvar x\dvar y
+        \]
+      \item (Example) Verify that
+        \(
+          \int_0^1\int_1^2 x^2+2xy\dvar y\dvar x
+            =
+          \int_1^2\int_0^1 x^2+2xy\dvar x\dvar y
+        \).
+    \end{itemize}
+  \item Nonrectangular regions of integration
+    \begin{itemize}
+      \item Bounds of integration cannot be directly swapped; however, by
+      interpreting the region of integration new bounds may be found in
+      the other order.
+      \item (Example) Verify that
+        \(
+          \int_0^4\int_0^{\frac{4-y}{2}} x+y \dvar x\dvar y
+        \)
+      and
+        \(
+          \int_0^2\int_0^{4-2x} x+y \dvar y\dvar x
+        \)
+      share the same region of integration and are equal.
+      \item (Example) Evaluate
+        \(
+          \int_1^e\int_0^{\log x}\frac{(2x-e)\sqrt{1+e^y}}{e-e^y}\dvar y\dvar x
+        \).
+        (Note that this is technically improper, but that this does not effect
+        the solution.)
+    \end{itemize}
+  \item Estimating double integrals
+    \begin{itemize}
+      \item If \(g(x,y)\leq f(x,y)\leq h(x,y)\) for \((x,y)\in D\), then
+      \(\iint_D g(x,y)\dvar A\leq\iint_D f(x,y)\dvar A\leq \iint_D h(x,y)\dvar A\).
+      \item (Example 3) Prove that
+      \(\frac{1}{\sqrt 3}\leq \iint_D \frac{1}{\sqrt{1+x^6+y^8}}\dvar A \leq 1\)
+      where \(D\) is the unit square.
+      \item (Example) Prove that
+      \(e\leq\iint_D e^{x^2y+y}\dvar A\leq \frac{e^2}{2}\)
+      where \(D\) is the unit square.
+    \end{itemize}
+  \item\textit{
+    HW: 1-5, 7-10
+  }
+\end{itemize}
 
 % \section*{5.5 The Triple Integral}
 
