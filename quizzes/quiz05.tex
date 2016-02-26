@@ -1,0 +1,74 @@
+\documentclass[12pt]{exam}
+
+\newcommand{\ds}{\ensuremath{\displaystyle}}
+
+\usepackage{amsmath,amsfonts, amsthm}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{harpoon}
+\renewcommand{\arraystretch}{1.5}
+
+\newcommand{\harpvec}[1]{\overrightharp{\ensuremath{\mathbf{#1}}}}
+\newcommand{\vect}[1]{\ensuremath{\mathbf{#1}}}
+\newcommand{\<}{(}
+\renewcommand{\>}{)}
+\newcommand{\p}{\partial}
+
+% ref: http://pgfplots.sourceforge.net/gallery.html
+% ref: http://tex.stackexchange.com/a/74575/79754
+\usepackage{pgfplots}% This uses tikz
+\pgfplotsset{compat=newest}% use newest version
+\tikzset{LineStyle/.style={smooth, ultra thick, samples=400}}
+
+% \printanswers
+
+\begin{document}
+
+\begin{center}
+\fbox{\fbox{\parbox{5.5in}{\centering
+MATH 2242-090 | Spring 2016 | Dr. Clontz | Quiz 5
+}}}
+\end{center}
+\vspace{0.1in}
+\makebox[\textwidth]{
+  Name:\enspace\hrulefill\hrulefill\hrulefill
+}
+
+\vspace{12pt}
+
+\begin{itemize}
+  \item Each quiz question is labeled with its worth toward your total quiz
+        grade for the semester.
+  \item On multiple choice problems, you do not need to show your work. No
+        partial credit will be given.
+  \item On full response problems, show all of your work and give a
+        complete solution. When in doubt, don't skip any steps. Partial
+        credit will be given at the discretion of the professor.
+  \item This quiz is open notes and open book.
+  \item This quiz is due at the end of class. Quizzes submitted over one minute
+        late will be penalized by \(50\%\).
+\end{itemize}
+
+\newpage
+
+\begin{questions}
+
+\question[10]
+Prove that \(\vect c(t)=\<t^2,2t-1,\sqrt t\>\) is a flow line for
+the vector field \(\vect F(x,y,z)=\<y+1,2,\frac{1}{2z}\>\).
+
+
+\vfill\vfill
+\newcommand{\dv}{\operatorname{div}}
+\question[10]
+For \(f:\mathbb R^2\to\mathbb R\) and \(\vect F:\mathbb R^2\to\mathbb R^2\),
+prove that \(\dv(f\vect F)=f\dv\vect F+\vect F\cdot\nabla f\).
+(Hint: \(f\vect F=\<fF_1,fF_2\>\), so
+use the product rule to compute \(\frac{\p}{\p x}[fF_1]\)
+and \(\frac{\p}{\p y}[fF_2]\).)
+
+
+\vfill\vfill\vfill
+\end{questions}
+
+\end{document}
