@@ -922,7 +922,18 @@
       \item \(\frac{1}{A(D)}\iint_D f(x,y)\dvar A\) is the average value
             of the function \(f\) restricted to \(D\)
     \end{itemize}
-    %TODO add additivity
+  \item Additivity
+    \begin{itemize}
+      \item
+        If \(D\subseteq\mb R^2\) is the union of two subregions
+        \(D_1,D_2\) overlapping only on their boundary, then
+        \(\iint_D f\dvar V=\iint_{D_1}f\dvar V+\iint_{D_2}f\dvar V\).
+      \item
+        (Example) Prove that the area of the square with vertices
+        \((1,0)\), \((0,1)\), \((-1,0)\), and \((0,-1)\) is two
+        by setting it up as a double integral, then using additivity
+        to split it up into two or more subregions.
+    \end{itemize}
   \item\textit{
     HW: 1-9
   }
@@ -1045,10 +1056,17 @@
       as a few different iterated integrals.
       \item (Example 6) Express \(\iiint_W x\dvar V\) where \(W\) is the
       solid in \(\mathbb R^3\) above the triangle with vertices
-      \((0,0,0),(1,0,0),(1,1,0)\) and between the surfaces \(z=x^2+y^2\)
-      and \(z=2\) as an iterated integral, then evaluate it.
+      \((0,0,0),(1,0,0),(1,1,0)\) in the \(xy\) plane,
+      and also between the surfaces \(z=x^2+y^2\)
+      and \(z=2\), as an iterated integral. Then evaluate it.
     \end{itemize}
-  % TODO add additivity
+  \item Additivity
+    \begin{itemize}
+      \item
+        If \(D\subseteq\mb R^3\) is the union of two subregions
+        \(D_1,D_2\) overlapping only on their boundary, then
+        \(\iiint_D f\dvar V=\iiint_{D_1}f\dvar V+\iiint_{D_2}f\dvar V\).
+    \end{itemize}
   \item\textit{
     HW: 1-6, 11-17, 25-28
   }
@@ -1056,67 +1074,69 @@
 
 
 
-% \section*{1.4 Cylindrical and Spherical Coordinates}
+\section*{1.4 Cylindrical and Spherical Coordinates}
 
-% \begin{itemize}
-%   \item Transformation of variables
-%     \begin{itemize}
-%       \item A transformation of variables is a function
-%             \(\vect T:\mathbb R^n\to\mathbb R^n\).
-%       \item (Example) Sketch the integer lattice on the \(uv\) plane and
-%             its image in the \(xy\) plane for
-%             the transformation of variables \(\vect T(u,v)=(x,y)=(u,u+v)\).
-%     \end{itemize}
-%   \item Polar Coordinates
-%     \begin{itemize}
-%       \item \(\vect p(r,\theta)=(r\cos\theta,r\sin\theta)\)
-%       \item \(r^2=x^2+y^2\), \(\tan\theta=\frac{y}{x}\)
-%       \item (Example)
-%             Convert \(A=\vect p(4,2\pi/3)\) from polar to Cartesian.
-%             Convert \(B=(3,-3)\) from Cartesian to polar. Plot both.
-%       \item (Example)
-%             Express the curves \(x=\sqrt{4-y^2}\) and \(y=3\) in terms
-%             of polar coordinates.
-%     \end{itemize}
-%   \item Cylindrical Coordinates
-%     \begin{itemize}
-%       \item \(\vect c(r,\theta,z)=(r\cos\theta,r\sin\theta,z)\)
-%       \item Usually, assume \(r\geq0\) and \(0\leq\theta\leq2\pi\)
-%       \item \(r^2=x^2+y^2\), \(\tan\theta=\frac{y}{x}\)
-%       \item (Example 1) Convert \(A=\vect c(8,2\pi/3,-3)\) from cylindrical to
-%             Cartesian. Convert \(B=(6,6,8)\) from Cartesian to cylindrical.
-%             Plot both.
-%       \item (Example) Express the surfaces \(x^2+y^2=9\) and \(z^2=x^2+y^2\)
-%             in terms of cylindrical coordinates.
-%     \end{itemize}
-%   \item Spherical Coordinates
-%     \begin{itemize}
-%       \item \(
-%               \vect s(\rho,\theta,\phi)
-%                 =
-%               (
-%                 \rho\sin\phi\cos\theta,
-%                 \rho\sin\phi\sin\theta,
-%                 \rho\cos\phi
-%               )
-%             \)
-%       \item Usually, assume \(\rho\geq0\), \(0\leq\theta\leq2\pi\), and
-%             \(0\leq\phi\leq\pi\)
-%       \item \(\rho^2=x^2+y^2+z^2\),
-%             \(\tan\theta=\frac{y}{x}\),
-%             \(\tan\phi=\frac{r}{z}=\frac{\sqrt{x^2+y^2}}{z}\)
-%       \item (Example 2) Convert \(A=(1,-1,1)\) from Cartesian to spherical.
-%             Convert \(B=\vect s(3,\pi/6,\pi/4)\) from spherical to Cartesian.
-%             Convert \(C=(2,-3,6)\) from Cartesian to spherical.
-%             Convert \(D=\vect s(1,-\pi/2,\pi/4)\) from spherical to Cartesian.
-%             Plot all four.
-%       \item (Example 3) Express the surfaces \(xz=1\) and \(x^2+y^2-z^2=1\)
-%             in terms of spherical coordiantes.
-%     \end{itemize}
-%   \item\textit{
-%     HW: 1-12, 15-16
-%   }
-% \end{itemize}
+\begin{itemize}
+  \item Transformation of variables
+    \begin{itemize}
+      \item A transformation of variables is a function
+            \(\vect T:\mathbb R^n\to\mathbb R^n\).
+      \item (Example) Sketch the integer lattice on the \(uv\) plane and
+            its image in the \(xy\) plane for
+            the transformation of variables \(\vect T(u,v)=(x,y)=(u,u+v)\).
+    \end{itemize}
+  \item Polar Coordinates
+    \begin{itemize}
+      \item \(\vect p(r,\theta)=(r\cos\theta,r\sin\theta)\)
+      \item \(r^2=x^2+y^2\), \(\tan\theta=\frac{y}{x}\)
+      \item (Example)
+            Convert \(A=\vect p(4,2\pi/3)\) from polar to Cartesian.
+            Convert \(B=(3,-3)\) from Cartesian to polar. Plot both in
+            the \(r\theta\) and \(xy\) planes.
+      \item (Example)
+            Express the curves \(x=\sqrt{4-y^2}\) and \(y=3\) in terms
+            of polar coordinates. Plot both in the \(r\theta\) and \(xy\)
+            planes.
+    \end{itemize}
+  \item Cylindrical Coordinates
+    \begin{itemize}
+      \item \(\vect c(r,\theta,z)=(r\cos\theta,r\sin\theta,z)\)
+      \item Usually, assume \(r\geq0\) and \(0\leq\theta\leq2\pi\)
+      \item \(r^2=x^2+y^2\), \(\tan\theta=\frac{y}{x}\)
+      \item (Example 1) Convert \(A=\vect c(8,2\pi/3,-3)\) from cylindrical to
+            Cartesian. Convert \(B=(6,6,8)\) from Cartesian to cylindrical.
+            Plot both in \(xyz\) space.
+      \item (Example) Express the surfaces \(x^2+y^2=9\) and \(z^2=x^2+y^2\)
+            in terms of cylindrical coordinates. Plot both in \(xyz\) space.
+    \end{itemize}
+  \item Spherical Coordinates
+    \begin{itemize}
+      \item \(
+              \vect s(\rho,\theta,\phi)
+                =
+              (
+                \rho\sin\phi\cos\theta,
+                \rho\sin\phi\sin\theta,
+                \rho\cos\phi
+              )
+            \)
+      \item Usually, assume \(\rho\geq0\), \(0\leq\theta\leq2\pi\), and
+            \(0\leq\phi\leq\pi\)
+      \item \(\rho^2=x^2+y^2+z^2\),
+            \(\tan\theta=\frac{y}{x}\),
+            \(\tan\phi=\frac{r}{z}=\frac{\sqrt{x^2+y^2}}{z}\)
+      \item (Example 2) Convert \(A=(1,-1,1)\) from Cartesian to spherical.
+            Convert \(B=\vect s(3,\pi/6,\pi/4)\) from spherical to Cartesian.
+            Convert \(C=(2,-3,6)\) from Cartesian to spherical.
+            Convert \(D=\vect s(1,-\pi/2,\pi/4)\) from spherical to Cartesian.
+            Plot all four in \(xyz\) space.
+      \item (Example 3) Express the surfaces \(xz=1\) and \(x^2+y^2-z^2=1\)
+            in terms of spherical coordiantes.
+    \end{itemize}
+  \item\textit{
+    HW: 1-12, 15-16
+  }
+\end{itemize}
 
 
 % \section*{6.1 The Geometry of Maps from \(\mb R^2\) to \(\mb R^2\)}
