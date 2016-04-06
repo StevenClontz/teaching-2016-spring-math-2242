@@ -1325,7 +1325,7 @@
             of the curve from \(0\) to \(t\).
       \item (Example) Prove that \(C=\pi D\) gives the circumference of
             a circle with diameter \(D\).
-      \item If \(f:\mathbb R^n\to\mathbb R\) is a function defined
+      \item If \(f:C\to\mathbb R\) is a function defined
             along the curve \(C\) defined by \(\vect r:[a,b]\to\mathbb R^n\),
             then
             \[
@@ -1356,7 +1356,7 @@
 \begin{itemize}
   \item Line Integral with respect to a Curve
     \begin{itemize}
-      \item If \(\vect F:\mathbb R^n\to\mathbb R^n\) is a vector field defined
+      \item If \(\vect F:C\to\mathbb R^n\) is a vector field defined
             along the curve \(C\) defined by \(\vect r:[a,b]\to\mathbb R^n\),
             then
             \[
@@ -1364,10 +1364,13 @@
                 =
               \int_C \vect F\cdot\vect T\dvar s
                 =
-              \int_a^b \vect F(\vect c(t))\frac{d\vect r}{dt}\dvar t
+              \int_a^b \vect F(\vect c(t))\cdot \frac{d\vect r}{dt}\dvar t
             \]
             represents the work done by a force \(\vect F\) over the curve
             \(C\).
+      \item (The book uses the notation \(
+              \int_C \vect F\cdot\dvar\vect s
+            \).)
       \item (Example) An object is pushed around the unit circle with
             a force \(\<-y,x\>\) at each point \((x,y)\). Compute the
             work done in pushing the box around \(3\) full counter-clockwise
@@ -1384,7 +1387,9 @@
     \end{itemize}
   \item Line integrals with respect to variables
     \begin{itemize}
-      \item Note that for \(\vect r=\<x_1,\dots,x_n\>\),
+      \item If \(f:\mathbb R^n\to\mathbb R\) is a function defined
+            along the curve \(C\) defined by \(\vect r:[a,b]\to\mathbb R^n\),
+            and \(\vect r=\<x_1,\dots,x_n\>\),
             \[
               \int_C \vect F\cdot\dvar\vect r
                 =
@@ -1392,17 +1397,12 @@
                 =
               \sum_{i=1}^n \int_C F_i\cdot\dvar x_i
             \]
-      \item If \(f:\mathbb R^n\to\mathbb R\) is a function defined
-            along the curve \(C\) defined by \(\vect r:[a,b]\to\mathbb R^n\),
-            then for \(1\leq i\leq n\)
+            where
             \[
               \int_C f\dvar x_i
                 =
               \int_a^b f(\vect c(t))\frac{dx_i}{dt}\dvar t
-            \]
-      \item (Example)
-            Compute \(\int_C xy\dvar y\) where \(C\) is the parabola defined
-            by \(\vect c(t)=\<t,t^2,1\>\) for \(t\in[0,1]\).
+            .\]
       \item (Example 2) Evaluate and interpret
             \(\int_C x^2\dvar x+xy\dvar y+\dvar z\) where \(C\) is the
             parabola defined
@@ -1436,78 +1436,79 @@
 
 
 
-% \section*{8.1 Green's Theorem}
+\section*{8.1 Green's Theorem}
 
-% \begin{itemize}
-%   \item Green's Theorem
-%     \begin{itemize}
-%       \item Let \(\p D\) be the c.c.w. oriented boundary of a simple region
-%         \(D\subseteq \mb R^2\). Then
-%         \(
-%           \int_{\p D}\vect F\cdot\dvar\vect r
-%             =
-%           \iint_D \scurl \vect F \dvar A
-%             =
-%           \iint_D \curl \vect F\cdot \veck \dvar A
-%             =
-%           \iint_D \frac{\p F_2}{\p x}-\frac{\p F_1}{\p y}\dvar A
-%         \).
-%       \item Note that the book lets \(\vect F=\<F_1,F_2\>=\<P,Q\>\).
-%       \item (Example 1) Verify Green's Theorem for \(\vect F=\<x,xy\>\)
-%         and \(D=\{(x,y):x^2+y^2\leq 1\}\).
-%       \item (Example) Use Green's Theorem to prove that the area of \(D\)
-%         is \(\frac{1}{2}\int_{\p D}x\dvar y-y\dvar x\).
-%       \item (Example 3) Compute the work done using a force
-%         \(\vect F=\<xy^2,y+x\>\) in moving an object from the origin to \((1,1)\)
-%         along the curve \(y=x^2\) and then back to the origin along the line
-%         \(y=x\).
-%     \end{itemize}
-%   \item\textit{
-%     HW: 1-6, 9-10, 15
-%   }
-% \end{itemize}
+\begin{itemize}
+  \item Green's Theorem
+    \begin{itemize}
+      \item Let \(\p D\) be the c.c.w. oriented boundary of a simple region
+        \(D\subseteq \mb R^2\). Then
+        \(
+          \int_{\p D}\vect F\cdot\dvar\vect r
+            =
+          \iint_D \scurl \vect F \dvar A
+            =
+          \iint_D \curl \vect F\cdot \veck \dvar A
+            =
+          \iint_D \frac{\p F_2}{\p x}-\frac{\p F_1}{\p y}\dvar A
+        \).
+      \item (The book assumes \(\vect F=\<F_1,F_2\>=\<P,Q\>\).)
+      \item (Example 1) Verify Green's Theorem for \(\vect F=\<x,xy\>\)
+        and \(D=\{(x,y):x^2+y^2\leq 1\}\).
+      \item (Example) Use Green's Theorem to prove that the area of \(D\)
+        is \(\frac{1}{2}\int_{\p D}x\dvar y-y\dvar x\).
+      \item (Example 3) Compute the work done using a force
+        \(\vect F=\<xy^2,y+x\>\) in moving an object from the origin to \((1,1)\)
+        along the curve \(y=x^2\) and then back to the origin along the line
+        \(y=x\).
+    \end{itemize}
+  \item\textit{
+    HW: 1-6, 9-10, 15
+  }
+\end{itemize}
 
 
 
-% \section*{8.3 Conservative Fields}
+\section*{8.3 Conservative Fields}
 
-% \begin{itemize}
-%   \item Characterizations of Conservative Fields
-%     \begin{itemize}
-%       \item These are all equivalent to \(\vect F:\mb R^n\to\mb R^n\)
-%         being conservative:
-%         \begin{enumerate}[(1)]
-%           \item There exists a potential function \(f:\mb R^n\to\mb R\) such
-%             that \(\vect F=\nabla f\).
-%           \item \(\curl \vect F=0\).
-%           \item \(\vect F\) is path-independent: for any two curves \(C_1,C_2\)
-%             which share starting and ending points,
-%             \(
-%               \int_{C_1}\vect F\cdot\dvar\vect r
-%                 =
-%               \int_{C_2}\vect F\cdot\dvar\vect r
-%             \).
-%           \item For any simple closed curve \(C\),
-%             \(\int_C\vect F\cdot\dvar\vect r=0\).
-%           \item For any curve starting at \(A\) and ending at \(B\), and any
-%             potential function \(f\) for \(\vect F\):
-%             \(\int_C\vect F\cdot\dvar\vect r=[f]_A^B=f(B)-f(A)\).
-%         \end{enumerate}
-%       \item (Example) Prove that (4) implies (3) above.
-%       \item (7.2 Example 9) Evaluate \(\int_C y\dvar x+x\dvar y\) where
-%         \(C\) is the curve given by \(\vect r(t)=(t^4/4,\sin^3(t\pi/2))\)
-%         for \(t\in[0,1]\).
-%       \item (Example 4) Find \(\int_C 2x\cos y\dvar x-x^2\sin y\dvar y\)
-%         where \(C\) is given by \(\vect r:[1,2]\to\mb R^2\) defined by
-%         \(x=e^{t-1},y=\sin(\pi/t)\).
-%       \item (Example 1) Show that
-%         \(\int_C \<y,z\cos yz+x,y\cos yz\>\cdot\dvar\vect r=0\) for any
-%         simple closed curve \(C\).
-%     \end{itemize}
-%   \item\textit{
-%     HW: 1-2, 5-8, 10-11
-%   }
-% \end{itemize}
+\begin{itemize}
+  \item Characterizations of Conservative Fields
+    \begin{itemize}
+      \item These are all equivalent to \(\vect F:\mb R^n\to\mb R^n\)
+        being conservative:
+        \begin{enumerate}[(1)]
+          \item There exists a potential function \(f:\mb R^n\to\mb R\) such
+            that \(\vect F=\nabla f\), and
+            for any curve starting at \(A\) and ending at \(B\),
+            \(\int_C\vect F\cdot\dvar\vect r=[f]_A^B=f(B)-f(A)\).
+          \item \(\curl \vect F=\vect 0\).
+          \item \(\int \vect F\cdot\dvar\vect r\)
+            is path-independent: for any two curves \(C_1,C_2\)
+            which share starting and ending points,
+            \(
+              \int_{C_1}\vect F\cdot\dvar\vect r
+                =
+              \int_{C_2}\vect F\cdot\dvar\vect r
+            \).
+          \item For any simple closed curve \(C\),
+            \(\int_C\vect F\cdot\dvar\vect r=0\).
+        \end{enumerate}
+      \item (Example) Prove that (1) implies (2) above.
+      \item (Example) Prove that (3) implies (4) above.
+      \item (7.2 Example 9) Evaluate \(\int_C y\dvar x+x\dvar y\) where
+        \(C\) is the curve given by \(\vect r(t)=(t^4/4,\sin^3(t\pi/2))\)
+        for \(t\in[0,1]\).
+      \item (Example 4) Find \(\int_C 2x\cos y\dvar x-x^2\sin y\dvar y\)
+        where \(C\) is given by \(\vect r:[1,2]\to\mb R^2\) defined by
+        \(x=e^{t-1},y=\sin(\pi/t)\).
+      \item (Example 1) Show that
+        \(\int_C \<y,z\cos yz+x,y\cos yz\>\cdot\dvar\vect r=0\) for any
+        simple closed curve \(C\).
+    \end{itemize}
+  \item\textit{
+    HW: 1-2, 5-8, 10-11
+  }
+\end{itemize}
 
 
 
