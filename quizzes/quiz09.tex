@@ -1,0 +1,81 @@
+\documentclass[12pt]{exam}
+
+\newcommand{\ds}{\ensuremath{\displaystyle}}
+
+\usepackage{amsmath,amsfonts, amsthm}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{harpoon}
+\renewcommand{\arraystretch}{1.5}
+
+\newcommand{\harpvec}[1]{\overrightharp{\ensuremath{\mathbf{#1}}}}
+\newcommand{\vect}[1]{\ensuremath{\mathbf{#1}}}
+\newcommand{\<}{(}
+\renewcommand{\>}{)}
+\newcommand{\p}{\partial}
+
+% ref: http://pgfplots.sourceforge.net/gallery.html
+% ref: http://tex.stackexchange.com/a/74575/79754
+\usepackage{pgfplots}% This uses tikz
+\pgfplotsset{compat=newest}% use newest version
+\tikzset{LineStyle/.style={smooth, ultra thick, samples=400}}
+
+% \printanswers
+
+\begin{document}
+
+\begin{center}
+\fbox{\fbox{\parbox{5.5in}{\centering
+MATH 2242-090 | Spring 2016 | Dr. Clontz | Quiz 9
+}}}
+\end{center}
+\vspace{0.1in}
+\makebox[\textwidth]{
+  Name:\enspace\hrulefill\hrulefill\hrulefill
+}
+
+\vspace{12pt}
+
+\begin{itemize}
+  \item Each quiz question is labeled with its worth toward your total quiz
+        grade for the semester.
+  \item On multiple choice problems, you do not need to show your work. No
+        partial credit will be given.
+  \item On full response problems, show all of your work and give a
+        complete solution. When in doubt, don't skip any steps. Partial
+        credit will be given at the discretion of the professor.
+  \item This quiz is open notes and open book.
+  \item This quiz is due at the end of class. Quizzes submitted over one minute
+        late will be penalized by \(50\%\).
+\end{itemize}
+
+\newpage
+
+\begin{questions}
+
+\question[10]
+The affine transformation \(\vect T(u,v)=(4u+2v+1,u+2v+3)\) transforms
+the unit triangle with vertices \((0,0), (1,0), (1,1)\) in the \(uv\) plane
+into the triangle \(R\) with vertcies \((1,4), (4,5), (5,7)\) in the \(xy\)
+plane. Compute \(\iint_R x-y~dA\).
+
+\vfill
+
+\question[10]
+Which of these iterated integrals gives the volume of a cone
+of height \(\sqrt 3\) and radius \(1\)? (Hint: Draw the cone with its
+tip at the origin and the center of its base on the positive \(z\) axis.)
+
+\begin{checkboxes}
+\choice \(\int_{-1}^1\int_{-\sqrt{1-x^2}}^{\sqrt{1-x^2}}\int_{\sqrt{3x^2+3y^2}}^{\sqrt 3} ~1~dzdydx\)
+\choice \(\int_0^{2\pi}\int_0^1\int_{\sqrt{3}r}^{\sqrt 3}~r~dzdrd\theta\)
+\choice \(\int_0^{2\pi}\int_0^{\pi/6}\int_0^{\sqrt{3}\sec\phi}~\rho^2\sin\phi~d\rho d\phi d\theta\)
+\choice All of these
+\choice None of these
+\end{checkboxes}
+
+
+
+\end{questions}
+
+\end{document}
