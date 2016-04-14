@@ -1673,20 +1673,50 @@
   }
 \end{itemize}
 
+\section*{8.2 Stokes' Theorem}
 
-  % \item Stokes' Theorem
-  %   \begin{itemize}
-  %     \item If \(\p S\) is the positively oriented boundary of a surface
-  %       \(S\), then
-  %       \(
-  %         \iint_S\curl\vect F\cdot\dvar\vect S
-  %           =
-  %         \int_{\p S}\vect F\cdot\dvar\vect s
-  %       \).
-  %     \item (8.2 Example 2) Evaluate \(\iint_S(3x^2+3y^2)\veck\cdot\dvar\vect S\)
-  %       where \(S\) is the portion of the plane \(z=1-x-y\) above the unit
-  %       disk \(x^2+y^2\leq 1\) oriented toward positive values of \(x,y,z\).
-  %   \end{itemize}
+\begin{itemize}
+  \item Stokes' Theorem
+    \begin{itemize}
+      \item For an oriented surface \(S\), let \(\p S\) be its
+        boundary oriented counter-clockwise with respect to the orientation
+        \(\vect N\) of \(S\).
+      \item
+        \(
+          \int_{\p S}\vect F\cdot\dvar\vect s
+            =
+          \iint_S \curl \vect F\cdot \vect N \dvar S
+            =
+          \iint_S \curl \vect F\cdot \dvar \vect S
+        \).
+      \item (Example 1) Let \(\vect F=(ye^z,xe^z,xye^z)\).
+        Prove that \(\int_{\p S}\vect F\cdot\dvar\vect s=0\)
+        for any surface \(S\).
+      \item (Example 3) Rewrite
+        \(\iint_{S} -ze^{xz}\dvar y-2\dvar z\)
+        as a definite integral of a single variable,
+        where \(S\) is the surface \(x^2+y^2+(z-1)^2=2\) above the \(xy\)
+        plane and oriented upwards.
+    \end{itemize}
+\end{itemize}
+
+\section*{8.4 Gauss' Theorem}
+
+\begin{itemize}
+  \item Gauss'/Divergence Theorem
+    \begin{itemize}
+      \item For a bounded region \(D\) in \(\mb R^3\), let \(\p D\) be its
+        outward-oriented boundary surface.
+      \item
+        \(
+          \iint_{\p D}\vect F\cdot\dvar\vect S
+            =
+          \iiint_D \div\vect F\dvar V
+        \).
+    \end{itemize}
+\end{itemize}
+
+
   % \item Gauss'/Divergence Theorem
   %   \begin{itemize}
   %     \item If \(\p W\) is the outward oriented boundary of a solid
@@ -1704,10 +1734,13 @@
 \section*{Overview of integration theorems}
 
 \begin{itemize}
-  \item \(\int_a^b f'(x)\dvar x=f(b)-f(a)=[f]_{\p[a,b]}\)
-  \item \(\int_C \nabla f\cdot\dvar \vect r=f(B)-f(A)=[f]_{\p C}\)
-  \item \(\iint_S \curl \vect F\cdot\dvar \vect S=\int_{\p S} \vect F\cdot\dvar\vect  r \)
-  \item \(\iiint_W \div \vect F\dvar V=\iint_{\p W} \vect F\cdot\dvar \vect S \)
+  \item \(\int_C \nabla f\cdot\dvar \vect s=[f]_{\p C}\)
+
+        \(\int_{[a,b]} \frac{df}{dx}\dvar x =[f]_{\p [a,b]}\)
+  \item \(\iint_S \curl \vect F\cdot\dvar \vect S=\int_{\p S} \vect F\cdot\dvar\vect s \)
+
+        \(\iint_D \curl \vect F\cdot\vect k\dvar A=\int_{\p D} \vect F\cdot\dvar\vect s \)
+  \item \(\iiint_D \div \vect F\dvar V=\iint_{\p D} \vect F\cdot\dvar \vect S \)
 \end{itemize}
 
 
