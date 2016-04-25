@@ -1,0 +1,83 @@
+\documentclass[12pt]{exam}
+
+\newcommand{\ds}{\ensuremath{\displaystyle}}
+
+\usepackage{amsmath,amsfonts, amsthm}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{harpoon}
+\renewcommand{\arraystretch}{1.5}
+
+\newcommand{\harpvec}[1]{\overrightharp{\ensuremath{\mathbf{#1}}}}
+\newcommand{\vect}[1]{\ensuremath{\mathbf{#1}}}
+\newcommand{\<}{(}
+\renewcommand{\>}{)}
+\newcommand{\p}{\partial}
+
+% ref: http://pgfplots.sourceforge.net/gallery.html
+% ref: http://tex.stackexchange.com/a/74575/79754
+\usepackage{pgfplots}% This uses tikz
+\pgfplotsset{compat=newest}% use newest version
+\tikzset{LineStyle/.style={smooth, ultra thick, samples=400}}
+
+% \printanswers
+
+\begin{document}
+
+\begin{center}
+\fbox{\fbox{\parbox{5.5in}{\centering
+MATH 2242-090 | Spring 2016 | Dr. Clontz | Quiz 10
+}}}
+\end{center}
+\vspace{0.1in}
+\makebox[\textwidth]{
+  Name:\enspace\hrulefill\hrulefill\hrulefill
+}
+
+\vspace{12pt}
+
+\begin{itemize}
+  \item Each quiz question is labeled with its worth toward your total quiz
+        grade for the semester.
+  \item On multiple choice problems, you do not need to show your work. No
+        partial credit will be given.
+  \item On full response problems, show all of your work and give a
+        complete solution. When in doubt, don't skip any steps. Partial
+        credit will be given at the discretion of the professor.
+  \item This quiz is open notes and open book.
+  \item This quiz is due at the end of class. Quizzes submitted over one minute
+        late will be penalized by \(50\%\).
+\end{itemize}
+
+\newpage
+
+\begin{questions}
+
+\question[10]
+Which of these is a parametrization of the line segment joining the
+points \((1,0,3)\) and \((2,-2,5)\)?
+\begin{checkboxes}
+\item \(\vect r(t)=(1+t,-2t,3+2t); 0\leq t\leq 1\)
+\item \(\vect r(t)=(\cos t,2\sin t,3\cos t); 0\leq t\leq 2\pi\)
+\item \(\vect r(t)=(t^2,-2e^t,3+5t); -1\leq t\leq 1\)
+\item \(\vect r(t)=(\cos t,-2\sin t,3\cos t); 0\leq t\leq \pi\)
+\item None of these.
+\end{checkboxes}
+
+\question[10]
+Prove \(\int_C \sqrt y-x+3~ds=\frac{\sqrt{125}-1}{6}\),
+where \(C\) is parametrized by the vector
+function \(\vect r(t)=(3-t,t^2)\) for \(t\in[0,1]\).
+
+\newpage
+
+\question[10]
+Calculate the work done by the force \(\vect F=(y,z+x,-2x)\) around the
+curve parametrized by the vector function
+\(\vect r(t)=(\sin t,2\sin t,\cos t)\) for \(t\in[0,\pi]\).
+
+
+
+\end{questions}
+
+\end{document}
